@@ -6,13 +6,11 @@ import {
   Text,
   Image,
   TextInput,
-  Button,
 } from "react-native";
-import ProfileRoutes from "../../routes/profileRoutes";
 
 const { width, height } = Dimensions.get("window");
 
-export default function Login({ navigation }) {
+export default function Login() {
   return (
     <View>
       <ImageBackground
@@ -24,9 +22,7 @@ export default function Login({ navigation }) {
             source={require("../../assets/logo.png")}
             style={{ width: 80, height: 80, marginTop: 70 }}
           />
-          <Text style={{ fontSize: 45, marginTop: 55, fontFamily: "boorsok" }}>
-            Login
-          </Text>
+          <Text style={{ fontSize: 45, marginTop: 55 }}>Login</Text>
           <View style={{ width: "80%", marginTop: 50 }}>
             <Text>Username:</Text>
             <View
@@ -45,10 +41,9 @@ export default function Login({ navigation }) {
                 source={require("../../assets/2.png")}
                 style={{ width: 25, height: 25 }}
               />
-              <TextInput
-                style={{ marginLeft: 10 }}
-                placeholder="Input your username"
-              ></TextInput>
+              <TextInput style={{ marginLeft: 10 }}>
+                Input your username
+              </TextInput>
             </View>
           </View>
           <View style={{ width: "80%", marginTop: 10 }}>
@@ -69,33 +64,24 @@ export default function Login({ navigation }) {
                 source={require("../../assets/3.png")}
                 style={{ width: 25, height: 25 }}
               />
-              <TextInput
-                style={{ marginLeft: 10 }}
-                secureTextEntry={true}
-                placeholder="Input your username"
-              ></TextInput>
+              <TextInput style={{ marginLeft: 10 }} secureTextEntry={true}>
+                Input your password
+              </TextInput>
             </View>
           </View>
-
-          <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-  <Text onPress={() => navigation.navigate("Forgotpage1")}>Forgot Password?</Text>
-</View>
           <View
             style={{
               backgroundColor: "black",
               width: 150,
+              marginTop: 27,
               borderRadius: 100,
-              marginTop: 8,
               height: 40,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Button
-              title="login"
-              onPress={() => navigation.navigate("Profile")}
-            />
+            <Text style={{ color: "white", fontSize: 25 }}>Login</Text>
           </View>
           <View
             style={{
@@ -126,13 +112,7 @@ export default function Login({ navigation }) {
           </View>
           <Text style={{ marginTop: 30, fontSize: 15 }}>
             Don't have an account?
-            <Text
-              style={{ color: "#38B6FF" }}
-              onPress={() => navigation.navigate("Signup")}
-            >
-              {" "}
-              Click Here.
-            </Text>
+            <Text style={{ color: "#38B6FF" }}> Click Here.</Text>
           </Text>
         </View>
       </ImageBackground>
