@@ -32,16 +32,6 @@ function Forgotpage1({ navigation }) {
         >
           Enter your email and we’ll send you a code to reset your password.
         </Text>
-        <Text
-          style={{
-            fontFamily: "anton",
-            fontSize: 11,
-            marginTop: 16,
-            color: "#04745F",
-          }}
-        >
-          Enter your email and we’ll send you a code to reset your password.
-        </Text>
         <View
           style={{
             borderWidth: 2,
