@@ -6,13 +6,19 @@ import Signup2 from "../Screen/Authentication/signup2";
 import Forgotpage1 from "../Screen/ForgotPassword/forgotpage1";
 import Forgotpage2 from "../Screen/ForgotPassword/forgotpage2";
 import { StyleSheet } from "react-native";
+import Landingpage from "../Screen/landingpage";
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
     <Stack.Navigator>
-
+      <Stack.Screen
+        name="LandingPage"
+        component={Landingpage}
+        style={styles.header}
+        options={{ title: " " }}
+      />
       <Stack.Screen
         name="Login"
         component={Login}
@@ -38,7 +44,7 @@ export default function ProfileRoutes() {
           title: "My Profile",
         }}
       />
-            <Stack.Screen
+      <Stack.Screen
         name="Forgotpage2"
         component={Forgotpage2}
         style={styles.header}
