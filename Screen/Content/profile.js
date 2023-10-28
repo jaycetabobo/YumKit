@@ -19,8 +19,8 @@ export default function Profile({ navigation, route }) {
   const titles = ["The Basics of Programming", "Environmental Science", "Locomotive"];
   const texts= ['asdasdasdasd'];
 
-  const userData = route.params.userData;
-  const userData2 = route.params.userData2;
+  // const userData = route.params.userData;
+  // const userData2 = route.params.userData2;
 
   return (
     <View style={styles.container}>
@@ -43,10 +43,12 @@ export default function Profile({ navigation, route }) {
                 ></Image>
                 <View style={styles.profileName}>
                   <Text style={styles.profileNameText} numberOfLines={1} adjustsFontSizeToFit={true}>
-                    {userData.username}
+                    {/* {userData.username} */}
+                    Jayce Tabobo
                   </Text>
                   <Text style={styles.profileNameText2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                    {userData2.email}
+                    {/* {userData2.email} */}
+                    tabobo.jayce01@gmail.com
                   </Text>
                 </View>
                 <Text style={styles.profileLogout} onPress={() => navigation.navigate('Login')}>
@@ -63,7 +65,8 @@ export default function Profile({ navigation, route }) {
                 Location
               </Text>
               <Text style={styles.contentMidTextFont2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                {userData.location}
+                {/* {userData.location} */}
+                C D O
               </Text>
             </View>
           </View>
@@ -74,7 +77,8 @@ export default function Profile({ navigation, route }) {
                 Phone #
               </Text>
               <Text style={styles.contentMidTextFont2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                {userData.phoneNumber}
+                {/* {userData.phoneNumber} */}
+                09268889945
               </Text>
             </View>
           </View>
@@ -85,7 +89,8 @@ export default function Profile({ navigation, route }) {
               Full Name
             </Text>
             <Text style={styles.underContentBottomText2}>
-              {userData.fullname}
+              {/* {userData.fullname} */}
+              Jayce Tabobo
             </Text>
           </View>
           <View style={styles.contentBottomText}>
@@ -93,7 +98,8 @@ export default function Profile({ navigation, route }) {
               BirthDate
             </Text>
             <Text style={styles.underContentBottomText2}>
-              {userData.birthdate}
+              {/* {userData.birthdate} */}
+              01-10-02
             </Text>
           </View>
           <View style={styles.contentBottomText}>
