@@ -8,12 +8,14 @@ import { StyleSheet, Text } from 'react-native';
 import Forgotpage1 from '../Screen/ForgotPassword/forgotpage1';
 import Forgotpage2 from '../Screen/ForgotPassword/forgotpage2';
 import Landingpage from '../Screen/landingpage';
+import Home from '../Screen/Content/home';
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="home" component={Home} options={{ title: ' '}} />
       <Stack.Screen name="landingpage" component={Landingpage} options={{ title: ' ' }} />
       <Stack.Group>
         <Stack.Screen name="Signup" component={Signup} options={{ title: ' ' }} />
