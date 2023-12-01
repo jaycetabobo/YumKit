@@ -8,6 +8,7 @@ import Forgotpage1 from "../Screen/ForgotPassword/forgotpage1";
 import Forgotpage2 from "../Screen/ForgotPassword/forgotpage2";
 import Landingpage from "../Screen/landingpage";
 import Home from "../Screen/Content/home";
+import Schools from "../Screen/Content/schools";
 
 const Stack = createStackNavigator();
 
