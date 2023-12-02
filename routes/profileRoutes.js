@@ -1,57 +1,83 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Profile from "../Screen/Content/profile";
-import Login from '../Screen/Authentication/Login';
-import Signup from '../Screen/Authentication/signup';
-import Signup2 from '../Screen/Authentication/signup2';
-import { StyleSheet, Text } from 'react-native';
-import Forgotpage1 from '../Screen/ForgotPassword/forgotpage1';
-import Forgotpage2 from '../Screen/ForgotPassword/forgotpage2';
-import Landingpage from '../Screen/landingpage';
-import Home from '../Screen/Content/home';
+import Login from "../Screen/Authentication/Login";
+import Signup from "../Screen/Authentication/signup";
+import Signup2 from "../Screen/Authentication/signup2";
+import { StyleSheet, Text } from "react-native";
+import Forgotpage1 from "../Screen/ForgotPassword/forgotpage1";
+import Forgotpage2 from "../Screen/ForgotPassword/forgotpage2";
+import Landingpage from "../Screen/landingpage";
+import Home from "../Screen/Content/home";
 import Schools from "../Screen/Content/schools";
-import BottomTab from '../components/bottomtab';
+import BottomTab from "../components/bottomtab";
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
     <Stack.Navigator initialRouteName="tabscreen">
-      <Stack.Screen name="landingpage" component={Landingpage} options={{ title: ' ' }} />
-      <Stack.Screen name="Signup" component={Signup} options={{ title: ' ' }} />
-      <Stack.Screen name="Signup2" component={Signup2} options={{ title: ' ' }} />
-      <Stack.Screen name="Login" component={Login} options={{ title: ' ' }} />
       <Stack.Screen
-          name="Forgotpage1"
-          component={Forgotpage1}
-          options={{ title: " " }}
-        />
+        name="landingpage"
+        component={Landingpage}
+        options={{ title: " " }}
+      />
+      <Stack.Screen name="Signup" component={Signup} options={{ title: " " }} />
       <Stack.Screen
-          name="Forgotpage2"
-          component={Forgotpage2}
-          options={{ title: " " }}
-        />
-        <Stack.Screen
-          name="Schools"
-          component={Schools}
-          options={{ title: " " }}
-        />
+        name="Signup2"
+        component={Signup2}
+        options={{ title: " " }}
+      />
+      <Stack.Screen name="Login" component={Login} options={{ title: " " }} />
+      <Stack.Screen
+        name="Forgotpage1"
+        component={Forgotpage1}
+        options={{ title: " " }}
+      />
+      <Stack.Screen
+        name="Forgotpage2"
+        component={Forgotpage2}
+        options={{ title: " " }}
+      />
+      <Stack.Screen
+        name="Schools"
+        component={Schools}
+        options={{ title: " " }}
+      />
 
-      <Stack.Screen name="Profile" component={Profile} options={{
-          title: 'My Profile',
-          headerTitleAlign: 'center',
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: "My Profile",
+          headerTitleAlign: "center",
           headerRight: () => (
-            <Text onPress={() => alert('This is a button!')} style={styles.headerRightTitle}> Edit</Text>
+            <Text
+              onPress={() => alert("This is a button!")}
+              style={styles.headerRightTitle}
+            >
+              {" "}
+              Edit
+            </Text>
           ),
           headerTitleStyle: {
-            fontFamily: 'boorsok'
+            fontFamily: "boorsok",
           },
           headerStyle: {
-            backgroundColor: '#37A9D0'
+            backgroundColor: "#37A9D0",
           },
-          headerTintColor: '#fff'
-        }} />
-       <Stack.Screen name="home" component={Home} options={{ headerShown: false}} />
-       <Stack.Screen name="tabscreen" component={BottomTab} options={{ headerShown: false}}/>
+          headerTintColor: "#fff",
+        }}
+      />
+      <Stack.Screen
+        name="home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="tabscreen"
+        component={BottomTab}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }

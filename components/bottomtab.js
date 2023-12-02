@@ -1,25 +1,63 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React, { useEffect, useRef } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native'
-import Icon, { Icons } from '../components/Icons';
-import * as Animatable from 'react-native-animatable';
-import Home from '../Screen/Content/home';
-import { Feather } from '@expo/vector-icons';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React, { useEffect, useRef } from "react";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import Icon, { Icons } from "../components/Icons";
+import * as Animatable from "react-native-animatable";
+import Home from "../Screen/Content/home";
+import { Feather } from "@expo/vector-icons";
+import Schools from "../Screen/Content/schools";
 
 const TabArr = [
-    { route: 'SandySurf', label: 'Home', type: Icons.Feather, icon: 'home', component: Home },
-    { route: 'Favorites', label: 'Favorites', type: Icons.Feather, icon: 'heart', component: Home },
-    { route: 'School', label: 'School', type: Icons.Ionicons, icon: 'school-outline', component: Home },
-    { route: 'Profile', label: 'Profile', type: Icons.FontAwesome, icon: 'user-circle-o', component: Home },
+  {
+    route: "SandySurf",
+    label: "Home",
+    type: Icons.Feather,
+    icon: "home",
+    component: Home,
+  },
+  {
+    route: "Favorites",
+    label: "Favorites",
+    type: Icons.Feather,
+    icon: "heart",
+    component: Home,
+  },
+  {
+    route: "School",
+    label: "School",
+    type: Icons.Ionicons,
+    icon: "school-outline",
+    component: Schools,
+  },
+  {
+    route: "Profile",
+    label: "Profile",
+    type: Icons.FontAwesome,
+    icon: "user-circle-o",
+    component: Home,
+  },
 ];
 
 const Tab = createBottomTabNavigator();
 
-const animate1 = { 0: { scale: .5, translateY: 7 }, .92: { translateY: -34 }, 1: { scale: 1.2, translateY: -24 } }
-const animate2 = { 0: { scale: 1.2, translateY: -24 }, 1: { scale: 1, translateY: 7 } }
+const animate1 = {
+  0: { scale: 0.5, translateY: 7 },
+  0.92: { translateY: -34 },
+  1: { scale: 1.2, translateY: -24 },
+};
+const animate2 = {
+  0: { scale: 1.2, translateY: -24 },
+  1: { scale: 1, translateY: 7 },
+};
 
-const circle1 = { 0: { scale: 0 }, 0.3: { scale: .9 }, 0.5: { scale: .2 }, 0.8: { scale: .7 }, 1: { scale: 1 } }
-const circle2 = { 0: { scale: 1 }, 1: { scale: 0 } }
+const circle1 = {
+  0: { scale: 0 },
+  0.3: { scale: 0.9 },
+  0.5: { scale: 0.2 },
+  0.8: { scale: 0.7 },
+  1: { scale: 1 },
+};
+const circle2 = { 0: { scale: 1 }, 1: { scale: 0 } };
 
 const TabButton = (props) => {
   const { item, onPress, accessibilityState } = props;
@@ -38,32 +76,30 @@ const TabButton = (props) => {
       circleRef.current.animate(circle2);
       textRef.current.transitionTo({ scale: 0 });
     }
-  }, [focused])
+  }, [focused]);
 
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={1}
-      style={styles.container}>
-      <Animatable.View
-        ref={viewRef}
-        duration={1000}
-        style={styles.container}>
+      style={styles.container}
+    >
+      <Animatable.View ref={viewRef} duration={1000} style={styles.container}>
         <View style={styles.btn}>
-          <Animatable.View
-            ref={circleRef}
-            style={styles.circle} />
-          <Icon type={item.type} name={item.icon} color={focused ? 'white' : '#637aff'} />
+          <Animatable.View ref={circleRef} style={styles.circle} />
+          <Icon
+            type={item.type}
+            name={item.icon}
+            color={focused ? "white" : "#637aff"}
+          />
         </View>
-        <Animatable.Text
-          ref={textRef}
-          style={styles.text}>
+        <Animatable.Text ref={textRef} style={styles.text}>
           {item.label}
         </Animatable.Text>
       </Animatable.View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 export default function BottomTab({ navigation }) {
   return (
@@ -74,55 +110,59 @@ export default function BottomTab({ navigation }) {
     >
       {TabArr.map((item, index) => {
         return (
-          <Tab.Screen key={index} name={item.route} component={item.component}
+          <Tab.Screen
+            key={index}
+            name={item.route}
+            component={item.component}
             options={{
               tabBarShowLabel: false,
               tabBarButton: (props) => <TabButton {...props} item={item} />,
-              headerTitleAlign: 'center',
+              headerTitleAlign: "center",
               headerTitleStyle: {
-                fontFamily: 'boorsok',
+                fontFamily: "boorsok",
                 fontSize: 25,
-                fontWeight: 400
+                fontWeight: 400,
               },
               headerStyle: {
                 height: 107,
               },
               headerLeft: () => (
                 <Image
-                    source={require('../assets/logo-no-background.png')}
-                    style={styles.imageLogo}
+                  source={require("../assets/logo-no-background.png")}
+                  style={styles.imageLogo}
                 />
               ),
               headerRight: () => (
                 <View style={styles.headerIcon}>
-                    <TouchableOpacity onPress={ () => navigation.navigate('Forgotpage1')}>
-                        <Feather name="bell" size={28} color="black" />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={ () => navigation.navigate('Forgotpage1')}>
-                        <Feather name="search" size={28} color="black" />
-                    </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Forgotpage1")}
+                  >
+                    <Feather name="bell" size={28} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Forgotpage1")}
+                  >
+                    <Feather name="search" size={28} color="black" />
+                  </TouchableOpacity>
                 </View>
               ),
-
             }}
-            
-
           />
-        )
+        );
       })}
     </Tab.Navigator>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   tabBar: {
     height: 70,
-    position: 'absolute',
+    position: "absolute",
     bottom: 16,
     right: 16,
     left: 16,
@@ -133,34 +173,34 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     borderWidth: 4,
-    borderColor: 'white',
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
+    borderColor: "white",
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
   },
   circle: {
     ...StyleSheet.absoluteFillObject,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#637aff',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#637aff",
     borderRadius: 25,
   },
   text: {
     fontSize: 10,
-    textAlign: 'center',
-    color: '#637aff',
+    textAlign: "center",
+    color: "#637aff",
   },
-  imageLogo:{
-    width: 45, 
-    height: 45, 
+  imageLogo: {
+    width: 45,
+    height: 45,
     marginTop: 9,
     marginLeft: 13,
-    marginBottom: 9
+    marginBottom: 9,
   },
-  headerIcon:{
-    flexDirection:'row',
-    justifyContent: 'space-between',
+  headerIcon: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     width: 70,
-    marginRight: 11
-  }
-})
+    marginRight: 11,
+  },
+});
