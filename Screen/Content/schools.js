@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, ImageBackground, Text, View } from "react-native";
+import { Dimensions, Image, ImageBackground, Text, View } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 export default function Schools() {
@@ -17,12 +17,18 @@ export default function Schools() {
           borderWidth: 1,
           borderColor: "black",
           borderRadius: 20,
+          padding: 10,
         }}
       >
         <ImageBackground
           source={require("../../assets/ustp.jpg")}
-          style={{ width: 200, height: 200 }}
-        ></ImageBackground>
+          style={{ width: 180, height: 180 }}
+        >
+          <Image
+            source={require("../../assets/ustplogo.png")}
+            style={{ width: 70, height: 70 }}
+          />
+        </ImageBackground>
       </View>
     </View>
   );
