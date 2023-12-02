@@ -1,5 +1,4 @@
-
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from "@react-navigation/stack";
 import Profile from "../Screen/Content/profile";
 import Login from '../Screen/Authentication/Login';
 import Signup from '../Screen/Authentication/signup';
@@ -9,6 +8,7 @@ import Forgotpage1 from '../Screen/ForgotPassword/forgotpage1';
 import Forgotpage2 from '../Screen/ForgotPassword/forgotpage2';
 import Landingpage from '../Screen/landingpage';
 import Home from '../Screen/Content/home';
+import Schools from "../Screen/Content/schools";
 import BottomTab from '../components/bottomtab';
 
 const Stack = createStackNavigator();
@@ -23,12 +23,17 @@ export default function ProfileRoutes() {
       <Stack.Screen
           name="Forgotpage1"
           component={Forgotpage1}
-          options={{ title: ' ' }}
+          options={{ title: " " }}
         />
       <Stack.Screen
           name="Forgotpage2"
           component={Forgotpage2}
-          options={{ title: ' ' }}
+          options={{ title: " " }}
+        />
+        <Stack.Screen
+          name="Schools"
+          component={Schools}
+          options={{ title: " " }}
         />
 
       <Stack.Screen name="Profile" component={Profile} options={{
@@ -52,13 +57,13 @@ export default function ProfileRoutes() {
 }
 
 const styles = StyleSheet.create({
-    header:{
-        height: 0
-    },
-    headerRightTitle:{
-      marginRight: 10,
-      fontFamily: 'glacialindibold',
-      fontSize: 20,
-      color: '#fff'
-    }
-})
+  header: {
+    height: 0,
+  },
+  headerRightTitle: {
+    marginRight: 10,
+    fontFamily: "glacialindibold",
+    fontSize: 20,
+    color: "#fff",
+  },
+});
