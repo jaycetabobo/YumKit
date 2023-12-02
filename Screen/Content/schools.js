@@ -22,11 +22,15 @@ export default function Schools() {
       >
         <ImageBackground
           source={require("../../assets/ustp.jpg")}
-          style={{ width: 180, height: 180 }}
+          style={{
+            width: 180,
+            height: 180,
+          }}
+          borderRadius={8}
         >
           <Image
             source={require("../../assets/ustplogo.png")}
-            style={{ width: 70, height: 70 }}
+            style={{ width: 70, height: 70, borderRadius: 8 }}
           />
         </ImageBackground>
       </View>
