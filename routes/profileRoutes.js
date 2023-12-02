@@ -9,33 +9,29 @@ import Forgotpage1 from '../Screen/ForgotPassword/forgotpage1';
 import Forgotpage2 from '../Screen/ForgotPassword/forgotpage2';
 import Landingpage from '../Screen/landingpage';
 import Home from '../Screen/Content/home';
+import BottomTab from '../components/bottomtab';
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="home" component={Home} options={{ title: ' '}} />
+    <Stack.Navigator initialRouteName="tabscreen">
       <Stack.Screen name="landingpage" component={Landingpage} options={{ title: ' ' }} />
-      <Stack.Group>
-        <Stack.Screen name="Signup" component={Signup} options={{ title: ' ' }} />
-        <Stack.Screen name="Signup2" component={Signup2} options={{ title: ' ' }} />
-      </Stack.Group>
-      <Stack.Group>
-        <Stack.Screen name="Login" component={Login} options={{ title: ' ' }} />
-        <Stack.Screen
+      <Stack.Screen name="Signup" component={Signup} options={{ title: ' ' }} />
+      <Stack.Screen name="Signup2" component={Signup2} options={{ title: ' ' }} />
+      <Stack.Screen name="Login" component={Login} options={{ title: ' ' }} />
+      <Stack.Screen
           name="Forgotpage1"
           component={Forgotpage1}
           options={{ title: ' ' }}
         />
-        <Stack.Screen
+      <Stack.Screen
           name="Forgotpage2"
           component={Forgotpage2}
           options={{ title: ' ' }}
         />
-      </Stack.Group>
-      <Stack.Group>
-        <Stack.Screen name="Profile" component={Profile} options={{
+
+      <Stack.Screen name="Profile" component={Profile} options={{
           title: 'My Profile',
           headerTitleAlign: 'center',
           headerRight: () => (
@@ -49,7 +45,8 @@ export default function ProfileRoutes() {
           },
           headerTintColor: '#fff'
         }} />
-      </Stack.Group>
+       <Stack.Screen name="home" component={Home} options={{ headerShown: false}} />
+       <Stack.Screen name="tabscreen" component={BottomTab} options={{ headerShown: false}}/>
     </Stack.Navigator>
   );
 }
