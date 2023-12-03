@@ -22,7 +22,6 @@ export default function Schools() {
       >
         <View
           style={{
-            backgroundColor: "pink",
             display: "flex",
             flexDirection: "row",
           }}
