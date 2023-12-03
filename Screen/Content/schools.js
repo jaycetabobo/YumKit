@@ -20,22 +20,30 @@ export default function Schools() {
           padding: 10,
         }}
       >
-        <ImageBackground
-          source={require("../../assets/ustp.jpg")}
+        <View
           style={{
-            width: 180,
-            height: 180,
+            backgroundColor: "pink",
+            display: "flex",
+            flexDirection: "row",
           }}
-          borderRadius={8}
         >
-          <Image
-            source={require("../../assets/ustplogo.png")}
-            style={{ width: 70, height: 70, borderRadius: 8 }}
-          />
-        </ImageBackground>
-        <Text>
-          University of Science and Technology of Southern Philippines
-        </Text>
+          <ImageBackground
+            source={require("../../assets/ustp.jpg")}
+            style={{
+              width: 180,
+              height: 180,
+            }}
+            borderRadius={8}
+          >
+            <Image
+              source={require("../../assets/ustplogo.png")}
+              style={{ width: 70, height: 70, borderRadius: 8 }}
+            />
+          </ImageBackground>
+          <Text style={{ width: 170 }}>
+            University of Science and Technology of Southern Philippines
+          </Text>
+        </View>
       </View>
     </View>
   );
