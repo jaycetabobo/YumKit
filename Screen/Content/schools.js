@@ -33,6 +33,9 @@ export default function Schools() {
             style={{ width: 70, height: 70, borderRadius: 8 }}
           />
         </ImageBackground>
+        <Text>
+          University of Science and Technology of Southern Philippines
+        </Text>
       </View>
     </View>
   );
