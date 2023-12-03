@@ -39,7 +39,15 @@ export default function Schools() {
               style={{ width: 70, height: 70, borderRadius: 8 }}
             />
           </ImageBackground>
-          <Text style={{ width: 170 }}>
+          <Text
+            style={{
+              width: 170,
+              fontFamily: "boorsok",
+              fontSize: 20,
+              lineHeight: 20,
+              textAlign: "center",
+            }}
+          >
             University of Science and Technology of Southern Philippines
           </Text>
         </View>
