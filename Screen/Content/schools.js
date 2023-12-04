@@ -44,7 +44,7 @@ export default function Schools() {
               style={{
                 width: 165,
                 fontFamily: "boorsok",
-                fontSize: 12,
+                fontSize: 15,
                 lineHeight: 15,
                 textAlign: "center",
               }}
@@ -66,7 +66,7 @@ export default function Schools() {
           </View>
         </View>
 
-        <Text style={{ textAlign: "center" }}>
+        <Text style={{ textAlign: "center", marginTop: 10 }}>
           USTP Campuses offer different courses under different department. For
           CDO campus offer BS in information Technology, BS in technology
           Communication and Management and many more. For more info about USTP
