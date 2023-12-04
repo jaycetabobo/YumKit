@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     Text:{
         fontFamily: 'glacialindibold',
         fontSize: 30,
-        marginTop: 40
+        marginTop: 30
     },
     bannerImage:{
         width: 'auto',
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     bannerImage2:{
         alignItems: "center",
         width: 'auto',
-        marginTop: 30
+        marginTop: 20,
+        marginBottom: 5
     },
     bannerText:{
         paddingHorizontal:20,

@@ -23,6 +23,7 @@ const Carousel = () => {
 				flatlistRef.current.scrollToIndex({
 					index: 0,
 					animation: true,
+                    
 				});
 			} else {
 				flatlistRef.current.scrollToIndex({
@@ -30,7 +31,7 @@ const Carousel = () => {
 					animation: true,
 				});
 			}
-		}, 2000);
+		}, 5000);
 
 		return () => clearInterval(interval);
 	});
@@ -88,10 +89,10 @@ const Carousel = () => {
 					<View
                         key={index}
 						style={{
-							backgroundColor: "green",
+							backgroundColor: "#B7DCFE",
 							height: 10,
-							width: 10,
-							borderRadius: 5,
+							width: 100,
+							borderRadius: 100,
 							marginHorizontal: 6,
 						}}
 					></View>
@@ -101,10 +102,10 @@ const Carousel = () => {
 					<View
 						key={index}
 						style={{
-							backgroundColor: "red",
-							height: 10,
-							width: 10,
-							borderRadius: 5,
+							backgroundColor: "#BDB9B9",
+							height: 5,
+							width: 100,
+							borderRadius: 100,
 							marginHorizontal: 6,
 						}}
 					></View>
@@ -130,7 +131,7 @@ const Carousel = () => {
 				style={{
 					flexDirection: "row",
 					justifyContent: "center",
-					marginTop: 30,
+					marginTop: 10,
 				}}
 			>
 				{renderDotIndicators()}
