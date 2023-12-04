@@ -65,6 +65,13 @@ export default function Schools() {
             </Text>
           </View>
         </View>
+
+        <Text style={{ textAlign: "center" }}>
+          USTP Campuses offer different courses under different department. For
+          CDO campus offer BS in information Technology, BS in technology
+          Communication and Management and many more. For more info about USTP
+          check the link ustp.edu.ph.
+        </Text>
       </View>
     </View>
   );
