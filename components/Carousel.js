@@ -51,6 +51,7 @@ const Carousel = () => {
 			id: "02",
 			image: require("../assets/tcm1.png"),
 		},
+		
 	];
 
 	//  Display Images // UI
@@ -71,7 +72,7 @@ const Carousel = () => {
 		const scrollPosition = event.nativeEvent.contentOffset.x;
 		// Get the index of current active item
 
-		const index = scrollPosition / (screenWidth+0.1);
+		const index = scrollPosition / screenWidth;
 
         const roundedIndex = Math.round(index);
 		// Update the index
@@ -91,7 +92,7 @@ const Carousel = () => {
 						style={{
 							backgroundColor: "#B7DCFE",
 							height: 10,
-							width: 100,
+							flex: 1,
 							borderRadius: 100,
 							marginHorizontal: 6,
 						}}
@@ -104,7 +105,7 @@ const Carousel = () => {
 						style={{
 							backgroundColor: "#BDB9B9",
 							height: 5,
-							width: 100,
+							flex: 1,
 							borderRadius: 100,
 							marginHorizontal: 6,
 						}}
