@@ -45,11 +45,11 @@ const Carousel = () => {
 	const carouselData = [
 		{
 			id: "01",
-			image: require("../assets/information-technology.png"),
+			image: require("../assets/information-technology.jpg"),
 		},
 		{
 			id: "02",
-			image: require("../assets/tcm1.png"),
+			image: require("../assets/tcm.jpg"),
 		},
 		
 	];
@@ -60,7 +60,7 @@ const Carousel = () => {
 			<View>
 				<Image
 					source={item.image}
-					style={{ height: 200, width: screenWidth, borderRadius: 10 }}
+					style={{ height: 200, width: screenWidth, borderRadius: 10}}
 				/>
 			</View>
 		);
