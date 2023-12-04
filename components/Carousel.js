@@ -50,10 +50,6 @@ const Carousel = () => {
 			id: "02",
 			image: require("../assets/tcm1.png"),
 		},
-        {
-			id: "03",
-			image: require("../assets/tcm1.png"),
-		},
 	];
 
 	//  Display Images // UI
@@ -62,7 +58,7 @@ const Carousel = () => {
 			<View>
 				<Image
 					source={item.image}
-					style={{ height: 200, width: screenWidth }}
+					style={{ height: 200, width: screenWidth, borderRadius: 10 }}
 				/>
 			</View>
 		);
@@ -72,12 +68,14 @@ const Carousel = () => {
 	const handleScroll = (event) => {
 		// Get the scroll position
 		const scrollPosition = event.nativeEvent.contentOffset.x;
-		console.log({ scrollPosition });
 		// Get the index of current active item
 
-		const index = scrollPosition / screenWidth;
+		const index = scrollPosition / (screenWidth+0.1);
 
-		setActiveIndex(index);
+        const roundedIndex = Math.round(index);
+		// Update the index
+
+		setActiveIndex(roundedIndex);
 	};
 
 	// Render Dot Indicators
@@ -88,6 +86,7 @@ const Carousel = () => {
 			if (activeIndex === index) {
 				return (
 					<View
+                        key={index}
 						style={{
 							backgroundColor: "green",
 							height: 10,
@@ -142,4 +141,6 @@ const Carousel = () => {
 
 export default Carousel;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    
+});

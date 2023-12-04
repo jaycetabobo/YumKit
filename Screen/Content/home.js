@@ -1,4 +1,4 @@
-import { View , Text, StyleSheet, Image, ScrollView, ImageBackground} from "react-native";
+import { View , Text, StyleSheet, Image, ScrollView, ImageBackground, SafeAreaView} from "react-native";
 import Carousel from "../../components/Carousel";
 
 export default function Home () {
@@ -22,7 +22,9 @@ export default function Home () {
                     </Text>
                 </ImageBackground>
             </View>
-            <Carousel />
+            <SafeAreaView>
+				<Carousel />
+			</SafeAreaView>
         </ScrollView>
     )
 }
