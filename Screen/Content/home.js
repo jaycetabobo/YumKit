@@ -36,7 +36,7 @@ export default function Home () {
                     </Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.schoolContentScroll}>
+            <ScrollView style={styles.schoolContentScroll} horizontal={true}>
                 <View style={styles.schoolContent}>
                     <ImageBackground
                         source={require("../../assets/ustp.jpg")}
@@ -53,22 +53,30 @@ export default function Home () {
                         </Text>
                     </View>
                 </View>
+            </ScrollView>
+             <View style={styles.schoolText}>
+                <Text style={styles.schoolTextDesign2}>
+                    General Subjects
+                </Text>
+                <TouchableOpacity>
+                    <Text style={styles.schoolTextDesign}>
+                        See All
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.schoolContentScroll} horizontal={true}>
                 <View style={styles.schoolContent}>
-                    <ImageBackground
-                        source={require("../../assets/ustp.jpg")}
-                        style={styles.schoolContentImageBG}
-                    >
-                        <Image
-                            source={require("../../assets/ustplogo.png")}
-                            style={styles.schoolContentUnderImageBG}
-                        />
-                    </ImageBackground>
+                    <Image
+                        source={require("../../assets/programming.jpg")}
+                        style={styles.generalSubjectImage}
+                    />
                     <View style={styles.schoolContentText}>
                         <Text style={styles.schoolContentText2}>
                             USTP
                         </Text>
                     </View>
                 </View>
+                
             </ScrollView>
 
 
@@ -129,7 +137,7 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     schoolContentScroll:{
-        flexDirection: "column"
+        flexDirection: "row"
     },
     schoolContent:{
         borderWidth: 1,
@@ -157,10 +165,14 @@ const styles = StyleSheet.create({
         fontFamily: 'boorsok',
         fontSize: 30
     },
+    generalSubjectImage:{
+        height: 69,
+        width: 'auto'
+    },
 
 
     bottomSpace:{
-        marginVertical: 100
+        marginVertical: 60
     }
     
 })
