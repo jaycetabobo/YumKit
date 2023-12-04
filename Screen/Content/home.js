@@ -1,4 +1,5 @@
 import { View , Text, StyleSheet, Image, ScrollView, ImageBackground} from "react-native";
+import Carousel from "../../components/Carousel";
 
 export default function Home () {
     return(
@@ -21,7 +22,7 @@ export default function Home () {
                     </Text>
                 </ImageBackground>
             </View>
-            
+            <Carousel />
         </ScrollView>
     )
 }

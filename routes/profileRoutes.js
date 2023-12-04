@@ -48,24 +48,7 @@ export default function ProfileRoutes() {
         name="Profile"
         component={Profile}
         options={{
-          title: "My Profile",
-          headerTitleAlign: "center",
-          headerRight: () => (
-            <Text
-              onPress={() => alert("This is a button!")}
-              style={styles.headerRightTitle}
-            >
-              {" "}
-              Edit
-            </Text>
-          ),
-          headerTitleStyle: {
-            fontFamily: "boorsok",
-          },
-          headerStyle: {
-            backgroundColor: "#37A9D0",
-          },
-          headerTintColor: "#fff",
+          headerShown: false
         }}
       />
       <Stack.Screen

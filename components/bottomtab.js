@@ -6,6 +6,7 @@ import * as Animatable from "react-native-animatable";
 import Home from "../Screen/Content/home";
 import { Feather } from "@expo/vector-icons";
 import Schools from "../Screen/Content/schools";
+import Profile from "../Screen/Content/profile";
 
 const TabArr = [
   {
@@ -34,7 +35,7 @@ const TabArr = [
     label: "Profile",
     type: Icons.FontAwesome,
     icon: "user-circle-o",
-    component: Home,
+    component: Profile,
   },
 ];
 

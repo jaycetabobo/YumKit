@@ -12,6 +12,7 @@ import {
  import ExpandableText from '../../components/Expandable';
 
 import React, { useState, useEffect } from "react";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get("window");
 
@@ -23,14 +24,7 @@ export default function Profile({ navigation, route }) {
   // const userData2 = route.params.userData2;
 
   return (
-    <View style={styles.container}>
-      
-        <ImageBackground
-          source={require("../../assets/profilebg.png")}
-          style={{ width: width, height: height }}
-          
-        >
-        <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={styles.container}>
         <View style={styles.contentTop}>
           <ImageBackground
             source={require("../../assets/profileWaveImage.png")}
@@ -51,8 +45,8 @@ export default function Profile({ navigation, route }) {
                     tabobo.jayce01@gmail.com
                   </Text>
                 </View>
-                <Text style={styles.profileLogout} onPress={() => navigation.navigate('Login')}>
-                  Logout
+                <Text style={styles.profileEdit}>
+                  Edit
                 </Text>
             </View>
           </ImageBackground>
@@ -117,13 +111,15 @@ export default function Profile({ navigation, route }) {
             <Text style={styles.contentBottom2}>
               FAQ
             </Text>
+            <TouchableOpacity>
+              <Text style={styles.contentBottom2}>
+                Logout
+              </Text>
+            </TouchableOpacity>
           </View>
           
         </View>
-        </ScrollView>
-        </ImageBackground>
-        
-    </View>
+      </ScrollView> 
   );
 }
 
@@ -162,9 +158,9 @@ const styles = StyleSheet.create({
     flex: 4,
     fontFamily: 'boorsok',
   },
-  profileLogout:{
+  profileEdit:{
     flex: 1,
-    marginRight: 10,
+    marginRight: 'auto',
     fontFamily: 'boorsok',
   },
   profileNameText:{
