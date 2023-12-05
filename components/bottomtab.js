@@ -7,6 +7,7 @@ import Home from "../Screen/Content/home";
 import { Feather } from "@expo/vector-icons";
 import Schools from "../Screen/Content/schools";
 import Profile from "../Screen/Content/profile";
+import Favorites from "../Screen/Content/favorites";
 
 const TabArr = [
   {
@@ -21,7 +22,7 @@ const TabArr = [
     label: "Favorites",
     type: Icons.Feather,
     icon: "heart",
-    component: Home,
+    component: Favorites,
   },
   {
     route: "School",

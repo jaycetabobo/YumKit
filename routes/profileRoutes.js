@@ -10,6 +10,7 @@ import Landingpage from "../Screen/landingpage";
 import Home from "../Screen/Content/home";
 import Schools from "../Screen/Content/schools";
 import BottomTab from "../components/bottomtab";
+import Favorites from "../Screen/Content/favorites";
 
 const Stack = createStackNavigator();
 
@@ -59,6 +60,11 @@ export default function ProfileRoutes() {
       <Stack.Screen
         name="tabscreen"
         component={BottomTab}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="favorites"
+        component={Favorites}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
