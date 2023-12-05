@@ -1,6 +1,7 @@
 import { View , Text, StyleSheet, Image, ScrollView, ImageBackground, SafeAreaView} from "react-native";
 import Carousel from "../../components/Carousel";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import ButtonSubjects from "../../components/buttonSubjects";
 
 export default function Home () {
     return(
@@ -71,9 +72,13 @@ export default function Home () {
                         style={styles.generalSubjectImage}
                     />
                     <View style={styles.schoolContentText}>
-                        <Text style={styles.schoolContentText2}>
-                            USTP
+                        <Text style={styles.generalSubjectsText}>
+                            programming
                         </Text>
+                        <Text style={styles.generalSubjectsText2}>
+                            Programming may consists of Java, Python, C++, Javascript and HTML .....
+                        </Text>
+                        <ButtonSubjects text="Learn More"/>
                     </View>
                 </View>
                 
@@ -167,7 +172,18 @@ const styles = StyleSheet.create({
     },
     generalSubjectImage:{
         height: 69,
-        width: 'auto'
+        borderRadius: 10,
+        width: 'auto',
+        marginVertical: 10
+    },
+    generalSubjectsText:{
+        fontFamily: 'boorsok',
+        fontSize: 18,
+    },
+    generalSubjectsText2:{
+        fontFamily: 'glacialindi',
+        fontSize: 13,
+        marginTop: 5
     },
 
 
