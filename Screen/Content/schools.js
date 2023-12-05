@@ -1,5 +1,6 @@
 import React from "react";
 import { Dimensions, Image, ImageBackground, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 export default function Schools() {
@@ -44,7 +45,7 @@ export default function Schools() {
               style={{
                 width: 165,
                 fontFamily: "boorsok",
-                fontSize: 12,
+                fontSize: 15,
                 lineHeight: 15,
                 textAlign: "center",
               }}
@@ -65,6 +66,35 @@ export default function Schools() {
             </Text>
           </View>
         </View>
+
+        <Text style={{ textAlign: "center", marginTop: 10 }}>
+          USTP Campuses offer different courses under different department. For
+          CDO campus offer BS in information Technology, BS in technology
+          Communication and Management and many more. For more info about USTP
+          check the link ustp.edu.ph.
+        </Text>
+        <TouchableOpacity>
+          <View
+            style={{
+              width: 150,
+              height: 35,
+              backgroundColor: "black",
+              justifyContent: "center",
+              borderRadius: 50,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontFamily: "glacialindibold",
+                fontSize: 17,
+              }}
+            >
+              Learn Course
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -1,4 +1,12 @@
-import { View , Text, StyleSheet, Image, ScrollView, ImageBackground, SafeAreaView} from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
 import Carousel from "../../components/Carousel";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ButtonSubjects from "../../components/buttonSubjects";
@@ -84,16 +92,9 @@ export default function Home () {
                 
             </ScrollView>
 
-
-
-
-
-
-            <View style={styles.bottomSpace}>
-                
-            </View>
-        </ScrollView>
-    )
+      <View style={styles.bottomSpace}></View>
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -186,9 +187,7 @@ const styles = StyleSheet.create({
         marginTop: 5
     },
 
-
-    bottomSpace:{
-        marginVertical: 60
-    }
-    
-})
+  bottomSpace: {
+    marginVertical: 60,
+  },
+});
