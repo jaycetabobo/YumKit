@@ -9,6 +9,7 @@ import Forgotpage2 from "../Screen/ForgotPassword/forgotpage2";
 import Landingpage from "../Screen/landingpage";
 import Home from "../Screen/Content/home";
 import Schools from "../Screen/Content/schools";
+import Schools2 from "../Screen/Content/schools2";
 import BottomTab from "../components/bottomtab";
 import Favorites from "../Screen/Content/favorites";
 
@@ -40,16 +41,10 @@ export default function ProfileRoutes() {
         options={{ title: " " }}
       />
       <Stack.Screen
-        name="Schools"
-        component={Schools}
-        options={{ title: " " }}
-      />
-
-      <Stack.Screen
         name="Profile"
         component={Profile}
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -66,6 +61,16 @@ export default function ProfileRoutes() {
         name="favorites"
         component={Favorites}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Schools"
+        component={Schools}
+        options={{ title: " " }}
+      />
+      <Stack.Screen
+        name="Schools2"
+        component={Schools2}
+        options={{ title: " " }}
       />
     </Stack.Navigator>
   );
