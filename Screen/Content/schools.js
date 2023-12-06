@@ -73,7 +73,7 @@ export default function Schools() {
           Communication and Management and many more. For more info about USTP
           check the link ustp.edu.ph.
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ alignItems: "center" }}>
           <View
             style={{
               width: 150,
@@ -81,6 +81,7 @@ export default function Schools() {
               backgroundColor: "black",
               justifyContent: "center",
               borderRadius: 50,
+              marginTop: 10,
             }}
           >
             <Text
