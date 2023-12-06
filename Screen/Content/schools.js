@@ -3,7 +3,7 @@ import { Dimensions, Image, ImageBackground, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
-export default function Schools() {
+export default function Schools({ navigation }) {
   return (
     <View
       style={{
@@ -91,6 +91,7 @@ export default function Schools() {
                 fontFamily: "glacialindibold",
                 fontSize: 17,
               }}
+              onPress={() => navigation.navigate("Schools2")}
             >
               Learn Course
             </Text>
