@@ -11,9 +11,13 @@ export default function Coursecontent() {
         </ImageBackground>
         </View>
         <View style={{width:375, alignItems:'center', justifyContent: 'center'}}>
-            <TouchableOpacity style={{width:105, backgroundColor: "#D9D9D9", alignItems: 'center', padding: 10}}>
+            <TouchableOpacity style={{width:125, backgroundColor: "#D9D9D9", alignItems: 'center', padding: 12,
+        borderRadius: 25}}>
                 <Text>Add Favorites</Text>
             </TouchableOpacity>
+        </View>
+        <View  style={{width:375, height: 220, alignItems:'center', justifyContent: 'center', backgroundColor: "black", marginTop: 20}}>
+
         </View>
     </View>
   )
