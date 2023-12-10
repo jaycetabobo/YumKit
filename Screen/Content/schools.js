@@ -99,18 +99,20 @@ export default function Schools({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={{ alignItems: "center", marginTop: 10 }}>
-        <Image
-          source={require("../../assets/bubble.png")}
-          style={{ height: 30, width: 30 }}
-        />
-        <Image
-          source={require("../../assets/bubble.png")}
-          style={{ height: 30, width: 30 }}
-        />
-        <Image
-          source={require("../../assets/bubble.png")}
-          style={{ height: 30, width: 30 }}
-        />
+        <View style={{ display: "flex", flexDirection: "row" }}>
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30 }}
+          />
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30 }}
+          />
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30 }}
+          />
+        </View>
       </View>
     </View>
   );
