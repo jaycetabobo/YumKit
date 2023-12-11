@@ -106,11 +106,11 @@ export default function Schools({ navigation }) {
           />
           <Image
             source={require("../../assets/bubble.png")}
-            style={{ height: 30, width: 30 }}
+            style={{ height: 30, width: 30, marginLeft: 8 }}
           />
           <Image
             source={require("../../assets/bubble.png")}
-            style={{ height: 30, width: 30 }}
+            style={{ height: 30, width: 30, marginLeft: 8 }}
           />
         </View>
       </View>
