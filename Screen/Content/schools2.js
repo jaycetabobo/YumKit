@@ -14,6 +14,18 @@ function Schools2() {
         source={require("../../assets/ustp2.jpg")}
         style={{ width: "98%", height: 150, marginTop: 30, borderRadius: 30 }}
       />
+      <ImageBackground
+        source={require("../../assets/bannerimage2.png")}
+        style={{
+          width: 300,
+          height: 100,
+          marginTop: 30,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text>BS in Information Technology</Text>
+      </ImageBackground>
     </View>
   );
 }
