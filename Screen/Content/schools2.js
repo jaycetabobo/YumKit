@@ -125,6 +125,20 @@ function Schools2() {
             </View>
           </TouchableOpacity>
         </View>
+        <View style={{ display: "flex", flexDirection: "row", marginTop: 10 }}>
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30 }}
+          />
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30, marginLeft: 14 }}
+          />
+          <Image
+            source={require("../../assets/bubble.png")}
+            style={{ height: 30, width: 30, marginLeft: 14 }}
+          />
+        </View>
       </ScrollView>
     </View>
   );
