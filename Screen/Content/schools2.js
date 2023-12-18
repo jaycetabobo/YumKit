@@ -15,7 +15,13 @@ function Schools2() {
   return (
     <View style={{ alignItems: "center" }}>
       <View style={{ width: "98%" }}>
-        <Text style={{ textAlign: "center" }}>
+        <Text
+          style={{
+            textAlign: "center",
+            fontFamily: "glacialindibold",
+            fontSize: 20,
+          }}
+        >
           University of Science and Technology of Southern Philippines
         </Text>
       </View>
@@ -26,62 +32,99 @@ function Schools2() {
       <ImageBackground
         source={require("../../assets/bannerimage2.png")}
         style={{
-          width: 300,
-          height: 100,
+          width: 280,
+          height: 90,
           marginTop: 30,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Text>BS in Information Technology</Text>
+        <Text
+          style={{
+            fontFamily: "glacialindibold",
+            fontSize: 25,
+            textAlign: "center",
+          }}
+        >
+          BS in Information Technology
+        </Text>
       </ImageBackground>
       <ScrollView
         style={{
-          backgroundColor: "pink",
           width: "98%",
           height: 350,
           marginTop: 20,
         }}
+        contentContainerStyle={{
+          alignItems: "center",
+        }}
       >
-        <Text>Programming</Text>
-        <View
+        <Text
           style={{
-            height: 170,
-            width: 270,
-            backgroundColor: "white",
-            borderRadius: 20,
-            marginTop: 10,
+            fontFamily: "glacialindibold",
+            fontSize: 18,
+            textAlign: "center",
           }}
         >
-          <Text>This is for image</Text>
-        </View>
-        <Text style={{ marginTop: 10 }}>
-          Java is a high-level, class-based, object-oriented programming
-          language. Developers use Java to construct applications in laptops,
-          data centres, game consoles, scientific supercomputers, cell phones,
-          and other devices.
+          Programming
         </Text>
-        <TouchableOpacity>
-          <View
+        <View
+          style={{
+            alignItems: "center",
+            backgroundColor: "#B7DCFE",
+            width: "98%",
+            borderRadius: 20,
+            marginTop: 10,
+            padding: 8,
+          }}
+        >
+          <Text
             style={{
-              backgroundColor: "black",
-              width: 120,
-              borderRadius: 20,
-              padding: 5,
-              marginTop: 10,
+              fontFamily: "glacialindibold",
+              marginTop: 5,
+              fontSize: 30,
             }}
           >
-            <Text
+            Java
+          </Text>
+          <Image
+            source={require("../../assets/java.jpg")}
+            style={{
+              height: 170,
+              width: 270,
+              backgroundColor: "white",
+              borderRadius: 20,
+              marginTop: 10,
+            }}
+          />
+          <Text style={{ marginTop: 10 }}>
+            Java is a high-level, class-based, object-oriented programming
+            language. Developers use Java to construct applications in laptops,
+            data centres, game consoles, scientific supercomputers, cell phones,
+            and other devices.
+          </Text>
+          <TouchableOpacity>
+            <View
               style={{
-                fontSize: 17,
-                textAlign: "center",
-                color: "white",
+                backgroundColor: "black",
+                width: 120,
+                borderRadius: 20,
+                padding: 5,
+                marginTop: 10,
               }}
             >
-              View Now
-            </Text>
-          </View>
-        </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 17,
+                  textAlign: "center",
+                  color: "white",
+                }}
+              >
+                View Now
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );
