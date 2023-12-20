@@ -27,31 +27,31 @@ export default function Coursecontent() {
 Java is a popular programming language, created in 1995.
 It is owned by Oracle, and more than 3 billion devices run Java.
 It is used for:</Text>
-<View style={{ marginLeft: 20 }}>
-        <Text>
+<View style={{ marginLeft: 20}}>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Mobile applications (specially Android apps)
         </Text>
-        <Text>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Desktop applications
         </Text>
         <Text>
           - Web applications
         </Text>
-        <Text>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Web servers and application servers
         </Text>
-        <Text>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Games
         </Text>
-        <Text>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Database connection
         </Text>
-        <Text>
+        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - And much, much more!
         </Text>
       </View>
 
-      <Text>
+      <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
 Why Use Java?
 Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)
 It is one of the most popular programming language in the world
