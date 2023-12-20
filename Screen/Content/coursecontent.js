@@ -25,15 +25,32 @@ export default function Coursecontent() {
             What is Java?
 Java is a popular programming language, created in 1995.
 It is owned by Oracle, and more than 3 billion devices run Java.
-It is used for:
-Mobile applications (specially Android apps)
-Desktop applications
-Web applications
-Web servers and application servers
-Games
-Database connection
-And much, much more!
+It is used for:</Text>
+<View style={{ marginLeft: 20 }}>
+        <Text>
+          - Mobile applications (specially Android apps)
+        </Text>
+        <Text>
+          - Desktop applications
+        </Text>
+        <Text>
+          - Web applications
+        </Text>
+        <Text>
+          - Web servers and application servers
+        </Text>
+        <Text>
+          - Games
+        </Text>
+        <Text>
+          - Database connection
+        </Text>
+        <Text>
+          - And much, much more!
+        </Text>
+      </View>
 
+      <Text>
 Why Use Java?
 Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)
 It is one of the most popular programming language in the world
