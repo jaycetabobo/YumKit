@@ -11,12 +11,13 @@ import Home from "../Screen/Content/home";
 import Schools from "../Screen/Content/schools";
 import BottomTab from "../components/bottomtab";
 import Favorites from "../Screen/Content/favorites";
+import GeneralSubject from "../Screen/Content/generalsubject";
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
-    <Stack.Navigator initialRouteName="tabscreen">
+    <Stack.Navigator initialRouteName="general subject">
       <Stack.Screen
         name="landingpage"
         component={Landingpage}
@@ -65,6 +66,11 @@ export default function ProfileRoutes() {
       <Stack.Screen
         name="favorites"
         component={Favorites}
+        options={{ headerShown: false }}
+      />
+            <Stack.Screen
+        name="general subject"
+        component={GeneralSubject}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
