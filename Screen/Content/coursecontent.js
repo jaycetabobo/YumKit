@@ -1,7 +1,8 @@
 import React from 'react'
-import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
+const {width, height} = Dimensions.get('window')
 export default function Coursecontent() {
   return (
     <View>
@@ -21,14 +22,13 @@ export default function Coursecontent() {
         source={require("../../assets/java2.jpg")}>
 
         </Image>
-        <ScrollView>
-            <Text style={{width: 375, padding: 5, fontSize: 20}}>
+        <ScrollView style={{ addheight: 350}}>
+        <Text style={{width: 375, padding: 5, fontSize: 20, fontFamily: "glacialindi"}}>
             What is Java?
 Java is a popular programming language, created in 1995.
 It is owned by Oracle, and more than 3 billion devices run Java.
 It is used for:</Text>
-<View style={{ marginLeft: 20}}>
-        <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
+<Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - Mobile applications (specially Android apps)
         </Text>
         <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
@@ -49,9 +49,7 @@ It is used for:</Text>
         <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
           - And much, much more!
         </Text>
-      </View>
-
-      <Text style={{fontSize: 20, fontFamily: "glacialindi"}}>
+        <Text style={{fontSize: 20, marginTop: 15, padding: 5, fontFamily: "glacialindi"}}>
 Why Use Java?
 Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)
 It is one of the most popular programming language in the world
@@ -64,6 +62,7 @@ Java is an object oriented language which gives a clear structure to programs an
 As Java is close to C++ and C#, it makes it easy for programmers to switch to Java or vice versa
 
             </Text>
+            
         </ScrollView>
     </View>
   )
