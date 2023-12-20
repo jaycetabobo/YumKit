@@ -22,7 +22,7 @@ export default function Coursecontent() {
         source={require("../../assets/java2.jpg")}>
 
         </Image>
-        <ScrollView style={{ addheight: 350}}>
+        <ScrollView style={{height: 350}}>
         <Text style={{width: 375, padding: 5, fontSize: 20, fontFamily: "glacialindi"}}>
             What is Java?
 Java is a popular programming language, created in 1995.
