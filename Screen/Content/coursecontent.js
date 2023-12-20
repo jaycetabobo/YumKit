@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
 export default function Coursecontent() {
   return (
@@ -20,7 +21,7 @@ export default function Coursecontent() {
         source={require("../../assets/java2.jpg")}>
 
         </Image>
-        <View>
+        <ScrollView>
             <Text style={{width: 375, padding: 5, fontSize: 20}}>
             What is Java?
 Java is a popular programming language, created in 1995.
@@ -63,7 +64,7 @@ Java is an object oriented language which gives a clear structure to programs an
 As Java is close to C++ and C#, it makes it easy for programmers to switch to Java or vice versa
 
             </Text>
-        </View>
+        </ScrollView>
     </View>
   )
 }
