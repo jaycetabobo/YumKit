@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 
 export default function Coursecontent() {
   return (
@@ -16,9 +16,10 @@ export default function Coursecontent() {
                 <Text>Add Favorites</Text>
             </TouchableOpacity>
         </View>
-        <View  style={{width:375, height: 220, alignItems:'center', justifyContent: 'center', backgroundColor: "black", marginTop: 20}}>
+        <Image  style={{width:375, height: 180, alignItems:'center', justifyContent: 'center', backgroundColor: "black", marginTop: 20}}
+        source={require("../../assets/java2.jpg")}>
 
-        </View>
+        </Image>
         <View>
             <Text style={{width: 375, padding: 5, fontSize: 20}}>
             What is Java?
