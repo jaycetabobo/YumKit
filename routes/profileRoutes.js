@@ -19,7 +19,7 @@ const Stack = createStackNavigator();
 export default function ProfileRoutes() {
   return (
     <Stack.Navigator initialRouteName="tabscreen">
-            <Stack.Screen
+       <Stack.Screen
         name="landingpage"
         component={Landingpage}
         options={{ title: " " }}
