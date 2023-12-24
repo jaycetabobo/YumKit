@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dimensions,
   Image,
@@ -12,32 +12,18 @@ import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
-const universitiesData = [
-  {
-    name: "University of Science and Technology of Southern Philippines",
-    description:
-      "USTP has different campuses consist of Alubijid, CDO, Claveria and many more ......",
-    courses: [
-      "BS in Information Technology",
-      "BS in Technology Communication and Management",
-    ],
-    link: "https://ustp.edu.ph",
-    image: require("../../assets/ustp.jpg"),
-    logo: require("../../assets/ustplogo.png"),
-  },
-  {
-    name: "Capitol University",
-    description:
-      "Capitol University has different campuses consist of CDO, Claveria, and many more ......",
-    courses: ["BS in Computer Science", "BS in Information Systems"],
-    link: "https://capitoluniversity.edu.ph",
-    image: require("../../assets/ustp.jpg"),
-    logo: require("../../assets/ustplogo.png"),
-  },
-];
-
-export default function Schools({ navigation }) {
+const Schools = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
+  const [universitiesData, setUniversitiesData] = useState([]);
+
+  useEffect(() => {
+    // Fetch university data from the provided JSON API
+    fetch("https://api.jsonbin.io/v3/b/65876e0e1f5677401f1282b4")
+      .then((response) => response.json())
+      .then((data) => setUniversitiesData(data.record))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   const filteredUniversities = universitiesData.filter((university) =>
     university.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -77,7 +63,7 @@ export default function Schools({ navigation }) {
                 }}
               >
                 <ImageBackground
-                  source={university.image}
+                  source={{ uri: university.image }}
                   style={{
                     width: 180,
                     height: 180,
@@ -85,7 +71,7 @@ export default function Schools({ navigation }) {
                   borderRadius={8}
                 >
                   <Image
-                    source={university.logo}
+                    source={{ uri: university.logo }}
                     style={{ width: 70, height: 70, borderRadius: 8 }}
                   />
                 </ImageBackground>
@@ -149,4 +135,6 @@ export default function Schools({ navigation }) {
       </ScrollView>
     </View>
   );
-}
+};
+
+export default Schools;
