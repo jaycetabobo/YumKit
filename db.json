@@ -205,15 +205,30 @@
           "courseid": "1",
           "course": "BS in Information Technology",
           "topics": [
-            "Java", "Python"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+            }
+            ]
         },
         {
           "courseid": "2",
           "course": "BS in Technology Communication and Management",
+          
           "topics": [
-            "Communication Protocols in Networking", "Strategic IT Leadership: Managing Teams in the Digital Age"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
         }
         
       ],
@@ -243,15 +258,30 @@
           "courseid": "1",
           "course": "BS in Information Technology",
           "topics": [
-            "Java", "Python"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+            }
+            ]
         },
         {
           "courseid": "2",
           "course": "BS in Technology Communication and Management",
+          
           "topics": [
-            "Communication Protocols in Networking", "Strategic IT Leadership: Managing Teams in the Digital Age"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
         }
         
       ],
@@ -281,15 +311,30 @@
           "courseid": "1",
           "course": "BS in Information Technology",
           "topics": [
-            "Java", "Python"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+            }
+            ]
         },
         {
           "courseid": "2",
           "course": "BS in Technology Communication and Management",
+          
           "topics": [
-            "Communication Protocols in Networking", "Strategic IT Leadership: Managing Teams in the Digital Age"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
         }
         
       ],
@@ -319,22 +364,30 @@
           "courseid": "1",
           "course": "BS in Information Technology",
           "topics": [
-          {
-            "topicname": "Java",
-            "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
-          },          
-          {
-            "topicname": "Python",
-            "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
-          }
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+            }
+            ]
         },
         {
           "courseid": "2",
           "course": "BS in Technology Communication and Management",
+          
           "topics": [
-            "Communication Protocols in Networking", "Strategic IT Leadership: Managing Teams in the Digital Age"
-          ]
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
         }
         
       ],
