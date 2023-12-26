@@ -15,9 +15,9 @@ import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const url = "https://c141-103-62-155-235.ngrok-free.app/posts";
-const schoolsurl = "https://c141-103-62-155-235.ngrok-free.app/schools";
-const urlcomments = "https://a917-103-62-155-234.ngrok-free.app/comments";
+const url = "https://d5ce-103-62-155-235.ngrok-free.app/posts";
+const schoolsurl = "https://d5ce-103-62-155-235.ngrok-free.app/schools";
+const urlcomments = "https://d5ce-103-62-155-235.ngrok-free.app/comments";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/json",
@@ -81,8 +81,8 @@ const Schools = () => {
                 style={{
                   width: 180,
                   height: 180,
-                  borderRadius: 10,
                 }}
+                borderRadius={10}
               >
                 <Image
                   source={{ uri: item.logo }}
@@ -112,8 +112,26 @@ const Schools = () => {
                 </Text>
               </View>
             </View>
-            <View>
-              <Text>{item.courses}</Text>
+            <View
+              style={{
+                paddingHorizontal: 10,
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <Text style={{ marginVertical: 5 }}>Courses:</Text>
+              {item.courses.map((course, courseIndex) => (
+                <Text
+                  key={courseIndex}
+                  style={{
+                    fontFamily: "glacialindibold",
+                    marginBottom: 5,
+                    textAlign: "center",
+                  }}
+                >
+                  {course.course}
+                </Text>
+              ))}
             </View>
             <TouchableOpacity
               style={{ alignItems: "center" }}

@@ -19,7 +19,7 @@ const Schools2 = () => {
     const fetchSchoolDetails = async () => {
       try {
         const response = await fetch(
-          `https://c141-103-62-155-235.ngrok-free.app/schools/${schoolId}/`
+          `https://d5ce-103-62-155-235.ngrok-free.app/schools/${schoolId}/`
         );
         const data = await response.json();
         setSchoolDetails(data);
@@ -56,7 +56,14 @@ const Schools2 = () => {
         source={require("../../assets/ustp2.jpg")}
         style={{ width: "98%", height: 150, marginTop: 30, borderRadius: 30 }}
       />
-      <ScrollView style={{ height: 400, width: width, padding: 8 }}>
+      <ScrollView
+        style={{
+          height: 450,
+          width: width,
+          paddingHorizontal: 8,
+          paddingBottom: 15,
+        }}
+      >
         {schoolDetails.courses.map((course, index) => (
           <View
             style={{
@@ -78,31 +85,58 @@ const Schools2 = () => {
                   key={index}
                   style={{
                     fontFamily: "glacialindibold",
-                    fontSize: 25,
+                    fontSize: 22,
                     textAlign: "center",
                   }}
                 >
-                  {course}
+                  {course.course}
                 </Text>
               </View>
             </ImageBackground>
-            <View
-              style={{
-                height: 280,
-                width: "100%",
-                backgroundColor: "pink",
-                alignItems: "center",
-                overflow: "hidden",
-                borderRadius: 10,
-                marginTop: 15,
-              }}
-            >
-              <Text style={{ fontFamily: "boorsok", fontSize: 20 }}>Java</Text>
-              <Image
-                source={require("../../assets/java.jpg")}
-                style={{ height: 190, width: "96 %", borderRadius: 15 }}
-              ></Image>
-            </View>
+            {course.topics.map((topic, topicIndex) => (
+              <View
+                key={topicIndex}
+                style={{
+                  width: "100%",
+                  alignItems: "center",
+                  overflow: "hidden",
+                  borderRadius: 10,
+                  marginTop: 15,
+                  borderWidth: 1,
+                  paddingVertical: 10,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    padding: 3,
+                    fontFamily: "glacialindibold",
+                    fontSize: 20,
+                  }}
+                >
+                  {topic.topicname}
+                </Text>
+                <Image
+                  source={require("../../assets/java.jpg")}
+                  style={{
+                    height: 190,
+                    width: "96%",
+                    borderRadius: 15,
+                  }}
+                />
+                <Text
+                  style={{
+                    fontFamily: "glacialindi",
+                    fontSize: 15,
+                    paddingVertical: 8,
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
+                  {topic.topicdescription}
+                </Text>
+              </View>
+            ))}
           </View>
         ))}
       </ScrollView>
