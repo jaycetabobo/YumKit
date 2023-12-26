@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Dimensions,
+  View,
+  Text,
   Image,
   ImageBackground,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
+  ScrollView,
+  Dimensions,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { useRoute } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
-function Schools2() {
+const Schools2 = () => {
+  const route = useRoute();
+  const { schoolId } = route.params;
+  const [schoolDetails, setSchoolDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchSchoolDetails = async () => {
+      try {
+        const response = await fetch(
+          `https://c141-103-62-155-235.ngrok-free.app/schools/${schoolId}/`
+        );
+        const data = await response.json();
+        setSchoolDetails(data);
+      } catch (error) {
+        console.error("Error fetching school details:", error);
+      }
+    };
+
+    fetchSchoolDetails();
+  }, [schoolId]);
+
+  if (!schoolDetails) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={{ alignItems: "center" }}>
       <View style={{ width: "98%" }}>
@@ -22,126 +49,85 @@ function Schools2() {
             fontSize: 20,
           }}
         >
-          University of Science and Technology of Southern Philippines
+          {schoolDetails.name}
         </Text>
       </View>
       <Image
         source={require("../../assets/ustp2.jpg")}
         style={{ width: "98%", height: 150, marginTop: 30, borderRadius: 30 }}
       />
-      <ImageBackground
-        source={require("../../assets/bannerimage2.png")}
-        style={{
-          width: 280,
-          height: 90,
-          marginTop: 30,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: "glacialindibold",
-            fontSize: 25,
-            textAlign: "center",
-          }}
-        >
-          BS in Information Technology
-        </Text>
-      </ImageBackground>
-      <ScrollView
-        style={{
-          width: "98%",
-          height: 350,
-          marginTop: 20,
-        }}
-        contentContainerStyle={{
-          alignItems: "center",
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: "glacialindibold",
-            fontSize: 18,
-            textAlign: "center",
-          }}
-        >
-          Programming
-        </Text>
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#B7DCFE",
-            width: "98%",
-            borderRadius: 20,
-            marginTop: 10,
-            padding: 8,
-          }}
-        >
-          <Text
+      <ScrollView style={{ height: 400, width: width, padding: 8 }}>
+        {schoolDetails.courses.map((course, index) => (
+          <View
             style={{
-              fontFamily: "glacialindibold",
-              marginTop: 5,
-              fontSize: 30,
+              alignItems: "center",
             }}
           >
-            Java
-          </Text>
-          <Image
-            source={require("../../assets/java.jpg")}
-            style={{
-              height: 170,
-              width: 270,
-              backgroundColor: "white",
-              borderRadius: 20,
-              marginTop: 10,
-            }}
-          />
-          <Text style={{ marginTop: 10 }}>
-            Java is a high-level, class-based, object-oriented programming
-            language. Developers use Java to construct applications in laptops,
-            data centres, game consoles, scientific supercomputers, cell phones,
-            and other devices.
-          </Text>
-          <TouchableOpacity>
-            <View
+            <ImageBackground
+              source={require("../../assets/bannerimage2.png")}
               style={{
-                backgroundColor: "black",
-                width: 120,
-                borderRadius: 20,
-                padding: 5,
-                marginTop: 10,
+                width: 280,
+                height: 90,
+                marginTop: 30,
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <Text
-                style={{
-                  fontSize: 17,
-                  textAlign: "center",
-                  color: "white",
-                }}
-              >
-                View Now
-              </Text>
+              <View>
+                <Text
+                  key={index}
+                  style={{
+                    fontFamily: "glacialindibold",
+                    fontSize: 25,
+                    textAlign: "center",
+                  }}
+                >
+                  {course}
+                </Text>
+              </View>
+            </ImageBackground>
+            <View
+              style={{
+                height: 280,
+                width: "100%",
+                backgroundColor: "pink",
+                alignItems: "center",
+                overflow: "hidden",
+                borderRadius: 10,
+                marginTop: 15,
+              }}
+            >
+              <Text style={{ fontFamily: "boorsok", fontSize: 20 }}>Java</Text>
+              <Image
+                source={require("../../assets/java.jpg")}
+                style={{ height: 190, width: "96 %", borderRadius: 15 }}
+              ></Image>
             </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{ display: "flex", flexDirection: "row", marginTop: 10 }}>
-          <Image
-            source={require("../../assets/bubble.png")}
-            style={{ height: 30, width: 30 }}
-          />
-          <Image
-            source={require("../../assets/bubble.png")}
-            style={{ height: 30, width: 30, marginLeft: 14 }}
-          />
-          <Image
-            source={require("../../assets/bubble.png")}
-            style={{ height: 30, width: 30, marginLeft: 14 }}
-          />
-        </View>
+          </View>
+        ))}
       </ScrollView>
     </View>
+
+    /*
+    <View style={{ alignItems: "center" }}>
+      <Text>Name: {schoolDetails.name}</Text>
+      <Text>Description: {schoolDetails.description}</Text>
+      <Text>Courses:</Text>
+      <View>
+        {schoolDetails.courses.map((course, index) => (
+          <Text key={index}>{course}</Text>
+        ))}
+      </View>
+      <Image
+        source={{ uri: schoolDetails.image }}
+        style={{ width: 200, height: 200 }}
+      />
+      <Image
+        source={{ uri: schoolDetails.logo }}
+        style={{ width: 100, height: 100 }}
+      />
+    </View>*/
   );
-}
+};
 
 export default Schools2;

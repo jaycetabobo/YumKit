@@ -7,131 +7,137 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  FlatList,
+  StyleSheet,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const Schools = ({ navigation }) => {
+const url = "https://c141-103-62-155-235.ngrok-free.app/posts";
+const schoolsurl = "https://c141-103-62-155-235.ngrok-free.app/schools";
+const urlcomments = "https://a917-103-62-155-234.ngrok-free.app/comments";
+const headers = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+
+const Schools = () => {
   const [searchText, setSearchText] = useState("");
+  const [schoolsData, setSchoolsData] = useState([]);
+  const [postdata, setPostData] = useState([]);
   const [universitiesData, setUniversitiesData] = useState([]);
+  const navigation = useNavigation();
+
+  const getPosts = () => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((resJson) => {
+        console.log("posts: ", resJson);
+        setPostData(resJson);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  const getSchools = () => {
+    fetch(schoolsurl)
+      .then((res) => res.json())
+      .then((resJson) => {
+        console.log("schools: ", resJson);
+        setSchoolsData(resJson);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   useEffect(() => {
-    // Fetch university data from the provided JSON API
-    fetch("https://api.jsonbin.io/v3/b/65876e0e1f5677401f1282b4")
-      .then((response) => response.json())
-      .then((data) => setUniversitiesData(data.record))
-      .catch((error) => console.error("Error fetching data:", error));
+    getPosts();
+    getSchools();
   }, []);
 
-  const filteredUniversities = universitiesData.filter((university) =>
-    university.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-
   return (
-    <View style={{ height: 620 }}>
+    <View style={{ padding: 7, height: 620 }}>
       <ScrollView>
-        <View style={{ padding: 10 }}>
-          <TextInput
+        {schoolsData.map((item, index) => (
+          <View
             style={{
-              height: 40,
-              borderColor: "gray",
               borderWidth: 1,
+              borderRadius: 10,
               marginBottom: 10,
-              paddingLeft: 10,
             }}
-            placeholder="Search for universities..."
-            onChangeText={(text) => setSearchText(text)}
-            value={searchText}
-          />
-
-          {filteredUniversities.map((university, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() => navigation.navigate("Schools2")}
+          >
+            <View
               style={{
-                borderWidth: 1,
-                borderColor: "black",
-                borderRadius: 20,
-                marginBottom: 10,
+                flexDirection: "row",
+                padding: 3,
               }}
             >
-              <View
+              <ImageBackground
+                source={{ uri: item.image }}
                 style={{
-                  flexDirection: "row",
-                  padding: 10,
+                  width: 180,
+                  height: 180,
+                  borderRadius: 10,
                 }}
               >
-                <ImageBackground
-                  source={{ uri: university.image }}
+                <Image
+                  source={{ uri: item.logo }}
+                  style={{ width: 70, height: 70, borderRadius: 8 }}
+                />
+              </ImageBackground>
+              <View style={{ flex: 1, marginLeft: 10 }}>
+                <Text
                   style={{
-                    width: 180,
-                    height: 180,
+                    fontFamily: "boorsok",
+                    fontSize: 15,
+                    lineHeight: 20,
+                    textAlign: "center",
+                    marginBottom: 5,
                   }}
-                  borderRadius={8}
                 >
-                  <Image
-                    source={{ uri: university.logo }}
-                    style={{ width: 70, height: 70, borderRadius: 8 }}
-                  />
-                </ImageBackground>
-                <View style={{ marginLeft: 10, flex: 1 }}>
-                  <Text
-                    style={{
-                      fontFamily: "boorsok",
-                      fontSize: 15,
-                      lineHeight: 15,
-                      textAlign: "center",
-                    }}
-                  >
-                    {university.name}
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: "glacialindi",
-                      fontSize: 15,
-                      textAlign: "center",
-                      marginTop: 10,
-                    }}
-                  >
-                    {university.description}
-                  </Text>
-                </View>
+                  {item.name}
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "glacialindi",
+                    fontSize: 15,
+                    textAlign: "center",
+                  }}
+                >
+                  {item.description}
+                </Text>
               </View>
-              <Text style={{ textAlign: "center", marginTop: 10 }}>
-                {`Courses: ${university.courses.join(", ")}`}
-              </Text>
-              <TouchableOpacity
+            </View>
+            <View>
+              <Text>{item.courses}</Text>
+            </View>
+            <TouchableOpacity
+              style={{ alignItems: "center" }}
+              onPress={() =>
+                navigation.navigate("Schools2", { schoolId: item.id })
+              }
+            >
+              <Text
                 style={{
-                  alignItems: "center",
-                  marginTop: 10,
-                  marginBottom: 10,
+                  backgroundColor: "black",
+                  textAlign: "center",
+                  fontFamily: "boorsok",
+                  padding: 10,
+                  justifyContent: "center",
+                  borderRadius: 10,
+                  marginVertical: 10,
+                  color: "white",
                 }}
               >
-                <View
-                  style={{
-                    width: 150,
-                    height: 35,
-                    backgroundColor: "black",
-                    justifyContent: "center",
-                    borderRadius: 50,
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: "white",
-                      textAlign: "center",
-                      fontFamily: "glacialindibold",
-                      fontSize: 17,
-                    }}
-                  >
-                    Learn Course
-                  </Text>
-                </View>
-              </TouchableOpacity>
+                Learn More
+              </Text>
             </TouchableOpacity>
-          ))}
-        </View>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
