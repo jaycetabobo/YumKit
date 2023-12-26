@@ -53,8 +53,13 @@ const Schools2 = () => {
         </Text>
       </View>
       <Image
-        source={require("../../assets/ustp2.jpg")}
-        style={{ width: "98%", height: 150, marginTop: 30, borderRadius: 30 }}
+        source={{ uri: schoolDetails.image }}
+        style={{
+          width: "98%",
+          height: 150,
+          marginVertical: 30,
+          borderRadius: 30,
+        }}
       />
       <ScrollView
         style={{
