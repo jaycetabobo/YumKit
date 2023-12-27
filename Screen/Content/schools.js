@@ -15,9 +15,9 @@ import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const url = "https://d5ce-103-62-155-235.ngrok-free.app/posts";
-const schoolsurl = "https://d5ce-103-62-155-235.ngrok-free.app/schools";
-const urlcomments = "https://d5ce-103-62-155-235.ngrok-free.app/comments";
+const url = "https://5b38-103-62-155-238.ngrok-free.app/posts";
+const schoolsurl = "https://5b38-103-62-155-238.ngrok-free.app/schools";
+const urlcomments = "https://5b38-103-62-155-238.ngrok-free.app/comments";
 const headers = {
   "Content-Type": "application/json",
   Accept: "application/json",

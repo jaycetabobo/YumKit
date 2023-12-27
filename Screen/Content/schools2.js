@@ -6,6 +6,8 @@ import {
   ImageBackground,
   ScrollView,
   Dimensions,
+  TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
@@ -14,12 +16,14 @@ const Schools2 = () => {
   const route = useRoute();
   const { schoolId } = route.params;
   const [schoolDetails, setSchoolDetails] = useState(null);
+  const [newComment, setNewComment] = useState("");
+  const [newUsername, setNewUsername] = useState("");
 
   useEffect(() => {
     const fetchSchoolDetails = async () => {
       try {
         const response = await fetch(
-          `https://d5ce-103-62-155-235.ngrok-free.app/schools/${schoolId}/`
+          `https://5b38-103-62-155-238.ngrok-free.app/schools/${schoolId}/`
         );
         const data = await response.json();
         setSchoolDetails(data);
@@ -30,6 +34,38 @@ const Schools2 = () => {
 
     fetchSchoolDetails();
   }, [schoolId]);
+
+  const handleCommentSubmit = () => {
+    // Add logic to submit the new comment to the server or update state
+    // This is just an example, adjust it based on your backend setup
+
+    // Creating a copy of the comments array to avoid directly modifying state
+    const updatedComments = [...(schoolDetails.comments || [])];
+
+    // Adding the new comment to the local state
+    updatedComments.push({ username: newUsername, comment: newComment });
+
+    // Assuming you have an API endpoint to update comments
+    // Modify this according to your API setup
+    // This is just a dummy example, replace it with your actual API call
+    fetch(`https://5b38-103-62-155-238.ngrok-free.app/schools/${schoolId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comments: updatedComments }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // If the API call is successful, update the state with the new comments
+        setSchoolDetails({ ...schoolDetails, comments: data.comments });
+
+        // Clear the input fields after submitting the comment
+        setNewUsername("");
+        setNewComment("");
+      })
+      .catch((error) => console.error("Error submitting comment:", error));
+  };
 
   if (!schoolDetails) {
     return (
@@ -144,6 +180,40 @@ const Schools2 = () => {
             ))}
           </View>
         ))}
+        <View style={{ marginLeft: 5 }}>
+          <Text
+            style={{
+              marginVertical: 5,
+              fontFamily: "glacialindibold",
+              fontSize: 20,
+            }}
+          >
+            Comments:
+          </Text>
+          {schoolDetails.comments.map((comment, commentIndex) => (
+            <View
+              key={commentIndex}
+              style={{
+                marginVertical: 5,
+                marginLeft: 5,
+                backgroundColor: "#F0EDEB",
+                padding: 6,
+                borderRadius: 15,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 18,
+                  marginVertical: 4,
+                  fontFamily: "glacialindibold",
+                }}
+              >
+                {comment.username}:
+              </Text>
+              <Text>{comment.comment}</Text>
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </View>
 
