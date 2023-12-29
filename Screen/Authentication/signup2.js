@@ -118,14 +118,10 @@ export default function Signup2({ navigation, route }) {
   
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
-      <ImageBackground
-        source={require("../../assets/lqual.png")}
-        style={{ width: width, height: height }}
-      >
-        <View style={{ display: "flex", alignItems: "center" }}>
+        <View style={{ display: "flex", alignItems: "center", flex: 1, backgroundColor: 'white'}}>
           <Image
-            source={require("../../assets/logo.png")}
-            style={{ width: 80, height: 80, marginTop: 70 }}
+            source={require("../../assets/logo-no-background.png")}
+            style={{ width: 100, height: 110 }}
           />
           <Text style={{ fontSize: 45, marginTop: 5, fontFamily: 'boorsok' }}>Sign up</Text>
           <View style={{ width: "80%", marginTop: 30 }}>
@@ -146,7 +142,7 @@ export default function Signup2({ navigation, route }) {
               </TextInput>
             </View>
             {errorMessage && (
-            <Text style={{ color: "red", fontSize: 12, marginTop: 5, marginLeft: 12}}>
+            <Text style={{ color: "red", fontSize: 15, marginTop: 5, marginLeft: 12}}>
               {errorMessage}
             </Text>
           )}
@@ -207,7 +203,7 @@ export default function Signup2({ navigation, route }) {
             <Text style={{ color: "#38B6FF" }} onPress={ () => navigation.navigate('Login', { userData2 })}> Click Here.</Text>
           </Text>
         </View>
-      </ImageBackground>
+
     </TouchableWithoutFeedback>
   );
 }
@@ -218,7 +214,7 @@ const styles = StyleSheet.create({
   },
   aboveTextOfTextInput2:{
     marginLeft: 15,
-    marginTop: 20
+    marginTop: 10
   },
   textInputField:{
     display: "flex",

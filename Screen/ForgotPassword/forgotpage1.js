@@ -56,27 +56,29 @@ function Forgotpage1({ navigation }) {
 
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
-      <ImageBackground
-        source={require("../../assets/forgotbg.png")}
-        style={{ width: width, height: height }}
-      >
-        <View style={{ display: "flex", alignItems: "center" }}>
-          <Text
+        <View style={{ display: "flex", alignItems: "center", flex: 1, backgroundColor: 'white' }}>
+          <ImageBackground
+            source={require("../../assets/bannerimage2.png")}
+            style={{ height: 100, width: 'auto', marginVertical: 50}}
+          >
+            <Text
             style={{
               fontFamily: 'anton',
               fontSize: 24,
-              marginTop: 250,
-              color: "#04745F",
+              marginVertical: 25,
+              color: "black",
+              paddingHorizontal: 40
             }}
           >
             Forgot your password?
           </Text>
+          </ImageBackground>
           <Text
             style={{
               fontFamily: "anton",
-              fontSize: 11,
+              fontSize: 12,
               marginTop: 16,
-              color: "#04745F",
+              color: "black",
               marginBottom:10
             }}
           >
@@ -123,7 +125,7 @@ function Forgotpage1({ navigation }) {
             </TouchableOpacity>
           </View>
           {errorMessage && (
-            <Text style={{ color: "red", fontSize: 12, marginTop: 5 }}>
+            <Text style={{ color: "red", fontSize: 15, marginTop: 5 }}>
               {errorMessage}
             </Text>
           )}
@@ -138,7 +140,7 @@ function Forgotpage1({ navigation }) {
               flexDirection: "row",
               alignItems: "center",
               height: 40,
-              marginTop: 13,
+              marginTop: 20,
             }}
           >
             <View style={{ width: "10%" }}>
@@ -157,7 +159,6 @@ function Forgotpage1({ navigation }) {
             <CustomButton text='Continue' onPress={handleContinue}/>
           </View>
         </View>
-      </ImageBackground>
     </TouchableWithoutFeedback>
   );
 }
