@@ -12,6 +12,7 @@ import {
   Keyboard
 } from "react-native";
 import CustomButton from "../../components/CustomButton";
+import { useSelector } from "react-redux";
 
 
 const { width, height } = Dimensions.get("window");
@@ -22,6 +23,7 @@ export default function Login({ navigation, route }) {
 
   // const userData2 = route.params.userData2;
   // const userData = route.params.userData;
+  const users = useSelector((state) => state.auth.users)
   const handleLoginSubmit = ()=>{
     navigation.navigate('tabscreen');
     // if (userData2.username === username && userData2.password === password) {
@@ -42,6 +44,12 @@ export default function Login({ navigation, route }) {
               style={{ width: 100, height: 110, marginTop: 30 }}
             />
             <Text style={{ fontSize: 45, marginTop: 10, fontFamily: 'boorsok' }}>Login</Text>
+            {
+          users.map((obj, index) => <View key={index}>
+            <Text>username: {obj.username}</Text>
+            <Text>firstname: {obj.firstname}</Text>
+          </View>)
+      }
             <View style={{ width: "80%", marginTop: 50 }}>
               <Text style={{marginBottom: 5}}>Username:</Text>
               <View

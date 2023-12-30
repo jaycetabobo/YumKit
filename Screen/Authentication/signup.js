@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import CustomButton from '../../components/CustomButton';
 
-export default function Signup({ navigation, }) {
+export default function Signup({ navigation }) {
 
   const [userData, setUserData] = useState({
     Firstname: "",
@@ -98,7 +98,7 @@ export default function Signup({ navigation, }) {
           <CustomButton text='Continue' onPress={handleSubmit}/>
           <Text style={{ marginTop: "auto", fontSize: 15, marginBottom: 30 }}>
             Do you have an existing account?
-            <Text style={{ color: "#38B6FF" }} onPress={ () => navigation.navigate('Login', { userData2 })}> Click Here.</Text>
+            <Text style={{ color: "#38B6FF" }} onPress={ () => navigation.navigate('Login')}> Click Here.</Text>
           </Text>
         </View>
     </TouchableWithoutFeedback>
