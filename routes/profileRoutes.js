@@ -18,11 +18,11 @@ const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
-    <Stack.Navigator initialRouteName="tabscreen">
+    <Stack.Navigator initialRouteName="landingpage">
        <Stack.Screen
         name="landingpage"
         component={Landingpage}
-        options={{ title: " " }}
+        options={{ title: " ",headerShown: false }}
       />
       <Stack.Screen name="Signup" component={Signup} options={{ title: " " }} />
       <Stack.Screen

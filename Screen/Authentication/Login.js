@@ -12,6 +12,7 @@ import {
   Keyboard
 } from "react-native";
 import CustomButton from "../../components/CustomButton";
+import { useSelector } from "react-redux";
 
 
 const { width, height } = Dimensions.get("window");
@@ -22,8 +23,9 @@ export default function Login({ navigation, route }) {
 
   // const userData2 = route.params.userData2;
   // const userData = route.params.userData;
+  const users = useSelector((state) => state.auth.users)
   const handleLoginSubmit = ()=>{
-    navigation.navigate('Profile');
+    navigation.navigate('tabscreen');
     // if (userData2.username === username && userData2.password === password) {
     //   // Navigate to the profile page
     //   navigation.navigate('Profile');
@@ -35,19 +37,21 @@ export default function Login({ navigation, route }) {
 
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
-      <View>
-        <ImageBackground
-          source={require("../../assets/lqual.png")}
-          style={{ width: width, height: height }}
-        >
+      <View style={{ flex: 1 ,backgroundColor: "white" }}>
           <View style={{ display: "flex", alignItems: "center" }}>
             <Image
-              source={require("../../assets/logo.png")}
-              style={{ width: 80, height: 80, marginTop: 70 }}
+              source={require("../../assets/logo-no-background.png")}
+              style={{ width: 100, height: 110, marginTop: 30 }}
             />
-            <Text style={{ fontSize: 45, marginTop: 55, fontFamily: 'boorsok' }}>Login</Text>
+            <Text style={{ fontSize: 45, marginTop: 10, fontFamily: 'boorsok' }}>Login</Text>
+            {
+          users.map((obj, index) => <View key={index}>
+            <Text>username: {obj.username}</Text>
+            <Text>firstname: {obj.firstname}</Text>
+          </View>)
+      }
             <View style={{ width: "80%", marginTop: 50 }}>
-              <Text>Username:</Text>
+              <Text style={{marginBottom: 5}}>Username:</Text>
               <View
                 style={{
                   display: "flex",
@@ -69,7 +73,7 @@ export default function Login({ navigation, route }) {
               </View>
             </View>
             <View style={{ width: "80%", marginTop: 10 }}>
-              <Text>Password:</Text>
+              <Text style={{marginBottom: 5}}>Password:</Text>
               <View
                 style={{
                   display: "flex",
@@ -98,6 +102,7 @@ export default function Login({ navigation, route }) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                marginTop: 10
               }}
             >
               <Text style={{ fontSize: 15 }}>
@@ -130,7 +135,6 @@ export default function Login({ navigation, route }) {
               <Text style={styles.createAccountButtonText}>Create an Account</Text>
             </TouchableOpacity>
           </View>
-        </ImageBackground>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -138,7 +142,7 @@ export default function Login({ navigation, route }) {
 
 const styles= StyleSheet.create({
     createAccountButton: {
-      borderColor: "black",
+      borderColor: "#B7DCFE",
       borderWidth: 2,
       width: 250,
       height: 40,
@@ -147,7 +151,7 @@ const styles= StyleSheet.create({
       alignItems: "center",
       borderRadius: 100,
       marginTop: 80,
-      backgroundColor: 'white'
+      backgroundColor: '#B7DCFE',
     },
     createAccountButtonText:{
       fontSize: 15
