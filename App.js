@@ -17,7 +17,6 @@ export default function App() {
   }
 
   return (
-    
     <NavigationContainer>
       <ProfileRoutes />
     </NavigationContainer>

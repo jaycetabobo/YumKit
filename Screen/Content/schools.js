@@ -15,39 +15,21 @@ import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const url = "https://5b38-103-62-155-238.ngrok-free.app/posts";
-const schoolsurl = "https://5b38-103-62-155-238.ngrok-free.app/schools";
-const urlcomments = "https://5b38-103-62-155-238.ngrok-free.app/comments";
-const headers = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-};
+// GitHub link for schools data
+const schoolsurl =
+  "https://raw.githubusercontent.com/Z3ro0o0/sandydata/main/db.json";
 
 const Schools = () => {
   const [searchText, setSearchText] = useState("");
   const [schoolsData, setSchoolsData] = useState([]);
-  const [postdata, setPostData] = useState([]);
-  const [universitiesData, setUniversitiesData] = useState([]);
   const navigation = useNavigation();
-
-  const getPosts = () => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((resJson) => {
-        console.log("posts: ", resJson);
-        setPostData(resJson);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  };
 
   const getSchools = () => {
     fetch(schoolsurl)
       .then((res) => res.json())
       .then((resJson) => {
         console.log("schools: ", resJson);
-        setSchoolsData(resJson);
+        setSchoolsData(resJson.schools);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -55,7 +37,6 @@ const Schools = () => {
   };
 
   useEffect(() => {
-    getPosts();
     getSchools();
   }, []);
 
@@ -136,7 +117,14 @@ const Schools = () => {
             <TouchableOpacity
               style={{ alignItems: "center" }}
               onPress={() =>
-                navigation.navigate("Schools2", { schoolId: item.id })
+                navigation.navigate("Schools2", {
+                  schoolName: item.name,
+                  schoolDescription: item.description,
+                  schoolImage: item.image,
+                  courses: item.courses,
+                  comments: item.comments, // Assuming comments are available at the school level
+                  // Add other relevant data
+                })
               }
             >
               <Text
