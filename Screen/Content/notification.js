@@ -104,6 +104,17 @@ export default function Notification() {
           >
             Your Updates
           </Text>
+          <TouchableOpacity>
+            <Text
+              style={{
+                fontFamily: "glacialindi",
+                fontSize: 15,
+                textDecorationLine: "underline",
+              }}
+            >
+              Read All
+            </Text>
+          </TouchableOpacity>
           </View>
       </View>
     </SafeAreaView>
