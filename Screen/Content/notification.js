@@ -44,8 +44,9 @@ export default function Notification() {
               height: 18,
               marginTop:10
             }}
+            
           />
-          <ImageBackground
+            <ImageBackground
             source={require("../../assets/logo-no-background.png")}
             style={{
               width: 30,
@@ -77,7 +78,7 @@ export default function Notification() {
 
           }}
           >
-             <ImageBackground
+          <ImageBackground
             source={require("../../assets/search-icon-no-background.png")}
             style={{
               width: 16,
@@ -86,9 +87,9 @@ export default function Notification() {
             }}
             
           />
-          </View>
-         </View>
-         <View
+        </View>  
+        </View>
+        <View
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -104,6 +105,7 @@ export default function Notification() {
           >
             Your Updates
           </Text>
+
           <TouchableOpacity>
             <Text
               style={{
@@ -115,8 +117,8 @@ export default function Notification() {
               Read All
             </Text>
           </TouchableOpacity>
-          </View>
-          <Text
+        </View>
+        <Text
           style={{
             fontFamily: "glacialindi",
             fontSize: 20,
@@ -221,33 +223,8 @@ export default function Notification() {
             
           />
           </View>
-          <View style={{ padding: 10, flexDirection: "column" }}>
-            <Text
-              style={{
-                fontFamily: "glacialindi",
-                fontWeight: "bold",
-                marginBottom: 5,
-              }}
-            >
-              Python Topics Added
-            </Text>
-            <Text style={{ width: 250}}>
-            Check now the lesson to learn and discover what is python and its contex
-            </Text>
-          </View>
-          <View>
-          <ImageBackground
-            source={require("../../assets/ellipsis-no-background.png")}
-            style={{
-              width: 15,
-              height: 15,
-              
-            }}
-            
-          />
-          </View>
-          </TouchableOpacity>
-          <TouchableOpacity
+        </TouchableOpacity>
+        <TouchableOpacity
           style={{
             backgroundColor: "#D6EEFF",
             fontFamily: "glacialindi",
@@ -269,7 +246,32 @@ export default function Notification() {
             
           />
           </View>
-          </TouchableOpacity>
+          <View style={{ padding: 10, flexDirection: "column" }}>
+            <Text
+              style={{
+                fontFamily: "glacialindi",
+                fontWeight: "bold",
+                marginBottom: 5,
+              }}
+            >
+              Python Topics Added
+            </Text>
+            <Text style={{ width: 250 }}>
+            Check now the lesson to learn and discover what is python and its contex
+             </Text>
+          </View>
+          <View>
+          <ImageBackground
+            source={require("../../assets/ellipsis-no-background.png")}
+            style={{
+              width: 15,
+              height: 15,
+              
+            }}
+            
+          />
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
