@@ -196,6 +196,56 @@ export default function Notification() {
             
           />
           </View>
+          <View style={{ padding: 10, flexDirection: "column" }}>
+            <Text
+              style={{
+                fontFamily: "glacialindi",
+                fontWeight: "bold",
+                marginBottom: 5,
+              }}
+            >
+              Python Topics Added
+            </Text>
+            <Text style={{ width: 250}}>
+            Check now the lesson to learn and discover what is python and its contex
+            </Text>
+          </View>
+          <View>
+          <ImageBackground
+            source={require("../../assets/ellipsis-no-background.png")}
+            style={{
+              width: 15,
+              height: 15,
+              
+            }}
+            
+          />
+          </View>
+          <View style={{ padding: 10, flexDirection: "column" }}>
+            <Text
+              style={{
+                fontFamily: "glacialindi",
+                fontWeight: "bold",
+                marginBottom: 5,
+              }}
+            >
+              Python Topics Added
+            </Text>
+            <Text style={{ width: 250}}>
+            Check now the lesson to learn and discover what is python and its contex
+            </Text>
+          </View>
+          <View>
+          <ImageBackground
+            source={require("../../assets/ellipsis-no-background.png")}
+            style={{
+              width: 15,
+              height: 15,
+              
+            }}
+            
+          />
+          </View>
           </TouchableOpacity>
       </View>
     </SafeAreaView>
