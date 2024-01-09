@@ -19,10 +19,7 @@ export default function App() {
   }
 
   return (
-<<<<<<< HEAD
-=======
     <Provider store={store}>
->>>>>>> 2299f2d5b93ccfd704249b5a3c2ac136509e9101
     <NavigationContainer>
       <ProfileRoutes />
     </NavigationContainer>
