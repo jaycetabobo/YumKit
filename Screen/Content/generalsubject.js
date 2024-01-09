@@ -1,18 +1,24 @@
-
-import { View, StyleSheet, Text, Image } from "react-native";
+import React from "react";
+import { View, StyleSheet, Text, Image, TextInput } from "react-native";
 import ButtonSubjects from "../../components/buttonSubjects";
 
-
 export default function GeneralSubject() {
-    return(
-        
-        
+  return (
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        {/* Your existing header code */}
+        <Text style={styles.header}>General Subjects</Text>
+      </View>
 
-        <View style={styles.container}>
-      <Text style={styles.header}>Programming Subjects</Text>
+      {/* mao ni search bar */}
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search subjects..."
+        
+      />
 
+      {/* Gen sub ni */}
       <View style={styles.gridContainer}>
-        
         {[1, 2, 3, 4, 5, 6].map((index) => (
           <View key={index} style={styles.schoolContent}>
             <Image
@@ -38,11 +44,24 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
+  headerContainer: {
+    marginBottom: 10,
+    borderColor: 'black',  // Add border color
+    borderWidth: 1,        // Add border width
+    borderRadius: 5,      // Add border radius
+  },
   header: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,
+  },
+  searchBar: {
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 20,
+    paddingLeft: 10,
+    marginBottom: 10,
   },
   gridContainer: {
     flexDirection: 'row',
