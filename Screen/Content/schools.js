@@ -1,102 +1,152 @@
-import React from "react";
-import { Dimensions, Image, ImageBackground, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React, { useState, useEffect } from "react";
+import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+  FlatList,
+  StyleSheet,
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
-export default function Schools() {
+
+// GitHub link for schools data
+const schoolsurl =
+  "https://raw.githubusercontent.com/Z3ro0o0/sandydata/main/db.json";
+
+const Schools = () => {
+  const [searchText, setSearchText] = useState("");
+  const [schoolsData, setSchoolsData] = useState([]);
+  const navigation = useNavigation();
+
+  const getSchools = () => {
+    fetch(schoolsurl)
+      .then((res) => res.json())
+      .then((resJson) => {
+        console.log("schools: ", resJson);
+        setSchoolsData(resJson.schools);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  useEffect(() => {
+    getSchools();
+  }, []);
+
   return (
-    <View
-      style={{
-        width: width,
-        height: height,
-      }}
-    >
-      <View
-        style={{
-          width: width,
-          height: 350,
-          borderWidth: 1,
-          borderColor: "black",
-          borderRadius: 20,
-          padding: 10,
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <ImageBackground
-            source={require("../../assets/ustp.jpg")}
+    <View style={{ padding: 7, height: 620 }}>
+      <ScrollView>
+        {schoolsData.map((item, index) => (
+          <View
             style={{
-              width: 180,
-              height: 180,
+              borderWidth: 1,
+              borderRadius: 10,
+              marginBottom: 10,
             }}
-            borderRadius={8}
           >
-            <Image
-              source={require("../../assets/ustplogo.png")}
-              style={{ width: 70, height: 70, borderRadius: 8 }}
-            />
-          </ImageBackground>
-          <View>
-            <Text
+            <View
               style={{
-                width: 165,
-                fontFamily: "boorsok",
-                fontSize: 15,
-                lineHeight: 15,
-                textAlign: "center",
+                flexDirection: "row",
+                padding: 3,
               }}
             >
-              University of Science and Technology of Southern Philippines
-            </Text>
-            <Text
+              <ImageBackground
+                source={{ uri: item.image }}
+                style={{
+                  width: 180,
+                  height: 180,
+                }}
+                borderRadius={10}
+              >
+                <Image
+                  source={{ uri: item.logo }}
+                  style={{ width: 70, height: 70, borderRadius: 8 }}
+                />
+              </ImageBackground>
+              <View style={{ flex: 1, marginLeft: 10 }}>
+                <Text
+                  style={{
+                    fontFamily: "boorsok",
+                    fontSize: 15,
+                    lineHeight: 20,
+                    textAlign: "center",
+                    marginBottom: 5,
+                  }}
+                >
+                  {item.name}
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "glacialindi",
+                    fontSize: 15,
+                    textAlign: "center",
+                  }}
+                >
+                  {item.description}
+                </Text>
+              </View>
+            </View>
+            <View
               style={{
-                width: 165,
-                fontFamily: "glacialindi",
-                fontSize: 15,
-                textAlign: "center",
+                paddingHorizontal: 10,
+                alignItems: "center",
                 marginTop: 10,
               }}
             >
-              USTP has different campuses consist of Alubijid, CDO, Claveria and
-              many more ......
-            </Text>
-          </View>
-        </View>
-
-        <Text style={{ textAlign: "center", marginTop: 10 }}>
-          USTP Campuses offer different courses under different department. For
-          CDO campus offer BS in information Technology, BS in technology
-          Communication and Management and many more. For more info about USTP
-          check the link ustp.edu.ph.
-        </Text>
-        <TouchableOpacity style={{ alignItems: "center" }}>
-          <View
-            style={{
-              width: 150,
-              height: 35,
-              backgroundColor: "black",
-              justifyContent: "center",
-              borderRadius: 50,
-              marginTop: 10,
-            }}
-          >
-            <Text
-              style={{
-                color: "white",
-                textAlign: "center",
-                fontFamily: "glacialindibold",
-                fontSize: 17,
-              }}
+              <Text style={{ marginVertical: 5 }}>Courses:</Text>
+              {item.courses.map((course, courseIndex) => (
+                <Text
+                  key={courseIndex}
+                  style={{
+                    fontFamily: "glacialindibold",
+                    marginBottom: 5,
+                    textAlign: "center",
+                  }}
+                >
+                  {course.course}
+                </Text>
+              ))}
+            </View>
+            <TouchableOpacity
+              style={{ alignItems: "center" }}
+              onPress={() =>
+                navigation.navigate("Schools2", {
+                  schoolName: item.name,
+                  schoolDescription: item.description,
+                  schoolImage: item.image,
+                  courses: item.courses,
+                  comments: item.comments, // Assuming comments are available at the school level
+                  // Add other relevant data
+                })
+              }
             >
-              Learn Course
-            </Text>
+              <Text
+                style={{
+                  backgroundColor: "black",
+                  textAlign: "center",
+                  fontFamily: "boorsok",
+                  padding: 10,
+                  justifyContent: "center",
+                  borderRadius: 10,
+                  marginVertical: 10,
+                  color: "white",
+                }}
+              >
+                Learn More
+              </Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-      </View>
+        ))}
+      </ScrollView>
     </View>
   );
-}
+};
+
+export default Schools;

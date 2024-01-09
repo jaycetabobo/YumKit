@@ -51,32 +51,6 @@ export default function Profile({ navigation, route }) {
             </View>
           </ImageBackground>
         </View>
-        <View style={styles.contentMid}>
-          <View style={styles.contentMidText}>
-            <Ionicons name="location" size={40} color="black" style={styles.contentMidIcon}/>
-            <View>
-              <Text style={styles.contentMidTextFont}>
-                Location
-              </Text>
-              <Text style={styles.contentMidTextFont2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                {/* {userData.location} */}
-                C D O
-              </Text>
-            </View>
-          </View>
-          <View style={styles.contentMidText}>
-            <FontAwesome name="phone" size={40} color="black" style={styles.contentMidIcon}/>
-            <View>
-              <Text style={styles.contentMidTextFont}>
-                Phone #
-              </Text>
-              <Text style={styles.contentMidTextFont2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                {/* {userData.phoneNumber} */}
-                09268889945
-              </Text>
-            </View>
-          </View>
-        </View>
         <View style={styles.contentBottom}>
           <View style={styles.contentBottomText}>
             <Text style={styles.underContentBottomText}>
@@ -97,7 +71,6 @@ export default function Profile({ navigation, route }) {
             </Text>
           </View>
           <View style={styles.contentBottomText}>
-            <ExpandableText headerText={'Favorites'} titles={titles} />
             <ExpandableText headerText={'About Us'} titles={texts} />
             <Text style={styles.contentBottom2}>
               Share App
@@ -111,7 +84,7 @@ export default function Profile({ navigation, route }) {
             <Text style={styles.contentBottom2}>
               FAQ
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate('landingpage')}>
               <Text style={styles.contentBottom2}>
                 Logout
               </Text>
@@ -136,6 +109,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     backgroundColor: 'white',
+    marginTop: 20
   },
   contentTopBg:{
     height: 150,
@@ -174,35 +148,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginVertical: 5,
     height: 25
-  },
-  contentMid:{
-    marginHorizontal: 5,
-    marginVertical: 10,
-    borderWidth: 2,
-    borderRadius: 10,
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    flex: 1,
-    height:80,
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  contentMidText:{
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  contentMidIcon:{
-    marginRight: 5
-  },
-  contentMidTextFont:{
-    fontFamily: 'glacialindibold',
-    fontSize: 25,
-    marginBottom: 5
-  },
-  contentMidTextFont2:{
-    fontFamily: 'glacialindi',
-    fontSize: 15,
-    width: 100
   },
   contentBottom:{
     marginHorizontal: 10,

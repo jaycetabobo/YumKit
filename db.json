@@ -1,0 +1,412 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 4,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 5,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+
+  "schools": [
+    {
+      "id": "1",
+      "name": "University of Science and Technology of Southern Philippines",
+      "description": "USTP has different campuses consist of Alubijid, CDO, Claveria and many more ......",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "BS in Information Technology",
+          "topics": [
+            {
+              "topicname": "Java",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
+            },          
+            {
+              "topicname": "Python",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "BS in Technology Communication and Management",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://www.ustp.edu.ph/wp-content/uploads/2021/02/USTP-CDO.jpg",
+      "logo": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/324429893_692617042404789_8825582010059206302_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=WtzyhPJzFHoAX9biYm4&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfD5Rk2KhQZWJcbyml18-1eF9P8LGi3RBhHkiamUjw9QZg&oe=658DCBF4",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "Wanna go to this school"
+        },
+        {
+          "username": "user2",
+          "comment": "The campus looks amazing!"
+        },
+        {
+          "username": "user3",
+          "comment": "What are the admission requirements?"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Capitol University",
+      "description": "Capitol University[2] is a non-sectarian, co-educational[3] private university[4][5] located in Cagayan de Oro, Philippines.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "Bachelor of Elementary Education",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "Bachelor of Science in Civil Engineering",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://www.finduniversity.ph/_resources/business/10048/capitol-university-983.jpg",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/8/8e/Capitol_University.jpg",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "Considering applying here!"
+        },
+        {
+          "username": "user2",
+          "comment": "The programs offered are impressive."
+        },
+        {
+          "username": "user3",
+          "comment": "Any scholarship opportunities?"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Cagayan de Oro College",
+      "description": "Cagayan de oro College is a private non-sectarian college on Max Suniel St, Carmen, Cagayan de Oro, Philippines.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "BS in Criminology",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "BS in Nursing",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://www.pacu.org.ph/wordpress/wp-content/uploads/2017/05/Screen-Shot-2017-11-02-at-10.07.43-AM.png",
+      "logo": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/353832082_590289946586763_3338392738682972305_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=HeCc9LjnWl0AX_wQYXK&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfAqVWNzkyL23fqlHgSIH6-_u7cEeXhwg7zQtprnZJXdkg&oe=658F9E95",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "I've heard great things about this school!"
+        },
+        {
+          "username": "user2",
+          "comment": "Is there a strong community on campus?"
+        },
+        {
+          "username": "user3",
+          "comment": "Looking forward to the application process!"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Xavier University – Ateneo de Cagayan",
+      "description": "Ateneo de Cagayan or Xavier is a private, Catholic, coeducational, basic and higher education institution. It is operated by the Philippine Province of the Society of Jesus in Cagayan de Oro, Misamis Oriental, Philippines.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "College of Law",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "College of Arts and Sciences",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://www.xu.edu.ph/images/750px_XU.jpg",
+      "logo": "https://cdn.contactcenterworld.com/images/company/xavier-university-ateneo-de-cagayan-largex3-logo.jpg",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "This school is my top choice!"
+        },
+        {
+          "username": "user2",
+          "comment": "The location is perfect for me."
+        },
+        {
+          "username": "user3",
+          "comment": "Any advice for incoming students?"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Liceo de Cagayan University",
+      "description": "The Liceo de Cagayan University (LDCU) is a private non-sectarian basic and higher education institution in Cagayan de Oro, Philippines. It was founded in 1955 by Rodolfo N. Pelaez of Cagayan de Oro and his wife Elsa P. Pelaez of Cebu City.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "BS in Nursing",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "BS in Accountancy",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://philippine-trivia.com/sites/default/files/images/liceo-de-cagayan.jpg",
+      "logo": "https://www.pacu.org.ph/wordpress/wp-content/uploads/2017/05/Liceo-De-Cagayan-University.png",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "Excited to explore the campus!"
+        },
+        {
+          "username": "user2",
+          "comment": "What clubs and organizations are available?"
+        },
+        {
+          "username": "user3",
+          "comment": "The facilities seem top-notch."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Lourdes College",
+      "description": "Lourdes College Cagayan de Oro City is a private, Roman Catholic basic and higher education institution managed by the Congregation of the Religious of the Virgin Mary in Cagayan de Oro City, Misamis Oriental, Philippines.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "BS in Psychology",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "BS in Mass Communication",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/217410306_2979415232377577_4966805999427734101_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=783fdb&_nc_ohc=ShnWNpV3BUEAX_CbuDX&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfD7csJHB6AdVhVLhhHrvf_qYncTyeqIFdPowDWfHFt0ag&oe=65902516",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/55/Lourdes_College_official_seal.png",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "Applying soon, wish me luck!"
+        },
+        {
+          "username": "user2",
+          "comment": "How's the student life here?"
+        },
+        {
+          "username": "user3",
+          "comment": "Any tips for the application essay?"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Southern de Oro Philippines College",
+      "description": "Southern de Oro Philippines College is a private domestic corporation, non-sectarian and co-educational institution.",
+      "courses": [
+        {
+          "courseid": "1",
+          "course": "BS in Hospitality Management",
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        },
+        {
+          "courseid": "2",
+          "course": "BS in Tourism Management",
+          
+          "topics": [
+            {
+              "topicname": "Communication Protocols in Networking",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            },          
+            {
+              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
+              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            }
+            ]
+        }
+        
+      ],
+      "image": "https://4.bp.blogspot.com/-cAzxJkTR8pg/UYs3vF09krI/AAAAAAAAAGg/TbfaDILzdPc/s1600/southernphilcollege.jpg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/SPC.jpg",
+      "comments": [
+        {
+          "username": "user1",
+          "comment": "The diversity on campus is appealing."
+        },
+        {
+          "username": "user2",
+          "comment": "Are there opportunities for research projects?"
+        },
+        {
+          "username": "user3",
+          "comment": "What's the acceptance rate?"
+        }
+      ]
+    }
+  ]
+}

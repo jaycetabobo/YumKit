@@ -73,27 +73,29 @@ export default function Forgotpage2({ navigation }) {
 
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
-      <ImageBackground
-        source={require("../../assets/forgotbg.png")}
-        style={{ width: width, height: height }}
-      >
-        <View style={{ display: "flex", alignItems: "center" }}>
-          <Text
+        <View style={{ display: "flex", alignItems: "center", flex: 1, backgroundColor: 'white'}}>
+           <ImageBackground
+            source={require("../../assets/bannerimage2.png")}
+            style={{ height: 100, width: 'auto', marginVertical: 50}}
+          >
+            <Text
             style={{
-              fontFamily: "anton",
+              fontFamily: 'anton',
               fontSize: 24,
-              marginTop: 250,
-              color: "#04745F",
+              marginVertical: 25,
+              color: "black",
+              paddingHorizontal: 40
             }}
           >
             Reset your Password
           </Text>
+          </ImageBackground>
           <Text
             style={{
               fontFamily: "anton",
-              fontSize: 11,
+              fontSize: 13,
               marginTop: 16,
-              color: "#04745F",
+              color: "black",
               marginBottom:10
             }}
           >
@@ -112,7 +114,10 @@ export default function Forgotpage2({ navigation }) {
               marginTop: 10,
             }}
           >
-            <View style={{ width: "7%" }}></View>
+            <Image
+                  source={require("../../assets/3.png")}
+                  style={{ width: 25, height: 25 ,marginRight: 5 }}
+                />
             <TextInput
               secureTextEntry={secureTextEntry}
               placeholder="Enter new password"
@@ -149,11 +154,14 @@ export default function Forgotpage2({ navigation }) {
               flexDirection: "row",
               alignItems: "center",
               height: 40,
-              marginTop: 13,
+              marginTop: 20,
               
             }}
           >
-            <View style={{ width: "7%" }}></View>
+            <Image
+                  source={require("../../assets/3.png")}
+                  style={{ width: 25, height: 25 ,marginRight: 5 }}
+                />
             <TextInput
               secureTextEntry={retypeSecureTextEntry}
               onChangeText={(text) => setConfirmPassword(text)}
@@ -170,9 +178,8 @@ export default function Forgotpage2({ navigation }) {
               </Text>
             )}
           </View>
-          <CustomButton text='Reset password' onPress={handleResetPass}/>
+          <CustomButton text='Reset' onPress={handleResetPass}/>
         </View>
-      </ImageBackground>
     </TouchableWithoutFeedback>
   );
 }

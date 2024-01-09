@@ -9,19 +9,20 @@ import Forgotpage2 from "../Screen/ForgotPassword/forgotpage2";
 import Landingpage from "../Screen/landingpage";
 import Home from "../Screen/Content/home";
 import Schools from "../Screen/Content/schools";
+import Schools2 from "../Screen/Content/schools2";
 import BottomTab from "../components/bottomtab";
 import Favorites from "../Screen/Content/favorites";
-import GeneralSubject from "../Screen/Content/generalsubject";
+import Coursecontent from "../Screen/Content/coursecontent";
 
 const Stack = createStackNavigator();
 
 export default function ProfileRoutes() {
   return (
-    <Stack.Navigator initialRouteName="general subject">
-      <Stack.Screen
+    <Stack.Navigator initialRouteName="landingpage">
+       <Stack.Screen
         name="landingpage"
         component={Landingpage}
-        options={{ title: " " }}
+        options={{ title: " ",headerShown: false }}
       />
       <Stack.Screen name="Signup" component={Signup} options={{ title: " " }} />
       <Stack.Screen
@@ -41,16 +42,10 @@ export default function ProfileRoutes() {
         options={{ title: " " }}
       />
       <Stack.Screen
-        name="Schools"
-        component={Schools}
-        options={{ title: " " }}
-      />
-
-      <Stack.Screen
         name="Profile"
         component={Profile}
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -68,11 +63,22 @@ export default function ProfileRoutes() {
         component={Favorites}
         options={{ headerShown: false }}
       />
-            <Stack.Screen
-        name="general subject"
-        component={GeneralSubject}
-        options={{ headerShown: false }}
+      <Stack.Screen
+        name="Schools"
+        component={Schools}
+        options={{ title: " " }}
       />
+      <Stack.Screen
+        name="Schools2"
+        component={Schools2}
+        options={{ title: " " }}
+      />
+      <Stack.Screen
+        name="Coursecontent"
+        component={Coursecontent}
+        options={{ title: " " }}
+      />
+
     </Stack.Navigator>
   );
 }
