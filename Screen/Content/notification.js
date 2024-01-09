@@ -247,6 +247,29 @@ export default function Notification() {
           />
           </View>
           </TouchableOpacity>
+          <TouchableOpacity
+          style={{
+            backgroundColor: "#D6EEFF",
+            fontFamily: "glacialindi",
+            padding: 10,
+            flexDirection: "row",
+            alignItems: "center",
+            borderRadius: 10,
+            margin: 10,
+          }}
+        >
+          <View>
+          <ImageBackground
+            source={require("../../assets/file_contract_icon.png")}
+            style={{
+              width: 30,
+              height: 37,
+              
+            }}
+            
+          />
+          </View>
+          </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
