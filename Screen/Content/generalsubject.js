@@ -28,7 +28,7 @@ export default function GeneralSubject() {
             <View style={styles.schoolContentText}>
               <Text style={styles.generalSubjectsText}>programming {index}</Text>
               <Text style={styles.generalSubjectsText2}>
-                Programming may consist of Java, Python, C++, Javascript, and HTML .....
+                Programming may asdasdconsist of Java, Python, C++, Javascript, and HTML .....
               </Text>
               <ButtonSubjects text="Learn More" />
             </View>
