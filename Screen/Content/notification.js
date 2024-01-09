@@ -77,6 +77,15 @@ export default function Notification() {
 
           }}
           >
+             <ImageBackground
+            source={require("../../assets/search-icon-no-background.png")}
+            style={{
+              width: 16,
+              height:18,
+              margin:6
+            }}
+            
+          />
           </View>
          </View>
       </View>
