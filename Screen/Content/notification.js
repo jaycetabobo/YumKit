@@ -135,7 +135,46 @@ export default function Notification() {
             borderRadius: 10,
             margin: 10,
           }}
-        ></TouchableOpacity>
+        >
+          <View>
+          <ImageBackground
+            source={require("../../assets/file_contract_icon.png")}
+            style={{
+              width: 25,
+              height: 30,
+              
+            }}
+            
+          />
+          
+          </View>
+          
+          <View style={{ padding: 10, flexDirection: "column" }}>
+            <Text
+              style={{
+                fontFamily: "glacialindi",
+                fontWeight: "bold",
+                marginBottom: 5,
+              }}
+            >
+              Python Topics Added
+            </Text>
+            <Text style={{ width: 250 }}>
+            Check now the lesson to learn and discover what is python and its contex
+            </Text>
+          </View>
+          <View>
+          <ImageBackground
+            source={require("../../assets/ellipsis-no-background.png")}
+            style={{
+              width: 15,
+              height: 15,
+              
+            }}
+            
+          />
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
