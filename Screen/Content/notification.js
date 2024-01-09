@@ -116,6 +116,26 @@ export default function Notification() {
             </Text>
           </TouchableOpacity>
           </View>
+          <Text
+          style={{
+            fontFamily: "glacialindi",
+            fontSize: 20,
+            margin: 10,
+          }}
+        >
+          New
+        </Text>
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#D6EEFF",
+            fontFamily: "glacialindi",
+            padding: 10,
+            flexDirection: "row",
+            alignItems: "center",
+            borderRadius: 10,
+            margin: 10,
+          }}
+        ></TouchableOpacity>
       </View>
     </SafeAreaView>
   );
