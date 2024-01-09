@@ -88,6 +88,23 @@ export default function Notification() {
           />
           </View>
          </View>
+         <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: 10,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: "glacialindi",
+              fontSize: 25,
+            }}
+          >
+            Your Updates
+          </Text>
+          </View>
       </View>
     </SafeAreaView>
   );
