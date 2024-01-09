@@ -29,6 +29,24 @@ export default function Notification() {
 
           }}
         >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              gap: 5,
+            
+            }}
+          >
+            <ImageBackground
+            source={require("../../assets/chevron-left-no-background.png")}
+            style={{
+              width: 30,
+              height: 18,
+              marginTop:10
+            }}
+            
+          />
+          </View>
          </View>
       </View>
     </SafeAreaView>
