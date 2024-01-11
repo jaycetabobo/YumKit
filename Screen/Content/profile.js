@@ -17,7 +17,7 @@ import { LOGOUT } from '../Authentication/reducer/authSlice';
 
 export default function Profile() {
   const titles = ["The Basics of Programming", "Environmental Science", "Locomotive"];
-  const texts= ['asdasd'];
+  const texts= ["SandySurf is not just an app. it's your passport to a world of information on a wide range of subjects. Whether you're a student, acurious mind, or simply someone looking to dive deep into a topic of interest, SandySurf is your ultimate companion."];
 
   const users = useSelector((state) => state.auth.users)
   const Tokens = useSelector((state) => state.auth.logInToken)
