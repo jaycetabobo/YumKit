@@ -10,88 +10,114 @@ import {
 import Carousel from "../../components/Carousel";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ButtonSubjects from "../../components/buttonSubjects";
+import { useEffect, useState } from "react";
 
-export default function Home ({navigation}) {
+export default function Home({ navigation }) {
+  const [schoolsData, setSchoolsData] = useState([]);
 
-    return(
-        <ScrollView style={styles.container}>
-            <View style={styles.TextContainer}>
-                <Text style={styles.Text}>
-                    Your Course Matter!!
-                </Text>
-            </View>
+  useEffect(() => {
+    // Fetch data from the provided link
+    fetch("https://raw.githubusercontent.com/Z3ro0o0/sandydata/main/db.json")
+      .then((response) => response.json())
+      .then((data) => setSchoolsData(data.schools))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  const handleLearnMore = (topic, school) => {
+    // Check if school is defined before accessing its properties
+    if (school) {
+      // Navigate to the Schools2 screen and pass relevant parameters
+      navigation.navigate("Schools2", {
+        schoolName: school.name || "", // Use a default value if name is undefined
+        schoolDescription: school.description || "", // Use a default value if description is undefined
+        schoolImage: school.image || "", // Use a default value if image is undefined
+        courses: school.courses || [], // Use an empty array if courses is undefined
+        comments: school.comments || [], // Use an empty array if comments is undefined
+        // Add other parameters
+      });
+    }
+  };
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.TextContainer}>
+        <Text style={styles.Text}>Your Course Matter!!</Text>
+      </View>
+      <Image
+        source={require("../../assets/course.jpg")}
+        style={styles.bannerImage}
+      />
+      <View style={styles.bannerImage2}>
+        <ImageBackground source={require("../../assets/bannerimage2.png")}>
+          <Text style={styles.bannerText}>Explore & Surf</Text>
+        </ImageBackground>
+      </View>
+      <SafeAreaView>
+        <Carousel />
+      </SafeAreaView>
+      <View style={styles.schoolText}>
+        <Text style={styles.schoolTextDesign2}>School</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Schools");
+          }}
+        >
+          <Text style={styles.schoolTextDesign}>See All</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.schoolContentScroll} horizontal={true}>
+        <View style={styles.schoolContent}>
+          <ImageBackground
+            source={require("../../assets/ustp.jpg")}
+            style={styles.schoolContentImageBG}
+          >
             <Image
-                source={require("../../assets/course.jpg")}
-                style={styles.bannerImage}
+              source={require("../../assets/ustplogo.png")}
+              style={styles.schoolContentUnderImageBG}
             />
-            <View style={styles.bannerImage2}>
-                <ImageBackground
-                    source={require("../../assets/bannerimage2.png")}
-                >
-                    <Text style={styles.bannerText}>
-                        Explore & Surf
+          </ImageBackground>
+          <View style={styles.schoolContentText}>
+            <Text style={styles.schoolContentText2}>USTP</Text>
+          </View>
+        </View>
+      </ScrollView>
+      <View style={styles.schoolText}>
+        <Text style={styles.schoolTextDesign2}>General Subjects</Text>
+        <TouchableOpacity>
+          <Text style={styles.schoolTextDesign}>See All</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.schoolContentScroll} horizontal={true}>
+        {schoolsData.map((school) =>
+          school.courses
+            .filter((course) => course.courseid === "2") // Adjust the condition as needed
+            .map((course) =>
+              course.topics.map((topic) => (
+                <View key={topic.topicname} style={styles.schoolContent}>
+                  <Image
+                    source={{ uri: topic.image }} // Update with dynamic image based on the topic
+                    style={styles.generalSubjectImage}
+                  />
+                  <View style={styles.schoolContentText}>
+                    <Text style={styles.generalSubjectsText}>
+                      {topic.topicname}
                     </Text>
-                </ImageBackground>
-            </View>
-            <SafeAreaView>
-				<Carousel />
-			</SafeAreaView>
-            <View style={styles.schoolText}>
-                <Text style={styles.schoolTextDesign2}>
-                    School
-                </Text>
-                <TouchableOpacity onPress={()=> {navigation.navigate("Schools")}}>
-                    <Text style={styles.schoolTextDesign}>
-                        See All
+                    <Text style={styles.generalSubjectsText2}>
+                      {topic.topicdescription}
                     </Text>
-                </TouchableOpacity>
-            </View>
-            <ScrollView style={styles.schoolContentScroll} horizontal={true}>
-                <View style={styles.schoolContent}>
-                    <ImageBackground
-                        source={require("../../assets/ustp.jpg")}
-                        style={styles.schoolContentImageBG}
-                    >
-                        <Image
-                            source={require("../../assets/ustplogo.png")}
-                            style={styles.schoolContentUnderImageBG}
-                        />
-                    </ImageBackground>
-                    <View style={styles.schoolContentText}>
-                        <Text style={styles.schoolContentText2}>
-                            USTP
-                        </Text>
-                    </View>
+                    <Text>School:</Text>
+                    <Text style={styles.generalSubjectsText}>
+                      {school.name}
+                    </Text>
+                    <TouchableOpacity onPress={() => handleLearnMore(topic)}>
+                      <ButtonSubjects text="Learn More" />
+                    </TouchableOpacity>
+                  </View>
                 </View>
-            </ScrollView>
-             <View style={styles.schoolText}>
-                <Text style={styles.schoolTextDesign2}>
-                    General Subjects
-                </Text>
-                <TouchableOpacity>
-                    <Text style={styles.schoolTextDesign}>
-                        See All
-                    </Text>
-                </TouchableOpacity>
-            </View>
-            <ScrollView style={styles.schoolContentScroll} horizontal={true}>
-                <View style={styles.schoolContent}>
-                    <Image
-                        source={require("../../assets/programming.jpg")}
-                        style={styles.generalSubjectImage}
-                    />
-                    <View style={styles.schoolContentText}>
-                        <Text style={styles.generalSubjectsText}>
-                            programming
-                        </Text>
-                        <Text style={styles.generalSubjectsText2}>
-                            Programming may consists of Java, Python, C++, Javascript and HTML .....
-                        </Text>
-                        <ButtonSubjects text="Learn More"/>
-                    </View>
-                </View>
-                
-            </ScrollView>
+              ))
+            )
+        )}
+      </ScrollView>
 
       <View style={styles.bottomSpace}></View>
     </ScrollView>
@@ -99,94 +125,96 @@ export default function Home ({navigation}) {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: 'white',
-    },
-    TextContainer:{
-        alignItems: "center",
-    },
-    Text:{
-        fontFamily: 'glacialindibold',
-        fontSize: 30,
-        marginTop: 30
-    },
-    bannerImage:{
-        width: 'auto',
-        height: 247,
-        marginTop: 20
-    },
-    bannerImage2:{
-        alignItems: "center",
-        width: 'auto',
-        marginTop: 20,
-        marginBottom: 5
-    },
-    bannerText:{
-        paddingHorizontal:20,
-        paddingVertical: 40,
-        fontFamily: 'boorsok',
-        fontSize: 30,
-    },
-    schoolText:{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginHorizontal: 10,
-        marginVertical: 20,
-    },
-    schoolTextDesign:{
-        borderBottomWidth: 1,
-        fontFamily: 'glacialindi',
-        fontSize: 15
-    },
-    schoolTextDesign2:{
-        fontFamily: 'glacialindibold',
-        fontSize: 18
-    },
-    schoolContentScroll:{
-        flexDirection: "row"
-    },
-    schoolContent:{
-        borderWidth: 1,
-        borderColor: 'black',
-        height: 196,
-        width: 166,
-        borderRadius: 10,
-        marginHorizontal: 10
-    },
-    schoolContentImageBG:{
-        margin: 7.5,
-        width: 149.4,
-        height: 133.219,
-    },
-    schoolContentUnderImageBG:{
-        borderRadius: 100,
-        width: 48.291,
-        height: 50.531
-    },
-    schoolContentText:{
-        flex: 1,
-        alignItems: "center"
-    },
-    schoolContentText2:{
-        fontFamily: 'boorsok',
-        fontSize: 30
-    },
-    generalSubjectImage:{
-        height: 69,
-        borderRadius: 10,
-        width: 'auto',
-        marginVertical: 10
-    },
-    generalSubjectsText:{
-        fontFamily: 'boorsok',
-        fontSize: 18,
-    },
-    generalSubjectsText2:{
-        fontFamily: 'glacialindi',
-        fontSize: 13,
-        marginTop: 5
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  TextContainer: {
+    alignItems: "center",
+  },
+  Text: {
+    fontFamily: "glacialindibold",
+    fontSize: 30,
+    marginTop: 30,
+  },
+  bannerImage: {
+    width: "auto",
+    height: 247,
+    marginTop: 20,
+  },
+  bannerImage2: {
+    alignItems: "center",
+    width: "auto",
+    marginTop: 20,
+    marginBottom: 5,
+  },
+  bannerText: {
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+    fontFamily: "boorsok",
+    fontSize: 30,
+  },
+  schoolText: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 10,
+    marginVertical: 20,
+  },
+  schoolTextDesign: {
+    borderBottomWidth: 1,
+    fontFamily: "glacialindi",
+    fontSize: 15,
+  },
+  schoolTextDesign2: {
+    fontFamily: "glacialindibold",
+    fontSize: 18,
+  },
+  schoolContentScroll: {
+    flexDirection: "row",
+  },
+  schoolContent: {
+    borderWidth: 1,
+    borderColor: "black",
+    height: "auto",
+    width: 166,
+    borderRadius: 10,
+    marginHorizontal: 10,
+    paddingVertical: 10,
+  },
+  schoolContentImageBG: {
+    margin: 7.5,
+    width: 149.4,
+    height: 133.219,
+  },
+  schoolContentUnderImageBG: {
+    borderRadius: 100,
+    width: 48.291,
+    height: 50.531,
+  },
+  schoolContentText: {
+    flex: 1,
+    alignItems: "center",
+  },
+  schoolContentText2: {
+    fontFamily: "boorsok",
+    fontSize: 30,
+  },
+  generalSubjectImage: {
+    height: 69,
+    borderRadius: 10,
+    width: "auto",
+    marginVertical: 10,
+  },
+  generalSubjectsText: {
+    fontFamily: "glacialindibold",
+    fontSize: 12,
+    textAlign: "center",
+  },
+  generalSubjectsText2: {
+    fontFamily: "glacialindi",
+    fontSize: 13,
+    marginTop: 5,
+  },
 
   bottomSpace: {
     marginVertical: 60,
