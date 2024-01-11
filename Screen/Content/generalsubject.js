@@ -1,14 +1,65 @@
 import React from "react";
-import { View, StyleSheet, Text, Image, TextInput } from "react-native";
+import { View, StyleSheet, Text, Image, TextInput, TouchableOpacity, ImageBackground } from "react-native";
 import ButtonSubjects from "../../components/buttonSubjects";
+import { AntDesign, Feather,  } from '@expo/vector-icons';
 
-export default function GeneralSubject() {
+
+export default function GeneralSubject({navigation}) {
   return (
+    <View style={{flex: 1, backgroundColor: "white"}}>
+      <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius:10,
+            borderBottomWidth: 2,
+            borderBottomColor: 'gray',
+            marginTop: 45
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              gap: 5,
+            
+            }}
+          >
+            <TouchableOpacity onPress={()=>{navigation.goBack()}}>
+              <AntDesign name="left" size={30} color="black" style={{marginTop: 15, marginHorizontal: 10}}/>
+            </TouchableOpacity>
+    
+            <ImageBackground
+            source={require("../../assets/logo-no-background.png")}
+            style={{
+              width: 45,
+              height: 45,
+              marginTop: 9,
+              marginBottom: 9,
+            }}
+            
+          />
+          </View>
+          <Text
+            style={{
+              fontSize: 25,
+              fontFamily: "boorsok",
+              alignItems: "center"
+
+            }}
+          >
+            General Subject
+          </Text>
+          
+          
+            <TouchableOpacity onPress={()=>{navigation.navigate("notification")}}>
+                 <Feather name="bell" size={28} color="black" style={{marginHorizontal: 20}}/>
+            </TouchableOpacity>
+          
+         
+        </View>
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        {/* Your existing header code */}
-        <Text style={styles.header}>General Subjects</Text>
-      </View>
 
       {/* mao ni search bar */}
       <TextInput
@@ -36,12 +87,12 @@ export default function GeneralSubject() {
         ))}
       </View>
     </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
   },
   headerContainer: {

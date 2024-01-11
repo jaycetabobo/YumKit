@@ -1,8 +1,10 @@
 import React from "react";
 import {Dimensions,Image,ImageBackground,Text,View,TouchableOpacity,Button,} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { AntDesign, Feather,  } from '@expo/vector-icons';
+
 const { width, height } = Dimensions.get("window");
-export default function Notification() {
+export default function Notification({ navigation }) {
   return (
     <SafeAreaView>
       <View
@@ -15,17 +17,13 @@ export default function Notification() {
       >
         <View
           style={{
-            fontFamily: "glacialindi",
             flexDirection: "row",
             justifyContent: "space-between",
-            marginRight: 10,
-            marginLeft: 10,
             alignItems: "center",
             marginBottom:10,
             borderRadius:10,
             borderBottomWidth: 2,
             borderBottomColor: 'gray',
-            padding:5
 
           }}
         >
@@ -37,21 +35,17 @@ export default function Notification() {
             
             }}
           >
-            <ImageBackground
-            source={require("../../assets/chevron-left-no-background.png")}
-            style={{
-              width: 30,
-              height: 18,
-              marginTop:10
-            }}
-            
-          />
+            <TouchableOpacity onPress={()=>{navigation.goBack()}}>
+              <AntDesign name="left" size={30} color="black" style={{marginTop: 15, marginHorizontal: 10}}/>
+            </TouchableOpacity>
+    
             <ImageBackground
             source={require("../../assets/logo-no-background.png")}
             style={{
-              width: 30,
-              height: 37,
-              
+              width: 45,
+              height: 45,
+              marginTop: 9,
+              marginBottom: 9,
             }}
             
           />
@@ -59,9 +53,7 @@ export default function Notification() {
           <Text
             style={{
               fontSize: 25,
-              fontFamily: "carme",
-              lineheight: "normal",
-              fontWeight:'400',
+              fontFamily: "boorsok",
               alignItems: "center"
 
             }}
@@ -69,25 +61,12 @@ export default function Notification() {
             Notification
           </Text>
           
-          <View style={{
-                borderRadius:200/2,
-                height: 32,
-                width: 32,
-                borderWidth:1,
-
-
-          }}
-          >
-          <ImageBackground
-            source={require("../../assets/search-icon-no-background.png")}
-            style={{
-              width: 16,
-              height:18,
-              margin:6
-            }}
-            
-          />
-        </View>  
+          
+            <TouchableOpacity onPress={()=>{navigation.navigate("Coursecontent")}}>
+                <Feather name="search" size={28} color="black" style={{marginHorizontal:20}}/>
+            </TouchableOpacity>
+          
+         
         </View>
         <View
           style={{
@@ -127,151 +106,126 @@ export default function Notification() {
         >
           New
         </Text>
-        <TouchableOpacity
+        <View
           style={{
             backgroundColor: "#D6EEFF",
-            fontFamily: "glacialindi",
-            padding: 10,
             flexDirection: "row",
             alignItems: "center",
             borderRadius: 10,
-            margin: 10,
           }}
         >
+          <TouchableOpacity style={{
+            padding: 10,
+            flexDirection: "row",
+            alignItems: "center",
+
+
+          }}>
           <View>
-          <ImageBackground
-            source={require("../../assets/file_contract_icon.png")}
-            style={{
-              width: 25,
-              height: 30,
-              
-            }}
-            
-          />
+            <AntDesign name="filetext1" size={30} color="black" style={{marginHorizontal: 10}}/>
           
           </View>
           
           <View style={{ padding: 10, flexDirection: "column" }}>
             <Text
               style={{
-                fontFamily: "glacialindi",
-                fontWeight: "bold",
+                fontFamily: "glacialindibold",
                 marginBottom: 5,
+                fontSize: 18
               }}
             >
               Python Topics Added
             </Text>
-            <Text style={{ width: 250 }}>
+            <Text style={{ width: 250, fontFamily: 'glacialindi' }}>
             Check now the lesson to learn and discover what is python and its contex
             </Text>
           </View>
-          <View>
-          <ImageBackground
-            source={require("../../assets/ellipsis-no-background.png")}
-            style={{
-              width: 15,
-              height: 15,
-              
-            }}
-            
-          />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+          </TouchableOpacity>
+          <TouchableOpacity style={{marginHorizontal: 25}}>
+              <AntDesign name="ellipsis1" size={25} color="black" />
+          </TouchableOpacity>
+        </View>
+        
+        <View
           style={{
-            fontFamily: "glacialindi",
-            padding: 10,
+            backgroundColor: "white",
             flexDirection: "row",
             alignItems: "center",
             borderRadius: 10,
-            margin: 10,
+            marginTop: 10
           }}
         >
+          <TouchableOpacity style={{
+            padding: 10,
+            flexDirection: "row",
+            alignItems: "center",
+
+
+          }}>
           <View>
-          <ImageBackground
-            source={require("../../assets/file_contract_icon.png")}
-            style={{
-              width: 30,
-              height: 37,
-              
-            }}
-            
-          />
+            <AntDesign name="filetext1" size={30} color="black" style={{marginHorizontal: 10}}/>
+          
           </View>
+          
           <View style={{ padding: 10, flexDirection: "column" }}>
             <Text
               style={{
-                fontFamily: "glacialindi",
-                fontWeight: "bold",
+                fontFamily: "glacialindibold",
                 marginBottom: 5,
+                fontSize: 18
               }}
             >
               Python Topics Added
             </Text>
-            <Text style={{ width: 250}}>
+            <Text style={{ width: 250, fontFamily: 'glacialindi' }}>
             Check now the lesson to learn and discover what is python and its contex
             </Text>
           </View>
-          <View>
-          <ImageBackground
-            source={require("../../assets/ellipsis-no-background.png")}
-            style={{
-              width: 15,
-              height: 15,
-              
-            }}
-            
-          />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+          </TouchableOpacity>
+          <TouchableOpacity style={{marginHorizontal: 25}}>
+              <AntDesign name="ellipsis1" size={25} color="black" />
+          </TouchableOpacity>
+        </View>
+        <View
           style={{
             backgroundColor: "#D6EEFF",
-            fontFamily: "glacialindi",
-            padding: 10,
             flexDirection: "row",
             alignItems: "center",
             borderRadius: 10,
-            margin: 10,
+            marginTop: 10
           }}
         >
+          <TouchableOpacity style={{
+            padding: 10,
+            flexDirection: "row",
+            alignItems: "center",
+
+
+          }}>
           <View>
-          <ImageBackground
-            source={require("../../assets/file_contract_icon.png")}
-            style={{
-              width: 30,
-              height: 37,
-              
-            }}
-            
-          />
+            <AntDesign name="filetext1" size={30} color="black" style={{marginHorizontal: 10}}/>
+          
           </View>
+          
           <View style={{ padding: 10, flexDirection: "column" }}>
             <Text
               style={{
-                fontFamily: "glacialindi",
-                fontWeight: "bold",
+                fontFamily: "glacialindibold",
                 marginBottom: 5,
+                fontSize: 18
               }}
             >
               Python Topics Added
             </Text>
-            <Text style={{ width: 250 }}>
+            <Text style={{ width: 250, fontFamily: 'glacialindi' }}>
             Check now the lesson to learn and discover what is python and its contex
-             </Text>
+            </Text>
           </View>
-          <View>
-          <ImageBackground
-            source={require("../../assets/ellipsis-no-background.png")}
-            style={{
-              width: 15,
-              height: 15,
-              
-            }}
-            
-          />
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <TouchableOpacity style={{marginHorizontal: 25}}>
+              <AntDesign name="ellipsis1" size={25} color="black" />
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

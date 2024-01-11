@@ -7,6 +7,8 @@ import Schools2 from "../Screen/Content/schools2";
 import BottomTab from "../components/bottomtab";
 import Favorites from "../Screen/Content/favorites";
 import Coursecontent from "../Screen/Content/coursecontent";
+import Notification from "../Screen/Content/notification";
+import GeneralSubject from "../Screen/Content/generalsubject";
 
 const Stack = createStackNavigator();
 
@@ -49,6 +51,16 @@ export default function ProfileRoutes() {
         name="Coursecontent"
         component={Coursecontent}
         options={{ title: " " }}
+      />
+      <Stack.Screen
+        name="notification"
+        component={Notification}
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name="generalsubjects"
+        component={GeneralSubject}
+        options={{ headerShown: false}}
       />
 
     </Stack.Navigator>

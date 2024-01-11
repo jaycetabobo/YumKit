@@ -142,12 +142,12 @@ export default function BottomTab({ navigation }) {
               headerRight: () => (
                 <View style={styles.headerIcon}>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate("Forgotpage1")}
+                    onPress={() => navigation.navigate("notification")}
                   >
                     <Feather name="bell" size={28} color="black" />
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate("Forgotpage1")}
+                    onPress={() => navigation.navigate("generalsubjects")}
                   >
                     <Feather name="search" size={28} color="black" />
                   </TouchableOpacity>

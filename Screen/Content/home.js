@@ -11,7 +11,7 @@ import Carousel from "../../components/Carousel";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ButtonSubjects from "../../components/buttonSubjects";
 
-export default function Home () {
+export default function Home ({navigation}) {
 
     return(
         <ScrollView style={styles.container}>
@@ -40,7 +40,7 @@ export default function Home () {
                 <Text style={styles.schoolTextDesign2}>
                     School
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> {navigation.navigate("Schools")}}>
                     <Text style={styles.schoolTextDesign}>
                         See All
                     </Text>
