@@ -135,11 +135,9 @@ export default function GeneralSubject({ navigation }) {
                 <View style={styles.gridContainer}>
                   {school.courses.map((course) => (
                     <View key={course.courseid}>
-                      {/* Add a unique key for the course */}
                       <Text style={styles.header}>{course.course}</Text>
                       {course.topics.map((topic) => (
                         <View key={topic.topicname}>
-                          {/* Use a unique key for the topic */}
                           <Text style={styles.generalSubjectsText}>
                             {topic.topicname}
                           </Text>
@@ -172,9 +170,9 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     marginBottom: 10,
-    borderColor: "black", // Add border color
-    borderWidth: 1, // Add border width
-    borderRadius: 5, // Add border radius
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 5,
   },
   header: {
     fontSize: 20,
@@ -199,7 +197,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     height: "auto",
-    width: "48%", // Set the width to 48% for two items in a row
+    width: "48%",
     borderRadius: 10,
     marginBottom: 10,
   },
