@@ -12,6 +12,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import ButtonSubjects from "../../components/buttonSubjects";
 
 export default function Home () {
+
     return(
         <ScrollView style={styles.container}>
             <View style={styles.TextContainer}>

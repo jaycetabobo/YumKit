@@ -110,7 +110,7 @@ export default function Signup2({ navigation, route }) {
     dispatch(REGISTER([...users, userData2]))
     setSignedUp(true);
     Alert.alert('Account created successfully!', null, [
-      { text: 'OK', onPress: () => navigation.navigate("Login")},
+      { text: 'OK', onPress: () => navigation.navigate("landingpage")},
     ], {
       titleStyle: {
         color: 'yellow',

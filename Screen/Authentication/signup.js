@@ -25,7 +25,6 @@ export default function Signup({ navigation }) {
   const handleonChange = () => {
     
   }
-
   const handleSubmit = () => {
     // Check if any of the text inputs are empty.
     if (userData.Firstname !== "" 
@@ -55,7 +54,7 @@ export default function Signup({ navigation }) {
             source={require("../../assets/logo-no-background.png")}
             style={{ width: 100, height:110, marginTop: 10 }}
           />
-          <Text style={{ fontSize: 45, marginTop: 10, fontFamily: 'boorsok' }}>Sign up</Text>
+          <Text style={{ fontSize: 45, marginTop: 10, fontFamily: 'boorsok' }}>Sign up </Text>
 
             <View style={{ width: "80%" }}>
               <Text style={styles.aboveTextOfTextInput2}>Firstname:</Text>

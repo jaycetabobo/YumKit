@@ -12,7 +12,8 @@ import {
   Keyboard
 } from "react-native";
 import CustomButton from "../../components/CustomButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { LOGIN } from "./reducer/authSlice";
 
 
 const { width, height } = Dimensions.get("window");
@@ -24,8 +25,17 @@ export default function Login({ navigation, route }) {
   // const userData2 = route.params.userData2;
   // const userData = route.params.userData;
   const users = useSelector((state) => state.auth.users)
+  const Tokens = useSelector((state) => state.auth.logInToken)
+  const dispatch = useDispatch();
+  const matchingUser = users.find((users) => users.username === username);
+  const Token = username;
+
   const handleLoginSubmit = ()=>{
-    navigation.navigate('tabscreen');
+    if(matchingUser && matchingUser.password === password){
+      dispatch(LOGIN({...Tokens, token: Token}));
+    }else{
+      alert("Username or password is incorrect")
+    }
     // if (userData2.username === username && userData2.password === password) {
     //   // Navigate to the profile page
     //   navigation.navigate('Profile');
@@ -45,11 +55,11 @@ export default function Login({ navigation, route }) {
             />
             <Text style={{ fontSize: 45, marginTop: 10, fontFamily: 'boorsok' }}>Login</Text>
             {
-          users.map((obj, index) => <View key={index}>
-            <Text>username: {obj.username}</Text>
-            <Text>firstname: {obj.firstname}</Text>
-          </View>)
-      }
+              users.map((obj, index) => <View key={index}>
+                <Text>username: {obj.username} </Text> 
+                <Text>password: {obj.password} </Text>
+              </View>)
+            }
             <View style={{ width: "80%", marginTop: 50 }}>
               <Text style={{marginBottom: 5}}>Username:</Text>
               <View

@@ -7,21 +7,32 @@ import {
   Image,
   ScrollView,
  } from 'react-native';
- import { Ionicons } from '@expo/vector-icons';
- import { FontAwesome } from '@expo/vector-icons';
  import ExpandableText from '../../components/Expandable';
+ import { useDispatch, useSelector } from "react-redux";
 
 import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { LOGOUT } from '../Authentication/reducer/authSlice';
 
-const { width, height } = Dimensions.get("window");
 
-export default function Profile({ navigation, route }) {
+export default function Profile() {
   const titles = ["The Basics of Programming", "Environmental Science", "Locomotive"];
-  const texts= ['asdasdasdasd'];
+  const texts= ['asdasd'];
 
-  // const userData = route.params.userData;
-  // const userData2 = route.params.userData2;
+  const users = useSelector((state) => state.auth.users)
+  const Tokens = useSelector((state) => state.auth.logInToken)
+  const dispatch = useDispatch();
+
+  const token = Tokens.token;
+  const matchingUser = users.find((users) => users.username === token);
+  const username = matchingUser.username;
+  const email = matchingUser.email;
+  const firstName = matchingUser.firstname;
+  const lastName = matchingUser.lastname;
+  const birthdate = matchingUser.birthdate;
+  const handleLogoutSubmit = () =>{
+    dispatch(LOGOUT())
+  }
 
   return (
       <ScrollView style={styles.container}>
@@ -32,17 +43,15 @@ export default function Profile({ navigation, route }) {
             style={styles.contentTopBg}>
             <View style={styles.contentTopInside}>
                 <Image
-                source={require("../../assets/testimage.jpg")}
+                source={require("../../assets/profileImage.png")}
                 style={styles.profile}
                 ></Image>
                 <View style={styles.profileName}>
                   <Text style={styles.profileNameText} numberOfLines={1} adjustsFontSizeToFit={true}>
-                    {/* {userData.username} */}
-                    Jayce Tabobo
+                    {username}
                   </Text>
                   <Text style={styles.profileNameText2} numberOfLines={1} adjustsFontSizeToFit={true}>
-                    {/* {userData2.email} */}
-                    tabobo.jayce01@gmail.com
+                    {email}
                   </Text>
                 </View>
                 <Text style={styles.profileEdit}>
@@ -58,7 +67,7 @@ export default function Profile({ navigation, route }) {
             </Text>
             <Text style={styles.underContentBottomText2}>
               {/* {userData.fullname} */}
-              Jayce Tabobo
+              {firstName} {lastName}
             </Text>
           </View>
           <View style={styles.contentBottomText}>
@@ -67,7 +76,7 @@ export default function Profile({ navigation, route }) {
             </Text>
             <Text style={styles.underContentBottomText2}>
               {/* {userData.birthdate} */}
-              01-10-02
+              {birthdate}
             </Text>
           </View>
           <View style={styles.contentBottomText}>
@@ -84,7 +93,7 @@ export default function Profile({ navigation, route }) {
             <Text style={styles.contentBottom2}>
               FAQ
             </Text>
-            <TouchableOpacity onPress={ () => navigation.navigate('landingpage')}>
+            <TouchableOpacity onPress={ handleLogoutSubmit}>
               <Text style={styles.contentBottom2}>
                 Logout
               </Text>

@@ -4,6 +4,22 @@ import ProfileRoutes from "./routes/profileRoutes";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import store from "./store";
+import AuthRoutes from "./routes/AuthRoutes";
+import { useSelector } from "react-redux";
+
+
+const RootNavigation = () => {
+  const Tokens = useSelector((state) => state.auth.logInToken)
+  console.log(Tokens)
+    return (
+    <NavigationContainer>
+      {
+        Tokens === null ?
+          <AuthRoutes /> : <ProfileRoutes />
+      }
+    </NavigationContainer>
+  )
+}
 
 export default function App() {
   const [loaded] = useFonts({
@@ -20,9 +36,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-    <NavigationContainer>
-      <ProfileRoutes />
-    </NavigationContainer>
+      <RootNavigation/>
     </Provider>
   );
 }

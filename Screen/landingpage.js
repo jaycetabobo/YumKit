@@ -23,6 +23,7 @@ export default function Landingpage({ navigation }) {
           curious mind, or simply someone looking to dive deep into a topic of
           interest, SandySurf is your ultimate companion.
         </Text>
+
       </View>
       <View
         style={{
@@ -34,11 +35,8 @@ export default function Landingpage({ navigation }) {
       >
         <CustomButton text='login' onPress={ () => navigation.navigate('Login')}/>
         <CustomButton text='signup' onPress={ () => navigation.navigate('Signup')} />
+     
       </View>
-      <Image
-        source={require("../assets/profileWaveImage.png")}
-        style={{ height: 150, width: "auto", marginTop: 'auto'}}
-      />
       </View>
   );
 }
