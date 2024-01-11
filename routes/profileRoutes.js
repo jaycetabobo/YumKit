@@ -55,14 +55,13 @@ export default function ProfileRoutes() {
       <Stack.Screen
         name="notification"
         component={Notification}
-        options={{ headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="generalsubjects"
         component={GeneralSubject}
-        options={{ headerShown: false}}
+        options={{ headerShown: false }}
       />
-
     </Stack.Navigator>
   );
 }

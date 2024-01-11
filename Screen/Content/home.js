@@ -61,6 +61,7 @@ export default function Home({ navigation }) {
           <Text style={styles.schoolTextDesign}>See All</Text>
         </TouchableOpacity>
       </View>
+
       <ScrollView style={styles.schoolContentScroll} horizontal={true}>
         <View style={styles.schoolContent}>
           <ImageBackground
@@ -79,7 +80,9 @@ export default function Home({ navigation }) {
       </ScrollView>
       <View style={styles.schoolText}>
         <Text style={styles.schoolTextDesign2}>General Subjects</Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("generalsubjects")}
+        >
           <Text style={styles.schoolTextDesign}>See All</Text>
         </TouchableOpacity>
       </View>
