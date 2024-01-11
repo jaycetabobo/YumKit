@@ -13,6 +13,7 @@ import { AntDesign, Feather } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function GeneralSubject({ navigation }) {
+  const [searchQuery, setSearchQuery] = useState("");
   const [schoolsData, setSchoolsData] = useState([]);
 
   useEffect(() => {
@@ -35,6 +36,18 @@ export default function GeneralSubject({ navigation }) {
       });
     }
   };
+
+  const filteredSchools = schoolsData.filter((school) => {
+    return (
+      school.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      school.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      school.courses.some((course) =>
+        course.topics.some((topic) =>
+          topic.topicname.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      )
+    );
+  });
 
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
@@ -104,12 +117,17 @@ export default function GeneralSubject({ navigation }) {
       </View>
       <View style={styles.container}>
         {/* mao ni search bar */}
-        <TextInput style={styles.searchBar} placeholder="Search subjects..." />
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search subjects..."
+          value={searchQuery}
+          onChangeText={(text) => setSearchQuery(text)}
+        />
 
         {/* Gen sub ni */}
         <ScrollView>
           <View style={styles.gridContainer}>
-            {schoolsData.map((school) => (
+            {filteredSchools.map((school) => (
               <View key={school.id}>
                 {/* Add a unique key for the school */}
                 <Text style={styles.header}>{school.name}</Text>
