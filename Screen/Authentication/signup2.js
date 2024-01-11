@@ -172,17 +172,17 @@ export default function Signup2({ navigation, route }) {
             </View>
             <View>
               {errorMessageWeak && (
-                <Text style={{ color: "red", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20}}>
+                <Text style={{ color: "red", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20, width: 300}}>
                   {errorMessageWeak}
                 </Text>
               )}
             {errorMessageModerate && (
-                <Text style={{ color: "orange", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20}}>
+                <Text style={{ color: "orange", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20, width: 300}}>
                   {errorMessageModerate}
                 </Text>
               )}
               {errorMessageStrong && (
-                <Text style={{ color: "green", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20}}>
+                <Text style={{ color: "green", fontSize: 15, marginTop: 5, marginRight: 240, marginLeft: 20, width: 300}}>
                   {errorMessageStrong}
                 </Text>
               )}
