@@ -45,6 +45,7 @@ const Schools = () => {
       <ScrollView>
         {schoolsData.map((item, index) => (
           <View
+            key={index} // Add a unique key prop
             style={{
               borderWidth: 1,
               borderRadius: 10,
