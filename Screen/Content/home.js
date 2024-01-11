@@ -16,7 +16,6 @@ export default function Home({ navigation }) {
   const [schoolsData, setSchoolsData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the provided link
     fetch("https://raw.githubusercontent.com/Z3ro0o0/sandydata/main/db.json")
       .then((response) => response.json())
       .then((data) => setSchoolsData(data.schools))
@@ -24,16 +23,13 @@ export default function Home({ navigation }) {
   }, []);
 
   const handleLearnMore = (school) => {
-    // Check if school is defined before accessing its properties
     if (school) {
-      // Navigate to the Schools2 screen and pass relevant parameters
       navigation.navigate("Schools2", {
-        schoolName: school.name || "", // Use a default value if name is undefined
-        schoolDescription: school.description || "", // Use a default value if description is undefined
-        schoolImage: school.image || "", // Use a default value if image is undefined
-        courses: school.courses || [], // Use an empty array if courses is undefined
-        comments: school.comments || [], // Use an empty array if comments is undefined
-        // Add other parameters
+        schoolName: school.name || "",
+        schoolDescription: school.description || "",
+        schoolImage: school.image || "",
+        courses: school.courses || [],
+        comments: school.comments || [],
       });
     }
   };
@@ -90,12 +86,12 @@ export default function Home({ navigation }) {
       <ScrollView style={styles.schoolContentScroll} horizontal={true}>
         {schoolsData.map((school) =>
           school.courses
-            .filter((course) => course.courseid === "2") // Adjust the condition as needed
+            .filter((course) => course.courseid === "2")
             .map((course) =>
               course.topics.map((topic) => (
                 <View key={topic.topicname} style={styles.schoolContent}>
                   <Image
-                    source={{ uri: topic.image }} // Update with dynamic image based on the topic
+                    source={{ uri: topic.image }}
                     style={styles.generalSubjectImage}
                   />
                   <View style={styles.schoolContentText}>
