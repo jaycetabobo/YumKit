@@ -23,7 +23,7 @@ export default function Home({ navigation }) {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const handleLearnMore = (topic, school) => {
+  const handleLearnMore = (school) => {
     // Check if school is defined before accessing its properties
     if (school) {
       // Navigate to the Schools2 screen and pass relevant parameters
@@ -109,7 +109,7 @@ export default function Home({ navigation }) {
                     <Text style={styles.generalSubjectsText}>
                       {school.name}
                     </Text>
-                    <TouchableOpacity onPress={() => handleLearnMore(topic)}>
+                    <TouchableOpacity onPress={() => handleLearnMore(school)}>
                       <ButtonSubjects text="Learn More" />
                     </TouchableOpacity>
                   </View>
