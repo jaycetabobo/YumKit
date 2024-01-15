@@ -36,26 +36,27 @@
   "profile": {
     "name": "typicode"
   },
-
   "schools": [
     {
       "id": "1",
       "name": "University of Science and Technology of Southern Philippines",
-      "description": "USTP has different campuses consist of Alubijid, CDO, Claveria and many more ......",
+      "description": "USTP has different campuses consisting of Alubijid, CDO, Claveria, and many more. The university offers various courses, including BS in Information Technology and BS in Technology Communication and Management.",
       "courses": [
         {
           "courseid": "1",
           "course": "BS in Information Technology",
           "topics": [
             {
-              "topicname": "Java",
-              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices."
-            },          
+              "topicname": "Java Programming",
+              "topicdescription": "Java is a high-level, class-based, object-oriented programming language. Developers use Java to construct applications in laptops, data centres, game consoles, scientific supercomputers, cell phones, and other devices.",
+              "littleinformation": "Learning Java for application development."
+            },
             {
-              "topicname": "Python",
-              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains."
+              "topicname": "Python Programming",
+              "topicdescription": "Python is a high-level, versatile programming language known for readability and simplicity, facilitating rapid development across various domains.",
+              "littleinformation": "Exploring Python for versatile programming."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
@@ -63,15 +64,16 @@
           "topics": [
             {
               "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicdescription": "Understanding communication protocols is crucial in networking. It involves the rules and conventions for communication between network devices.",
+              "littleinformation": "Exploring communication protocols in networking."
+            },
             {
               "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicdescription": "Developing strategic leadership skills for managing teams in the rapidly evolving digital age.",
+              "littleinformation": "Understanding strategic IT leadership in the digital age."
             }
-            ]
+          ]
         }
-        
       ],
       "image": "https://www.ustp.edu.ph/wp-content/uploads/2021/02/USTP-CDO.jpg",
       "logo": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/324429893_692617042404789_8825582010059206302_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=WtzyhPJzFHoAX9biYm4&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfD5Rk2KhQZWJcbyml18-1eF9P8LGi3RBhHkiamUjw9QZg&oe=658DCBF4",
@@ -93,38 +95,40 @@
     {
       "id": "2",
       "name": "Capitol University",
-      "description": "Capitol University[2] is a non-sectarian, co-educational[3] private university[4][5] located in Cagayan de Oro, Philippines.",
+      "description": "Capitol University is a non-sectarian, co-educational private university located in Cagayan de Oro, Philippines. The university offers courses such as Bachelor of Elementary Education and Bachelor of Science in Civil Engineering.",
       "courses": [
         {
           "courseid": "1",
           "course": "Bachelor of Elementary Education",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Teaching Strategies",
+              "topicdescription": "Exploring effective teaching strategies for elementary education, focusing on creating engaging and impactful learning experiences.",
+              "littleinformation": "Developing effective teaching strategies for elementary education."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Child Psychology",
+              "topicdescription": "Understanding the psychological development of children, exploring key theories and practical applications.",
+              "littleinformation": "Exploring child psychology for effective teaching."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
           "course": "Bachelor of Science in Civil Engineering",
-          
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Structural Engineering",
+              "topicdescription": "Studying the principles and practices of structural engineering, focusing on the design and analysis of structures.",
+              "littleinformation": "Exploring principles and practices of structural engineering."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Construction Management",
+              "topicdescription": "Understanding the management aspects of construction projects, including planning, scheduling, and resource allocation.",
+              "littleinformation": "Exploring construction management in civil engineering."
             }
-            ]
+          ]
         }
-        
       ],
       "image": "https://www.finduniversity.ph/_resources/business/10048/capitol-university-983.jpg",
       "logo": "https://upload.wikimedia.org/wikipedia/en/8/8e/Capitol_University.jpg",
@@ -146,106 +150,110 @@
     {
       "id": "3",
       "name": "Cagayan de Oro College",
-      "description": "Cagayan de oro College is a private non-sectarian college on Max Suniel St, Carmen, Cagayan de Oro, Philippines.",
+      "description": "Cagayan de Oro College is a private non-sectarian college on Max Suniel St, Carmen, Cagayan de Oro, Philippines. The college offers courses such as BS in Criminology and BS in Nursing.",
       "courses": [
         {
           "courseid": "1",
           "course": "BS in Criminology",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Criminal Law",
+              "topicdescription": "Studying the fundamental principles and statutes of criminal law, exploring the legal aspects of criminal activities and justice.",
+              "littleinformation": "Exploring fundamental principles and statutes of criminal law."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Forensic Science",
+              "topicdescription": "Understanding the application of scientific techniques in investigating crimes, including the collection and analysis of evidence.",
+              "littleinformation": "Exploring forensic science in criminology."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
           "course": "BS in Nursing",
-          
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Health Assessment",
+              "topicdescription": "Developing skills in assessing the health status of individuals, including physical examinations and health history interviews.",
+              "littleinformation": "Developing skills in health assessment for nursing practice."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Pharmacology",
+              "topicdescription": "Studying the principles of drug action, including drug interactions, side effects, and dosage calculations.",
+              "littleinformation": "Exploring pharmacology in nursing practice."
             }
-            ]
+          ]
         }
-        
       ],
-      "image": "https://www.pacu.org.ph/wordpress/wp-content/uploads/2017/05/Screen-Shot-2017-11-02-at-10.07.43-AM.png",
-      "logo": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/353832082_590289946586763_3338392738682972305_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=HeCc9LjnWl0AX_wQYXK&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfAqVWNzkyL23fqlHgSIH6-_u7cEeXhwg7zQtprnZJXdkg&oe=658F9E95",
+      "image": "https://www.pacu.org.ph/wordpress/wp-content/uploads/2017/05/Cagayan-de-Oro-College.jpg",
+      "logo": "https://images.static-collegedunia.com/public/college_data/images/appImage/25648_Cagayan_De_Oro_College.png",
       "comments": [
         {
           "username": "user1",
-          "comment": "I've heard great things about this school!"
+          "comment": "Interested in criminology!"
         },
         {
           "username": "user2",
-          "comment": "Is there a strong community on campus?"
+          "comment": "How's the faculty in the nursing program?"
         },
         {
           "username": "user3",
-          "comment": "Looking forward to the application process!"
+          "comment": "Is there a campus tour available?"
         }
       ]
     },
     {
       "id": "4",
-      "name": "Xavier University – Ateneo de Cagayan",
-      "description": "Ateneo de Cagayan or Xavier is a private, Catholic, coeducational, basic and higher education institution. It is operated by the Philippine Province of the Society of Jesus in Cagayan de Oro, Misamis Oriental, Philippines.",
+      "name": "Xavier University - Ateneo de Cagayan",
+      "description": "Xavier University is a private Catholic university run by the Society of Jesus in Cagayan de Oro City. The university offers a wide range of programs, including BS in Computer Science and BS in Environmental Science.",
       "courses": [
         {
           "courseid": "1",
-          "course": "College of Law",
+          "course": "BS in Computer Science",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Data Structures and Algorithms",
+              "topicdescription": "Understanding the fundamental concepts of data structures and algorithms, crucial for efficient software development.",
+              "littleinformation": "Exploring data structures and algorithms for software development."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Web Development",
+              "topicdescription": "Developing skills in designing and building interactive and user-friendly websites and web applications.",
+              "littleinformation": "Learning web development for creating interactive websites."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
-          "course": "College of Arts and Sciences",
-          
+          "course": "BS in Environmental Science",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Environmental Conservation",
+              "topicdescription": "Studying strategies and practices for the conservation and sustainable use of natural resources and ecosystems.",
+              "littleinformation": "Exploring environmental conservation for sustainable practices."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Climate Change Adaptation",
+              "topicdescription": "Understanding the impacts of climate change and developing adaptive strategies for mitigating its effects.",
+              "littleinformation": "Developing strategies for climate change adaptation."
             }
-            ]
+          ]
         }
-        
       ],
-      "image": "https://www.xu.edu.ph/images/750px_XU.jpg",
-      "logo": "https://cdn.contactcenterworld.com/images/company/xavier-university-ateneo-de-cagayan-largex3-logo.jpg",
+      "image": "https://www.xu.edu.ph/legacy/images/legacy_1.jpg",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1.1Loyola_Xavier_University_Logo.jpg",
       "comments": [
         {
           "username": "user1",
-          "comment": "This school is my top choice!"
+          "comment": "Xavier has a great reputation!"
         },
         {
           "username": "user2",
-          "comment": "The location is perfect for me."
+          "comment": "How are the internship opportunities for computer science students?"
         },
         {
           "username": "user3",
-          "comment": "Any advice for incoming students?"
+          "comment": "Tell me more about the environmental science program."
         }
       ]
     },
@@ -259,31 +267,33 @@
           "course": "BS in Nursing",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Nursing Fundamentals",
+              "topicdescription": "Understanding the foundational principles and practices of nursing.",
+              "littleinformation": "Learning essential nursing skills and knowledge."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Patient Care",
+              "topicdescription": "Providing hands-on and compassionate care to patients in various healthcare settings.",
+              "littleinformation": "Developing skills in providing effective patient care."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
           "course": "BS in Accountancy",
-          
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Accounting Principles",
+              "topicdescription": "Grasping the fundamental principles that govern accounting practices.",
+              "littleinformation": "Understanding fundamental accounting principles."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Financial Auditing",
+              "topicdescription": "Conducting thorough examinations of financial records to ensure accuracy and compliance.",
+              "littleinformation": "Performing financial audits for accuracy and compliance."
             }
-            ]
+          ]
         }
-        
       ],
       "image": "https://philippine-trivia.com/sites/default/files/images/liceo-de-cagayan.jpg",
       "logo": "https://www.pacu.org.ph/wordpress/wp-content/uploads/2017/05/Liceo-De-Cagayan-University.png",
@@ -312,31 +322,33 @@
           "course": "BS in Psychology",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Psychology Fundamentals",
+              "topicdescription": "Exploring the basic principles and theories of psychology and human behavior.",
+              "littleinformation": "Exploring the basics of psychology and human behavior."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Counseling Techniques",
+              "topicdescription": "Learning effective counseling techniques and strategies for psychological support.",
+              "littleinformation": "Learning effective counseling techniques and skills."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
           "course": "BS in Mass Communication",
-          
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Media Ethics",
+              "topicdescription": "Understanding the ethical considerations and responsibilities in media production.",
+              "littleinformation": "Understanding ethical considerations in media production."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Journalistic Writing",
+              "topicdescription": "Developing skills in writing for journalism and effective communication.",
+              "littleinformation": "Developing skills in writing for journalism."
             }
-            ]
+          ]
         }
-        
       ],
       "image": "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/217410306_2979415232377577_4966805999427734101_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=783fdb&_nc_ohc=ShnWNpV3BUEAX_CbuDX&_nc_ht=scontent.fcgm1-1.fna&oh=00_AfD7csJHB6AdVhVLhhHrvf_qYncTyeqIFdPowDWfHFt0ag&oe=65902516",
       "logo": "https://upload.wikimedia.org/wikipedia/en/5/55/Lourdes_College_official_seal.png",
@@ -365,31 +377,33 @@
           "course": "BS in Hospitality Management",
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Hospitality Industry Trends",
+              "topicdescription": "Exploring the latest trends and developments in the hospitality industry.",
+              "littleinformation": "Exploring current trends in the hospitality industry."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Customer Service Excellence",
+              "topicdescription": "Developing skills for providing exceptional customer service in the hospitality sector.",
+              "littleinformation": "Developing skills for providing excellent customer service."
             }
-            ]
+          ]
         },
         {
           "courseid": "2",
           "course": "BS in Tourism Management",
-          
           "topics": [
             {
-              "topicname": "Communication Protocols in Networking",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-            },          
+              "topicname": "Tourism Marketing",
+              "topicdescription": "Understanding marketing strategies and techniques in the tourism industry.",
+              "littleinformation": "Understanding marketing strategies in the tourism industry."
+            },
             {
-              "topicname": "Strategic IT Leadership: Managing Teams in the Digital Age",
-              "topicdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+              "topicname": "Cultural Tourism",
+              "topicdescription": "Exploring the intersection of culture and tourism in the global context.",
+              "littleinformation": "Exploring the intersection of culture and tourism."
             }
-            ]
+          ]
         }
-        
       ],
       "image": "https://4.bp.blogspot.com/-cAzxJkTR8pg/UYs3vF09krI/AAAAAAAAAGg/TbfaDILzdPc/s1600/southernphilcollege.jpg",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/SPC.jpg",

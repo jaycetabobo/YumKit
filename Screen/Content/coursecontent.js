@@ -45,15 +45,15 @@ export default function Coursecontent() {
       </View>
       <Image
         style={{
-          width: 375,
+          width: "97%",
           height: 180,
-          alignItems: "center",
-          justifyContent: "center",
           backgroundColor: "black",
+          alignSelf: "center",
           marginTop: 20,
+          borderRadius: 10,
         }}
         source={require("../../assets/java2.jpg")}
-      ></Image>
+      />
       <ScrollView style={{ height: 350 }}>
         <Text
           style={{
