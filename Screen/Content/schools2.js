@@ -1,21 +1,14 @@
 import React from "react";
 import { View, Text, Image, Dimensions, ImageBackground } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 const Schools2 = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const {
-    schoolName,
-    schoolDescription,
-    schoolImage,
-    courses,
-    comments,
-    // Add other parameters
-  } = route.params;
+  const { schoolName, schoolImage, courses, comments } = route.params;
 
   return (
     <View style={{ alignItems: "center" }}>
@@ -99,8 +92,9 @@ const Schools2 = () => {
                           >
                             {topic.topicname}
                           </Text>
+
                           <Image
-                            source={topic.image}
+                            source={{ uri: schoolImage }}
                             style={{
                               height: 190,
                               width: "96%",
@@ -111,7 +105,13 @@ const Schools2 = () => {
                             {topic.topicdescription}
                           </Text>
                           <TouchableOpacity
-                            onPress={() => navigation.navigate("Coursecontent")}
+                            onPress={() =>
+                              navigation.navigate("Coursecontent", {
+                                topicname: topic.topicname,
+                                topicdescription: topic.topicdescription,
+                                littleinformation: topic.littleinformation,
+                              })
+                            }
                           >
                             <Text
                               style={{

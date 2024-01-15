@@ -15,7 +15,6 @@ import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-// GitHub link for schools data
 const schoolsurl =
   "https://raw.githubusercontent.com/Z3ro0o0/sandydata/main/db.json";
 
@@ -45,7 +44,7 @@ const Schools = () => {
       <ScrollView>
         {schoolsData.map((item, index) => (
           <View
-            key={index} // Add a unique key prop
+            key={index}
             style={{
               borderWidth: 1,
               borderRadius: 10,
@@ -123,8 +122,7 @@ const Schools = () => {
                   schoolDescription: item.description,
                   schoolImage: item.image,
                   courses: item.courses,
-                  comments: item.comments, // Assuming comments are available at the school level
-                  // Add other relevant data
+                  comments: item.comments,
                 })
               }
             >
