@@ -70,7 +70,12 @@ const Schools2 = () => {
                     </Text>
                   </ImageBackground>
                   {course.topics && course.topics.length > 0 && (
-                    <View>
+                    <View
+                      style={{
+                        width: width,
+                        padding: 10,
+                      }}
+                    >
                       {course.topics.map((topic, topicIndex) => (
                         <View
                           key={topicIndex}
@@ -96,7 +101,7 @@ const Schools2 = () => {
                           <Image
                             source={{ uri: schoolImage }}
                             style={{
-                              height: 190,
+                              height: 250,
                               width: "96%",
                               borderRadius: 15,
                             }}
