@@ -100,7 +100,7 @@ const Schools2 = () => {
                             {topic.topicname}
                           </Text>
                           <Image
-                            source={require("../../assets/java.jpg")}
+                            source={topic.image}
                             style={{
                               height: 190,
                               width: "96%",
