@@ -85,6 +85,7 @@ const Schools2 = () => {
                             alignItems: "center",
                             backgroundColor: "#B7DCFE",
                             borderRadius: 20,
+                            marginVertical: 10,
                           }}
                         >
                           <Text
