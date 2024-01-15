@@ -140,7 +140,7 @@ const Schools = () => {
                   color: "white",
                 }}
               >
-                Learn More
+                View Courses
               </Text>
             </TouchableOpacity>
           </View>

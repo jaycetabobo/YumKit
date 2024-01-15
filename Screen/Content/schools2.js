@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, Image, Dimensions, ImageBackground } from "react-native";
-import { useRoute } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
 const Schools2 = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const {
     schoolName,
     schoolDescription,
@@ -78,7 +79,14 @@ const Schools2 = () => {
                   {course.topics && course.topics.length > 0 && (
                     <View>
                       {course.topics.map((topic, topicIndex) => (
-                        <View key={topicIndex} style={{ alignItems: "center" }}>
+                        <View
+                          key={topicIndex}
+                          style={{
+                            alignItems: "center",
+                            backgroundColor: "#B7DCFE",
+                            borderRadius: 20,
+                          }}
+                        >
                           <Text
                             style={{
                               textAlign: "center",
@@ -101,6 +109,24 @@ const Schools2 = () => {
                           <Text style={{ textAlign: "center", marginTop: 10 }}>
                             {topic.topicdescription}
                           </Text>
+                          <TouchableOpacity
+                            onPress={() => navigation.navigate("Coursecontent")}
+                          >
+                            <Text
+                              style={{
+                                backgroundColor: "black",
+                                textAlign: "center",
+                                fontFamily: "boorsok",
+                                padding: 10,
+                                justifyContent: "center",
+                                borderRadius: 10,
+                                marginVertical: 10,
+                                color: "white",
+                              }}
+                            >
+                              Learn More
+                            </Text>
+                          </TouchableOpacity>
                         </View>
                       ))}
                     </View>
