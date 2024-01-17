@@ -11,7 +11,7 @@ const Schools2 = () => {
   const { schoolName, schoolImage, courses, comments } = route.params;
 
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={{ alignItems: "center", backgroundColor: "white" }}>
       <Text
         style={{
           textAlign: "center",
@@ -34,7 +34,7 @@ const Schools2 = () => {
 
       <ScrollView
         style={{
-          height: 400,
+          height: "auto",
           width: width,
         }}
       >

@@ -131,13 +131,15 @@ export default function GeneralSubject({ navigation }) {
               <View key={school.id}>
                 {/* Add a unique key for the school */}
                 <Text style={styles.header}>{school.name}</Text>
-                <Text>{school.description}</Text>
+                
                 <View style={styles.gridContainer}>
                   {school.courses.map((course) => (
                     <View key={course.courseid}>
                       <Text style={styles.header}>{course.course}</Text>
+                      <View style={{flexDirection: "row"}}>
                       {course.topics.map((topic) => (
-                        <View key={topic.topicname}>
+                        <View key={topic.topicname} style={styles.subjectStyle2}>
+                          <View style={styles.subjectStyle}>
                           <Text style={styles.generalSubjectsText}>
                             {topic.topicname}
                           </Text>
@@ -150,8 +152,10 @@ export default function GeneralSubject({ navigation }) {
                               onPress={() => handleLearnMore(school)}
                             />
                           </TouchableOpacity>
+                          </View>
                         </View>
                       ))}
+                      </View>
                     </View>
                   ))}
                 </View>
@@ -191,7 +195,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    backgroundColor: "pink",
+    backgroundColor: "white",
   },
   schoolContent: {
     borderWidth: 1,
@@ -216,4 +220,22 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginTop: 5,
   },
+  generalSubjectsText: {
+    fontFamily: "glacialindibold",
+    fontSize: 15,
+    marginTop: 5,
+  },
+  subjectStyle:{
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "black",
+    padding: 5,
+    marginBottom: 10,
+    alignItems: "center"
+  },
+  subjectStyle2:{
+    width: "49%",
+    marginRight: 5,
+    marginTop: 10
+  }
 });
