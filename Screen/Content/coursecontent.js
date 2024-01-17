@@ -13,9 +13,12 @@ const { width, height } = Dimensions.get("window");
 
 export default function Coursecontent({ route }) {
   const { topicname, topicdescription, littleinformation } = route.params;
+  const handleAddFav = () => {
+    console.log(topicname)
+  };
 
   return (
-    <View>
+    <View style={{alignItems: "center", backgroundColor: "white", flex: 1}}>
       <View style={{ width: 375, alignItems: "center" }}>
         <ImageBackground
           source={require("../../assets/bannerimage2.png")}
@@ -26,7 +29,7 @@ export default function Coursecontent({ route }) {
             justifyContent: "center",
           }}
         >
-          <Text style={{ fontFamily: "glacialindibold", fontSize: 50 }}>
+          <Text style={{ fontFamily: "glacialindibold", fontSize: 30 }}>
             {topicname}
           </Text>
         </ImageBackground>
@@ -42,6 +45,7 @@ export default function Coursecontent({ route }) {
             padding: 12,
             borderRadius: 25,
           }}
+          onPress={handleAddFav}
         >
           <Text>Add Favorites</Text>
         </TouchableOpacity>
@@ -64,6 +68,7 @@ export default function Coursecontent({ route }) {
             padding: 5,
             fontSize: 20,
             fontFamily: "glacialindi",
+            marginTop: 5
           }}
         >
           {topicdescription}
