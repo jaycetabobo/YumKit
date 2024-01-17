@@ -93,10 +93,10 @@ export default function Home({ navigation }) {
             .map((course) =>
               course.topics.map((topic) => (
                 <View key={topic.topicname} style={styles.schoolContent}>
-                  <Image
+                  {/* <Image
                     source={{ uri: topic.image }}
                     style={styles.generalSubjectImage}
-                  />
+                  /> */}
                   <View style={styles.schoolContentText}>
                     <Text style={styles.generalSubjectsText}>
                       {topic.topicname}
@@ -104,7 +104,7 @@ export default function Home({ navigation }) {
                     <Text style={styles.generalSubjectsText2}>
                       {topic.topicdescription}
                     </Text>
-                    <Text>School:</Text>
+                    
                     <Text style={styles.generalSubjectsText}>
                       {school.name}
                     </Text>
@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
   schoolContentText: {
     flex: 1,
     alignItems: "center",
+    padding: 5
   },
   schoolContentText2: {
     fontFamily: "boorsok",
@@ -206,13 +207,14 @@ const styles = StyleSheet.create({
   },
   generalSubjectsText: {
     fontFamily: "glacialindibold",
-    fontSize: 12,
+    fontSize: 15,
     textAlign: "center",
   },
   generalSubjectsText2: {
     fontFamily: "glacialindi",
     fontSize: 13,
-    marginTop: 5,
+    marginVertical: 5,
+    
   },
 
   bottomSpace: {
