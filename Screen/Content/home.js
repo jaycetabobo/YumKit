@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   generalSubjectImage: {
     height: 69,
     borderRadius: 10,
-    width: "auto",
+    width: 30,
     marginVertical: 10,
   },
   generalSubjectsText: {

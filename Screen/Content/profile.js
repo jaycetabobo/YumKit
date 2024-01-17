@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   ScrollView,
+  Keyboard
  } from 'react-native';
  import ExpandableText from '../../components/Expandable';
  import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +14,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { LOGOUT } from '../Authentication/reducer/authSlice';
+import { ActivityIndicator } from 'react-native-paper';
 
 
 export default function Profile() {
@@ -30,9 +32,25 @@ export default function Profile() {
   const firstName = matchingUser.firstname;
   const lastName = matchingUser.lastname;
   const birthdate = matchingUser.birthdate;
-  const handleLogoutSubmit = () =>{
-    dispatch(LOGOUT())
-  }
+  const [isLoading, setIsLoading] = useState(false);
+  const [timer, setTimer] = useState(null);
+
+  const handleLogoutSubmit = async () =>{
+    Keyboard.dismiss();
+    setIsLoading(true);
+
+    setTimer(setTimeout(() => {
+      dispatch(LOGOUT())
+      setIsLoading(false);
+    }, 3000)); // Adjust timer duration as needed
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer); // Clear timer on unmount
+    };
+  }, [timer]);
+  
 
   return (
       <ScrollView style={styles.container}>
@@ -101,6 +119,22 @@ export default function Profile() {
           </View>
           
         </View>
+         {isLoading && (
+        <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'white',
+            opacity: 0.9,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <ActivityIndicator size="large" color='black' />
+          <Text style={{ fontSize: 20, marginVertical: 20}}>Logging Out</Text>
+        </View>
+      )}
       </ScrollView> 
   );
 }

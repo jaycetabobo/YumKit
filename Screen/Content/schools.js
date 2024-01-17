@@ -40,7 +40,7 @@ const Schools = () => {
   }, []);
 
   return (
-    <View style={{ padding: 7, height: 620 }}>
+    <View style={{ padding: 7, flex: 1, marginBottom: 100, backgroundColor: "white" }}>
       <ScrollView>
         {schoolsData.map((item, index) => (
           <View

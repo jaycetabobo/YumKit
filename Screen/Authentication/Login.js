@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
   View,
@@ -14,6 +14,8 @@ import {
 import CustomButton from "../../components/CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGIN } from "./reducer/authSlice";
+import { ActivityIndicator } from 'react-native-paper';
+
 
 
 const { width, height } = Dimensions.get("window");
@@ -29,21 +31,28 @@ export default function Login({ navigation, route }) {
   const dispatch = useDispatch();
   const matchingUser = users.find((users) => users.username === username);
   const Token = username;
+  const [isLoading, setIsLoading] = useState(false);
+  const [timer, setTimer] = useState(null);
 
-  const handleLoginSubmit = ()=>{
-    if(matchingUser && matchingUser.password === password){
-      dispatch(LOGIN({...Tokens, token: Token}));
-    }else{
-      alert("Username or password is incorrect")
-    }
-    // if (userData2.username === username && userData2.password === password) {
-    //   // Navigate to the profile page
-    //   navigation.navigate('Profile');
-    // } else {
-    //   // Display an error message
-    //   alert('Invalid username or password');
-    // }
-  }
+  const handleLoginSubmit = async () => {
+     Keyboard.dismiss();
+    setIsLoading(true);
+
+    setTimer(setTimeout(() => {
+      if (matchingUser && matchingUser.password === password) {
+        dispatch(LOGIN({ ...Tokens, token: Token }));
+      } else {
+        alert("Username or password is incorrect");
+      }
+      setIsLoading(false);
+    }, 3000)); // Adjust timer duration as needed
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer); // Clear timer on unmount
+    };
+  }, [timer]);
 
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss();}}>
@@ -107,6 +116,7 @@ export default function Login({ navigation, route }) {
               </View>
             </View>
             <CustomButton text='LOGIN' onPress={handleLoginSubmit}/>
+            
             <View
               style={{
                 display: "flex",
@@ -145,6 +155,22 @@ export default function Login({ navigation, route }) {
               <Text style={styles.createAccountButtonText}>Create an Account</Text>
             </TouchableOpacity>
           </View>
+           {isLoading && (
+        <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'white',
+            opacity: 0.9,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <ActivityIndicator size="large" color='black' />
+          <Text style={{ fontSize: 20, marginVertical: 20}}>Logging In</Text>
+        </View>
+      )}
       </View>
     </TouchableWithoutFeedback>
   );

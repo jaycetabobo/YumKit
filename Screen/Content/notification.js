@@ -62,7 +62,7 @@ export default function Notification({ navigation }) {
           </Text>
           
           
-            <TouchableOpacity onPress={()=>{navigation.navigate("Coursecontent")}}>
+            <TouchableOpacity onPress={()=>{navigation.navigate("generalsubjects")}}>
                 <Feather name="search" size={28} color="black" style={{marginHorizontal:20}}/>
             </TouchableOpacity>
           
