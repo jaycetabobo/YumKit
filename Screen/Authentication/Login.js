@@ -40,7 +40,7 @@ export default function Login({ navigation, route }) {
 
     setTimer(setTimeout(() => {
       if (matchingUser && matchingUser.password === password) {
-        dispatch(LOGIN({ ...Tokens, token: Token }));
+        dispatch(LOGIN({...Tokens, token: Token }));
       } else {
         alert("Username or password is incorrect");
       }

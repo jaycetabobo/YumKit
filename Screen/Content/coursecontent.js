@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dimensions,
   Image,
@@ -8,13 +8,27 @@ import {
   View,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { useDispatch, useSelector } from "react-redux";
+import { INPUT } from "./reducer/storeFave";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { AntDesign } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("window");
 
 export default function Coursecontent({ route }) {
   const { topicname, topicdescription, littleinformation } = route.params;
+  const [subjectName , setSubjectName] = useState("");
+  const favorites = useSelector((state) => state.store.favorites)
+  const dispatch = useDispatch();
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.subject === topicname // Check initial favorite state
+  );
+  const matchingFav = favorites.find((favorites) => favorites.subject === subjectName);
   const handleAddFav = () => {
-    console.log(topicname)
+    setSubjectName(topicname)
+    dispatch(INPUT({...favorites, subject: subjectName}));
+    setIsFavorite(!isFavorite); // Toggle favorite state
+    
   };
 
   return (
@@ -40,14 +54,22 @@ export default function Coursecontent({ route }) {
         <TouchableOpacity
           style={{
             width: 125,
-            backgroundColor: "#D9D9D9",
+             backgroundColor: isFavorite ? "#ffd54f" : "#D9D9D9", // Conditional color
             alignItems: "center",
             padding: 12,
             borderRadius: 25,
           }}
           onPress={handleAddFav}
         >
-          <Text>Add Favorites</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <AntDesign
+              name={isFavorite ? "star" : "staro"} // Conditional icon
+              size={24}
+              color="black" // Conditional color
+              
+            />
+            <Text style={{ marginLeft: 8 }}>Add Favorites</Text>
+          </View>
         </TouchableOpacity>
       </View>
       <Image
