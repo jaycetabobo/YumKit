@@ -3,16 +3,16 @@ import { createSlice } from '@reduxjs/toolkit'
 export const storeFave = createSlice({
   name: 'store',
   initialState: {
-    favorites: [{subject: ""}],
+    favorites: []
   },
   reducers: {
-    INPUT: (state, action) => {
-     state.users = action.payload
+    favInput: (state, action) => {
+     state.favorites = action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { INPUT } = storeFave.actions
+export const { favInput } = storeFave.actions
 
 export default storeFave.reducer

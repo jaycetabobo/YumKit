@@ -1,7 +1,9 @@
 
 import { View, StyleSheet, Text, Image } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Favorites() {
+    const favorites = useSelector((state) => state.store.favorites)
     return(
         <View style={styles.container}>
             <View style={styles.bubbleTextContainer}>

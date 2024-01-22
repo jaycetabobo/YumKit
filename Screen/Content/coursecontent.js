@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { INPUT } from "./reducer/storeFave";
+import { favInput } from "./reducer/storeFave";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { AntDesign } from '@expo/vector-icons';
 
@@ -17,18 +17,15 @@ const { width, height } = Dimensions.get("window");
 
 export default function Coursecontent({ route }) {
   const { topicname, topicdescription, littleinformation } = route.params;
-  const [subjectName , setSubjectName] = useState("");
   const favorites = useSelector((state) => state.store.favorites)
   const dispatch = useDispatch();
   const [isFavorite, setIsFavorite] = useState(
     favorites.subject === topicname // Check initial favorite state
   );
-  const matchingFav = favorites.find((favorites) => favorites.subject === subjectName);
+  // const matchingFav = favorites.find((favorites) => favorites.subject === subjectName);
   const handleAddFav = () => {
-    setSubjectName(topicname)
-    dispatch(INPUT({...favorites, subject: subjectName}));
+    // dispatch(favInput({...favorites, subject }))
     setIsFavorite(!isFavorite); // Toggle favorite state
-    
   };
 
   return (
