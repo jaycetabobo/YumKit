@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "SandySurf",
-    "slug": "SandySurf",
-    "version": "1.0.0",
+    "name": "SandySurf2",
+    "slug": "SandySurf2",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,10 +21,34 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.jaycetabs.SandySurf2"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "androidStatusBar": {
+      "translucent": true
+    },
+    "plugins": [
+      [
+        "expo-updates",
+        {
+          "username": "jaycetabs"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2ea819bf-9709-44cc-a3a4-4e6b572c8283"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2ea819bf-9709-44cc-a3a4-4e6b572c8283",
+      "runtimeVersion": "1.0.2"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

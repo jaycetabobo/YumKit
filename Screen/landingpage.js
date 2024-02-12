@@ -2,10 +2,10 @@ import React from "react";
 import { Dimensions, ImageBackground, Text, View, Button, Image } from "react-native";
 import CustomButton from "../components/CustomButton";
 
-
+const { width, height } = Dimensions.get("window");
 export default function Landingpage({ navigation }) {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 , height: height, width: width}}>
       <View style={{ display: "flex", alignItems: "center", marginTop: 100 }}>
         <Image
         source={require("../assets/logo-no-background.png")}
@@ -21,7 +21,7 @@ export default function Landingpage({ navigation }) {
           SandySurf is not just an app; it's your passport to a world of
           information on a wide range of subjects. Whether you're a student, a
           curious mind, or simply someone looking to dive deep into a topic of
-          interest, SandySurf is your ultimate companion.
+          interest, SandySurf is your ultimate companion!!!!!.
         </Text>
 
       </View>

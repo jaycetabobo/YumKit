@@ -1,5 +1,5 @@
 {
-  "name": "SandySurf",
+  "name": "SandySurf2",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "json-server": "^0.16.1",
     "ngrok": "^4.0.1",
     "react": "^18.2.0",
-    "react-native": "^0.73.2",
+    "react-native": "0.72.6",
     "react-native-animatable": "^1.4.0",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-paper": "^5.12.0",
@@ -28,7 +28,8 @@
     "react-native-screens": "~3.22.0",
     "react-native-vector-icons": "^10.0.2",
     "react-navigation-stack": "^2.10.4",
-    "react-redux": "^9.0.4"
+    "react-redux": "^9.0.4",
+    "expo-updates": "~0.18.19"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

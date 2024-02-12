@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useEffect, useRef } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image, Dimensions} from "react-native";
 import Icon, { Icons } from "../components/Icons";
 import * as Animatable from "react-native-animatable";
 import Home from "../Screen/Content/home";
@@ -8,6 +8,8 @@ import { Feather } from "@expo/vector-icons";
 import Schools from "../Screen/Content/schools";
 import Profile from "../Screen/Content/profile";
 import Favorites from "../Screen/Content/favorites";
+
+const { width, height } = Dimensions.get("window");
 
 const TabArr = [
   {

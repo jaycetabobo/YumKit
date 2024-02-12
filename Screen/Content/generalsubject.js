@@ -7,10 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
+  Dimensions
 } from "react-native";
 import ButtonSubjects from "../../components/buttonSubjects";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+const { width, height } = Dimensions.get("window");
 
 export default function GeneralSubject({ navigation }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,7 +52,7 @@ export default function GeneralSubject({ navigation }) {
   });
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1, backgroundColor: "white", height: height, width: width}}>
       <View
         style={{
           flexDirection: "row",
