@@ -27,7 +27,7 @@ const Schools = () => {
     fetch(schoolsurl)
       .then((res) => res.json())
       .then((resJson) => {
-        console.log("schools: ", resJson);
+        // console.log("schools: ", resJson);
         setSchoolsData(resJson.schools);
       })
       .catch((error) => {

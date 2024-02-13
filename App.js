@@ -11,7 +11,6 @@ import * as Updates from 'expo-updates';
 
 const RootNavigation = () => {
   const Tokens = useSelector((state) => state.auth.logInToken);
-  console.log(Tokens);
   return (
     <NavigationContainer>
       {Tokens === null ? <AuthRoutes /> : <ProfileRoutes />}

@@ -1,17 +1,114 @@
-import React from "react";
-import { View, Text, Image, Dimensions, ImageBackground } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import React, {useState} from "react";
+import { View, ScrollView, Text, Image, Dimensions, ImageBackground, Alert, Modal, StyleSheet, Pressable,TextInput, TouchableOpacity} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useSelector, useDispatch } from "react-redux";
+import { Feather, AntDesign } from '@expo/vector-icons';
+import { commentInput } from "./reducer/commentSlice";
 
-const { width } = Dimensions.get("window");
+
+const { width, height } = Dimensions.get("window");
 
 const Schools2 = () => {
   const route = useRoute();
   const navigation = useNavigation();
   const { schoolName, schoolImage, courses, comments } = route.params;
+  const [modalVisible, setModalVisible] = useState(false);
+  const comment = useSelector((state)=> state.comment.comments);
+  const users = useSelector((state) => state.auth.users);
+  const Tokens = useSelector((state) => state.auth.logInToken);
+  const token = Tokens.token;
+  const matchingUser = users.find((users) => users.username === token);
+  const username = matchingUser.username;
+  const dispatch = useDispatch();
+  const today = new Date();
+  const todayDate = today.getMonth()+1 + "/" +today.getDate() + "/" + today.getFullYear();
+  const [userComments, setUserComments] = useState({
+    comment: "",
+    date: ""
+  });
+  const handleTextChange = (text) => {
+    setUserComments({ ...userComments, comment: text, date: todayDate})
+  };
+
+  const handleCommentSubmit = () => {
+    // Dispatch the user comment
+    dispatch(commentInput([...comment, userComments]));
+
+    // Clear the input field for the next comment
+    setUserComments({
+      comment: "",
+      date: ""
+    });
+  };
+  const reversedComments = comment.slice().reverse();
+
 
   return (
     <View style={{ alignItems: "center", backgroundColor: "white" }}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}
+        >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+              <Text style={{flex: 12, textAlign: 'center', paddingLeft: 30,fontFamily: "boorsok", fontSize: 20 }}>
+                Comments
+              </Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <AntDesign name="close" size={22} color="white" />
+              </Pressable>
+            </View>
+
+            <ScrollView style={{width: '100%'}}>
+              {
+              reversedComments.map((obj, index) => 
+              <View key={index} style={{flexDirection: 'row', alignItems: 'flex-start', width: '80%',marginTop: 10}}>
+                <Image
+                  source={require("../../assets/profileImage.png")}
+                  style={{width: 40, height: 40, marginHorizontal: 10, borderRadius: 100}}
+                ></Image>
+                <View style={{borderRadius: 20, borderWidth: 2, padding: 15}}>
+                  <Text style={{fontSize: 14, marginBottom: 15}}>
+                    {obj.comment}
+                  </Text>
+                  <Text style={{fontFamily: 'glacialindi', fontSize: 12}}>
+                    {obj.date}          {username}
+                  </Text>
+                </View>
+                
+              </View>)
+            }
+            </ScrollView>
+
+            <View style={{flexDirection: 'row', marginTop: 'auto', marginBottom: 10, paddingTop: 15}}>
+              <Image
+                source={require("../../assets/profileImage.png")}
+                style={{width: 40, height: 40, marginHorizontal: 10, borderRadius: 100}}
+                ></Image>
+              <View style={styles.textInputField}>
+                <TextInput
+                  style={{ marginHorizontal: 10, width: '88%' }}
+                  placeholder = 'add comments'
+                  multiline= {true}
+                  value={userComments.comment}
+                  onChangeText={handleTextChange}
+                />
+            </View>
+            <TouchableOpacity style={{padding: 10}} onPress={handleCommentSubmit}>
+              <Feather name="corner-right-up" size={24} color="black"/>
+            </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
       <Text
         style={{
           textAlign: "center",
@@ -28,14 +125,34 @@ const Schools2 = () => {
           width: "98%",
           height: 150,
           marginVertical: 30,
+          marginBottom: 0,
           borderRadius: 30,
         }}
       />
-
+      <View style={{
+          textAlign: "center"
+        }}>
+          <TouchableOpacity onPress={() =>setModalVisible(true)}>
+            <Text
+              style={{
+               backgroundColor: "black",
+               textAlign: "center",
+               fontFamily: "boorsok",
+               padding: 10,
+               justifyContent: "center",
+               borderRadius: 10,
+               marginVertical: 10,
+               color: "white",
+                }}
+              >
+                See Comments
+              </Text>
+            </TouchableOpacity>
+      </View>
       <ScrollView
         style={{
-          height: "auto",
-          width: width,
+          height: "64%",
+          width: width
         }}
       >
         <View style={{ alignItems: "center" }}>
@@ -143,7 +260,7 @@ const Schools2 = () => {
           )}
         </View>
 
-        {comments && comments.length > 0 && (
+        {/* {comments && comments.length > 0 && (
           <View
             style={{
               paddingHorizontal: 10,
@@ -183,10 +300,65 @@ const Schools2 = () => {
               </View>
             ))}
           </View>
-        )}
+        )} */}
       </ScrollView>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 10,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    height: '90%',
+    width: '90%'
+  },
+  button: {
+    borderRadius: 20,
+    padding: 8,
+    elevation: 2,
+    flex: 1
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  textInputField:{
+    display: "flex",
+    flexDirection: "row",
+    borderWidth: 2,
+    borderRadius: 20,
+    paddingLeft: 5,
+    paddingBottom: 5,
+    paddingTop: 5,
+    width: '70%'
+  }
+});
 
 export default Schools2;
