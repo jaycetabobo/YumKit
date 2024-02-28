@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
-import { Dimensions, Text, View, Image, StyleSheet, ScrollView, Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Dimensions, Text, View, Image, StyleSheet, ScrollView, Alert, TouchableOpacity } from "react-native";
 import { FAB } from 'react-native-paper';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { Button } from '@rneui/themed';
 import { Recipes } from "../database";
 import * as SQLite from 'expo-sqlite';
@@ -28,43 +28,56 @@ export default function DishSelection({ navigation }) {
 
   }, []);
 
-const addName = (title) => {
-  db.transaction(tx => {
-    tx.executeSql('SELECT * FROM recipeSelection WHERE name = ?', [title],
-      (txObj, resultSet) => {
-        if (resultSet.rows.length === 0) { // No existing name
-          tx.executeSql('INSERT INTO recipeSelection (name) values (?)', [title],
-            (txObj, resultSet) => {
-               let existingNames = [...names];
-            existingNames.push({ id: resultSet.insertId, name: title});
-            setNames(existingNames);
-            },
-            (txObj, error) => console.log(error)
-          );
-        } else {
-          // Handle the case where the name already exists
-          Alert.alert(
-          '',
-          'Recipe is Already Added',
-          [
-            {
-              text: 'OK',
-            },
-          ],
-          {
-            cancelable: true,
-          },
-        );
-          // You might want to display a message to the user here
-        }
-      },
-      (txObj, error) => console.log(error)
-    );
-  });
-};
-  
+  const addName = (title) => {
+    db.transaction(tx => {
+      tx.executeSql('SELECT * FROM recipeSelection WHERE name = ?', [title],
+        (txObj, resultSet) => {
+          if (resultSet.rows.length === 0) { // No existing name
+            tx.executeSql('INSERT INTO recipeSelection (name) values (?)', [title],
+              (txObj, resultSet) => {
+                let existingNames = [...names];
+                existingNames.push({ id: resultSet.insertId, name: title });
+                setNames(existingNames);
+              },
+              (txObj, error) => console.log(error)
+            );
+            Alert.alert(
+              '',
+              'Sheeshh 😩🕶🤏 Recipe Added',
+              [
+                {
+                  text: 'OK',
+                },
+              ],
+              {
 
-const deleteName = (id) => {
+              },
+            );
+            navigation.navigate('homelist')
+          } else {
+            // Handle the case where the name already exists
+            Alert.alert(
+              '',
+              '⚠️ Warning!! Recipe is Already Added ⚠️',
+              [
+                {
+                  text: 'OK',
+                },
+              ],
+              {
+                cancelable: true,
+              },
+            );
+            // You might want to display a message to the user here
+          }
+        },
+        (txObj, error) => console.log(error)
+      );
+    });
+  };
+
+
+  const deleteName = (id) => {
     db.transaction(tx => {
       tx.executeSql('DELETE FROM recipeSelection WHERE id = ?', [id],
         (txObj, resultSet) => {
@@ -78,59 +91,59 @@ const deleteName = (id) => {
     });
   };
 
-const checkForExistingName = (title) => {
-  db.transaction(tx => {
-    tx.executeSql('SELECT * FROM recipeSelection WHERE name = ?', [title],
-      (txObj, resultSet) => {
-        setIsButtonDisabled(resultSet.rows.length > 0);
-      },
-      (txObj, error) => console.log(error)
-    );
-  });
-};
+  const checkForExistingName = (title) => {
+    db.transaction(tx => {
+      tx.executeSql('SELECT * FROM recipeSelection WHERE name = ?', [title],
+        (txObj, resultSet) => {
+          setIsButtonDisabled(resultSet.rows.length > 0);
+        },
+        (txObj, error) => console.log(error)
+      );
+    });
+  };
   const showRecipes = () => {
     return Recipes.map((obj, index) => {
       useEffect(() => {
         checkForExistingName(obj.title); // Call this inside your mapping function
       }, [obj.title]);
       return (
-       <View key={index}>
+        <View key={index}>
           <View style={style.scrollView}>
-          <View style={style.dishView}>
+            <View style={style.dishView}>
               <View style={style.iconView}>
-                <MaterialCommunityIcons name="pot-mix" size={40} color="black"  />
+                <MaterialCommunityIcons name="pot-mix" size={40} color="black" />
               </View>
-                <View style={style.dishTextContainer}>
-                    <Text style={style.dishText}>
-                        "{obj.title}"
-                    </Text>
-                    <Text style={style.dishText2}>
-                       {obj.description}
-                    </Text>
-                </View>
-              <View style={{alignItems: "center", justifyContent: "center"}}>
+              <View style={style.dishTextContainer}>
+                <Text style={style.dishText}>
+                  "{obj.title}"
+                </Text>
+                <Text style={style.dishText2}>
+                  {obj.description}
+                </Text>
+              </View>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
                 <Button
-                  title="Add Recipe"
+                  title="Add ➕"
                   loading={isLoading}
                   disabled={isButtonDisabled}
                   loadingProps={{ size: 'large', color: 'white' }}
                   buttonStyle={{
-                  backgroundColor: '#179DBB',
-                  borderRadius: 20,
+                    backgroundColor: '#179DBB',
+                    borderRadius: 20,
                   }}
                   titleStyle={{ fontWeight: 'bold', fontSize: 15 }}
                   containerStyle={{
-                  height: 50,
-                  width: 97,
-                  justifyContent: "center",
+                    height: 50,
+                    width: 97,
+                    justifyContent: "center",
                   }}
-                  onPress={()=> addName(obj.title)}
+                  onPress={() => addName(obj.title)}
                 />
+              </View>
             </View>
           </View>
+
         </View>
-        
-          </View>
       );
     });
   };
@@ -141,8 +154,11 @@ const checkForExistingName = (title) => {
       <View style={style.container}>
         <View style={style.header}>
           <View style={style.imageView}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <AntDesign name="arrowleft" size={24} color="black" />
+            </TouchableOpacity>
           </View>
-          <View style={style.textContainer}> 
+          <View style={style.textContainer}>
             <Text style={style.text}>
               YUMKIT
             </Text>
@@ -151,19 +167,19 @@ const checkForExistingName = (title) => {
             </Text>
           </View>
           <View style={style.imageView}>
-             <Image
-            source={require("../assets/yumkit-favicon-color.png")}
-            style={style.image}
-          />
+            <Image
+              source={require("../assets/yumkit-favicon-color.png")}
+              style={style.image}
+            />
           </View>
         </View>
-      <View style={style.container2}>
-        <View style={style.listbanner}>
-          <Text style={style.listbannerText}>
-            RECIPE SELECTION
-          </Text>
-        </View>
-        {/* {
+        <View style={style.container2}>
+          <View style={style.listbanner}>
+            <Text style={style.listbannerText}>
+              RECIPE SELECTION
+            </Text>
+          </View>
+          {/* {
         names.map((name, index) => <View key={index} style={style.row}>
           <Text>{name.name}</Text>
           <Button
@@ -185,19 +201,12 @@ const checkForExistingName = (title) => {
                 />
         </View>)
       } */}
-      
-      </View>
-      <ScrollView style={{marginVertical: 10}}>
-        {showRecipes()}
 
-      </ScrollView>
-      
-        <FAB
-          icon="check"
-          color="white"
-          style={style.fab}
-          onPress={() => navigation.goBack()}
-        />
+        </View>
+        <ScrollView style={{ marginVertical: 10 }}>
+          {showRecipes()}
+
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -211,16 +220,16 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     margin: 8
   },
-  container:{
-    height: height, 
+  container: {
+    height: height,
     width: width,
     backgroundColor: "white",
   },
-  container2: { 
-    alignItems: "center", 
-    marginTop: height*.02,
+  container2: {
+    alignItems: "center",
+    marginTop: height * .02,
   },
-  header:{
+  header: {
     height: '7.5%',
     width: '100%',
     backgroundColor: '#D3D3D3',
@@ -228,32 +237,32 @@ const style = StyleSheet.create({
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10
   },
-  textContainer:{
+  textContainer: {
     alignItems: "center",
     justifyContent: 'center',
     flex: 8,
   },
-  text:{
+  text: {
     fontWeight: "bold",
     fontSize: 30,
     letterSpacing: 3,
   },
-  text2:{
+  text2: {
     fontSize: 15,
   },
-  image:{
-    height: 45, 
+  image: {
+    height: 45,
     width: 45,
     backgroundColor: "white",
     borderRadius: 50,
   },
-  imageView:{
+  imageView: {
     flex: 2,
     justifyContent: 'center',
     alignItems: "center",
   },
   listbanner: {
-    width: width*.5,
+    width: width * .5,
     height: 42,
     backgroundColor: '#179DBB',
     borderRadius: 20,
@@ -268,16 +277,16 @@ const style = StyleSheet.create({
   fab: {
     position: 'absolute',
     margin: 16,
-    right: 10 ,
-    top: height*.85,
+    right: 10,
+    top: height * .85,
     backgroundColor: "#179DBB",
     borderRadius: 50,
   },
-  scrollView:{
+  scrollView: {
     alignItems: 'center'
   },
-  dishView:{
-    width: width*.90,
+  dishView: {
+    width: width * .90,
     height: 'auto',
     backgroundColor: '#D3D3D3',
     padding: 10,
@@ -287,7 +296,7 @@ const style = StyleSheet.create({
     borderRadius: 20,
     flexDirection: 'row'
   },
-  iconView:{
+  iconView: {
     alignItems: "center",
     justifyContent: "center",
     marginRight: 10

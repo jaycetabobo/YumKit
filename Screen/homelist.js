@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity,Alert} from "react-native";
+import React, { useState, useEffect } from "react";
+import { Dimensions, Text, View, Image, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { FAB } from 'react-native-paper';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Recipes } from "../database";
@@ -10,12 +10,11 @@ import { ActivityIndicator } from 'react-native-paper';
 const { width, height } = Dimensions.get("window");
 export default function Homelist({ navigation }) {
   const [names, setNames] = useState([]);
-  const [tokenId, setTokenId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [timer, setTimer] = useState(null);
   const db = SQLite.openDatabase('recipeList.db');
   const filteredRecipes = Recipes.filter(importedRecipe =>
-      names.some(recipe => recipe.name === importedRecipe.title))
+    names.some(recipe => recipe.name === importedRecipe.title))
 
   useEffect(() => {
     db.transaction(tx => {
@@ -28,40 +27,40 @@ export default function Homelist({ navigation }) {
   }, [db]);
 
   const deleteRecipe = (recipeTitle) => {
-  setIsLoading(true);
+    setIsLoading(true);
 
-  Alert.alert(
-    'Confirm Deletion',
-    `Are you sure you want to delete "${recipeTitle}"? This action cannot be undone.`,
-    [
-      { text: 'Cancel', onPress: () => setIsLoading(false), style: 'cancel' },
-      {
-        text: 'Delete',
-        onPress: () => {
-          db.transaction(tx => {
-            tx.executeSql(
-              'DELETE FROM recipeSelection WHERE name = ?', [recipeTitle],
-              (txObj, resultSet) => {
-                if (resultSet.rowsAffected > 0) {
-                  let existingNames = [...names].filter(name => name.name !== recipeTitle);
-                  setNames(existingNames);
+    Alert.alert(
+      'Confirm Deletion',
+      `Are you sure you want to delete "${recipeTitle}"? This action cannot be undone.`,
+      [
+        { text: 'Cancel', onPress: () => setIsLoading(false), style: 'cancel' },
+        {
+          text: 'Delete',
+          onPress: () => {
+            db.transaction(tx => {
+              tx.executeSql(
+                'DELETE FROM recipeSelection WHERE name = ?', [recipeTitle],
+                (txObj, resultSet) => {
+                  if (resultSet.rowsAffected > 0) {
+                    let existingNames = [...names].filter(name => name.name !== recipeTitle);
+                    setNames(existingNames);
+                  }
+                  setIsLoading(false); // Update loading state after deletion
+                },
+                (txObj, error) => {
+                  console.error('Error deleting recipe:', error);
+                  setIsLoading(false); // Update loading state even on error
                 }
-                setIsLoading(false); // Update loading state after deletion
-              },
-              (txObj, error) => {
-                console.error('Error deleting recipe:', error);
-                setIsLoading(false); // Update loading state even on error
-              }
-            );
-          });
-        },
-        style: 'destructive'
-      }
-    ],
-  );
-};
+              );
+            });
+          },
+          style: 'destructive'
+        }
+      ],
+    );
+  };
 
-    useEffect(() => {
+  useEffect(() => {
     return () => {
       clearTimeout(timer); // Clear timer on unmount
     };
@@ -79,7 +78,7 @@ export default function Homelist({ navigation }) {
         <View style={style.header}>
           <View style={style.imageView}>
           </View>
-          <View style={style.textContainer}> 
+          <View style={style.textContainer}>
             <Text style={style.text}>
               YUMKIT
             </Text>
@@ -88,50 +87,50 @@ export default function Homelist({ navigation }) {
             </Text>
           </View>
           <View style={style.imageView}>
-             <Image
-            source={require("../assets/yumkit-favicon-color.png")}
-            style={style.image}
-          />
+            <Image
+              source={require("../assets/yumkit-favicon-color.png")}
+              style={style.image}
+            />
           </View>
         </View>
-      <View style={style.container2}>
-        <View style={style.listbanner}>
-          <Text style={style.listbannerText}>
-            COOKING RECIPE LIST
-          </Text>
+        <View style={style.container2}>
+          <View style={style.listbanner}>
+            <Text style={style.listbannerText}>
+              COOKING RECIPE LIST
+            </Text>
+          </View>
         </View>
-      </View>
-      {filteredRecipes.map((recipe, index) => (
-      <View key={index}>
-          <View style={style.scrollView}>
-          <View style={style.dishView}>
-              <View style={style.iconView}>
-                <MaterialIcons name="restaurant-menu" size={40} color="black" />
-              </View>
+        {filteredRecipes.map((recipe, index) => (
+          <View key={index}>
+            <View style={style.scrollView}>
+              <View style={style.dishView}>
+                <View style={style.iconView}>
+                  <MaterialIcons name="restaurant-menu" size={40} color="black" />
+                </View>
                 <TouchableOpacity style={style.dishTextContainer} onPress={() => handleRecipeClick(recipe.id)}>
-                    <Text style={style.dishText}>
-                        "{recipe.title}"
-                    </Text>
-                    <Text style={style.dishText2}>
-                       {recipe.description}
-                    </Text>
+                  <Text style={style.dishText}>
+                    "{recipe.title}"
+                  </Text>
+                  <Text style={style.dishText2}>
+                    {recipe.description}
+                  </Text>
                 </TouchableOpacity>
-              <TouchableOpacity style={{alignItems: "center", justifyContent: "center"}} onPress={() => deleteRecipe(recipe.title)}>
-                <Ionicons name="trash-bin" size={24} color="red" />
-            </TouchableOpacity>
+                <TouchableOpacity style={{ alignItems: "center", justifyContent: "center" }} onPress={() => deleteRecipe(recipe.title)}>
+                  <Ionicons name="trash-bin" size={24} color="red" />
+                </TouchableOpacity>
+              </View>
+            </View>
+
           </View>
-        </View>
-        
-          </View>
-    ))}
+        ))}
         <FAB
           icon="plus"
           color="white"
           style={style.fab}
           onPress={() => navigation.navigate('dishselection')}
         />
-         {isLoading && (
-        <View style={{
+        {isLoading && (
+          <View style={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -142,26 +141,26 @@ export default function Homelist({ navigation }) {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <ActivityIndicator size="large" color='black' />
-          <Text style={{ fontSize: 20, marginVertical: 20}}>Deleting Recipe.....</Text>
-        </View>
-      )}
+            <ActivityIndicator size="large" color='black' />
+            <Text style={{ fontSize: 20, marginVertical: 20 }}>Deleting Recipe.....</Text>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
-  container:{
-    height: height, 
+  container: {
+    height: height,
     width: width,
     backgroundColor: "white",
   },
-  container2: { 
-    alignItems: "center", 
-    marginTop: height*.02,
+  container2: {
+    alignItems: "center",
+    marginTop: height * .02,
   },
-  header:{
+  header: {
     height: '7.5%',
     width: '100%',
     backgroundColor: '#D3D3D3',
@@ -169,32 +168,32 @@ const style = StyleSheet.create({
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10
   },
-  textContainer:{
+  textContainer: {
     alignItems: "center",
     justifyContent: 'center',
     flex: 8,
   },
-  text:{
+  text: {
     fontWeight: "bold",
     fontSize: 30,
     letterSpacing: 3,
   },
-  text2:{
+  text2: {
     fontSize: 15,
   },
-  image:{
-    height: 45, 
+  image: {
+    height: 45,
     width: 45,
     backgroundColor: "white",
     borderRadius: 50,
   },
-  imageView:{
+  imageView: {
     flex: 2,
     justifyContent: 'center',
     alignItems: "center",
   },
   listbanner: {
-    width: width*.5,
+    width: width * .5,
     height: 42,
     backgroundColor: '#179DBB',
     borderRadius: 20,
@@ -209,16 +208,16 @@ const style = StyleSheet.create({
   fab: {
     position: 'absolute',
     margin: 16,
-    right: 10 ,
-    top: height*.85,
+    right: 10,
+    top: height * .85,
     backgroundColor: "#179DBB",
     borderRadius: 50,
   },
-  scrollView:{
+  scrollView: {
     alignItems: 'center'
   },
-  dishView:{
-    width: width*.90,
+  dishView: {
+    width: width * .90,
     height: 'auto',
     backgroundColor: '#D3D3D3',
     padding: 10,
@@ -228,7 +227,7 @@ const style = StyleSheet.create({
     borderRadius: 20,
     flexDirection: 'row'
   },
-  iconView:{
+  iconView: {
     alignItems: "center",
     justifyContent: "center",
     marginRight: 10

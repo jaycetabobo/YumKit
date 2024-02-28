@@ -21,13 +21,33 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jaycetabs.YumKit"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-     "androidStatusBar": {
+    "androidStatusBar": {
       "translucent": true
+    },
+    "plugins": [
+      [
+        "expo-updates",
+        {
+          "username": "jaycetabs"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "22257180-46ab-4bc4-b679-2c7aa3df2ca4"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/22257180-46ab-4bc4-b679-2c7aa3df2ca4"
     }
   }
 }
