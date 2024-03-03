@@ -1,12 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authSlice from './Screen/Authentication/reducer/authSlice'
-import storeFave from './Screen/Content/reducer/storeFave'
-import commentSlice from './Screen/Content/reducer/commentSlice'
+import storeSlice from './Screen/reducer/storeSlice'
 
 export default configureStore({
-  reducer: {
-    auth: authSlice,
-    store: storeFave,
-    comment: commentSlice
-  },
+    reducer: {
+        store: storeSlice
+    },
 })

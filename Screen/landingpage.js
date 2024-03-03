@@ -1,42 +1,110 @@
 import React from "react";
-import { Dimensions, ImageBackground, Text, View, Button, Image } from "react-native";
-import CustomButton from "../components/CustomButton";
+import { Dimensions, Text, View, Image, StyleSheet, StatusBar } from "react-native";
+import { Button } from '@rneui/themed';
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Recipes } from "../database";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+// import * as Linking from 'expo-linking';
 
 const { width, height } = Dimensions.get("window");
 export default function Landingpage({ navigation }) {
+  const id = 1
+  const desiredIds = [id]; // Replace with your desired IDs
+  const filteredRecipes = Recipes.filter(recipe => desiredIds.includes(recipe.id));
   return (
-    <View style={{ flex: 1 , height: height, width: width}}>
-      <View style={{ display: "flex", alignItems: "center", marginTop: 100 }}>
-        <Image
-        source={require("../assets/logo-no-background.png")}
-        style={{ height: 110, width: 100, marginVertical: 20}}
-      />
-      <ImageBackground
-        source={require("../assets/bannerimage2.png")}
-        style={{ height: 150, width: 'auto', marginVertical: 20}}
-      >
-        <Text style={{ fontSize: 70, fontFamily: 'angelina', height: 150, paddingHorizontal: 40 }}>SandySurf</Text>
-      </ImageBackground>
-        <Text style={{ fontSize: 18, width: 350, marginTop: 10, fontFamily: 'glacialindibold' }}>
-          SandySurf is not just an app; it's your passport to a world of
-          information on a wide range of subjects. Whether you're a student, a
-          curious mind, or simply someone looking to dive deep into a topic of
-          interest, SandySurf is your ultimate companion!!!!!.
-        </Text>
+    <SafeAreaView>
+      <View style={style.container}>
+        <View style={style.container2}>
+          <Image
+            source={require("../assets/yumkit-favicon-color.png")}
+            style={style.image}
+          />
 
+          <Text style={style.text}>
+            YUMKIT
+          </Text>
+          <Text style={style.text2}>
+            Make Cooking Easier
+          </Text>
+          {filteredRecipes.map(recipe => (
+            <View key={recipe.id}>
+              {/* {recipe.ingredients.map((obj, index) => <View key={index}>
+              <BouncyCheckbox
+                        size={25}
+                        fillColor="black"
+                        unfillColor="#FFFFFF"
+                        text={obj}
+                        iconStyle={{ borderColor: "red" }}
+                        innerIconStyle={{ borderWidth: 2 }}
+                        textStyle={{ color: 'black'}}
+                        style={{marginTop: 10}}
+                        // onPress={(isChecked: boolean) => {}}
+                    />
+          </View>)} */}
+            </View>
+          ))}
+          <Button
+            title="Get Started"
+            loading={false}
+            loadingProps={{ size: 'large', color: 'white' }}
+            buttonStyle={{
+              backgroundColor: '#179DBB',
+              borderRadius: 20,
+            }}
+            titleStyle={{ fontWeight: 'bold', fontSize: 20 }}
+            containerStyle={{
+              marginHorizontal: 50,
+              height: 50,
+              width: 130,
+              marginVertical: 10,
+            }}
+            onPress={() => navigation.navigate('homelist')}
+          />
+          {/* <Button
+            title="Get Started"
+            loading={false}
+            loadingProps={{ size: 'large', color: 'white' }}
+            buttonStyle={{
+              backgroundColor: '#179DBB',
+              borderRadius: 20,
+            }}
+            titleStyle={{ fontWeight: 'bold', fontSize: 20 }}
+            containerStyle={{
+              marginHorizontal: 50,
+              height: 50,
+              width: 130,
+              marginVertical: 10,
+            }}
+            onPress={() => Linking.openURL('https://www.facebook.com/JayceLagoTabobo')}
+          /> */}
+        </View>
       </View>
-      <View
-        style={{
-          marginTop: 50,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <CustomButton text='login' onPress={ () => navigation.navigate('Login')}/>
-        <CustomButton text='signup' onPress={ () => navigation.navigate('Signup')} />
-     
-      </View>
-      </View>
+    </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    height: height,
+    width: width,
+    backgroundColor: "white",
+  },
+  container2: {
+    alignItems: "center",
+    marginTop: height * .17,
+  },
+  image: {
+    height: 70,
+    width: 85,
+    marginBottom: 30
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 50,
+    letterSpacing: 7,
+  },
+  text2: {
+    fontSize: 15,
+    marginBottom: 200,
+  },
+})

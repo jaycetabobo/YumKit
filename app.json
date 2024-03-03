@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "SandySurf2",
-    "slug": "SandySurf2",
+    "name": "YumKit",
+    "slug": "Yumkit",
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +22,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.jaycetabs.SandySurf2"
+      "package": "com.jaycetabs.Yumkit"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -40,15 +40,14 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "2ea819bf-9709-44cc-a3a4-4e6b572c8283"
+        "projectId": "910be265-b2dd-441f-aeff-0997f0ceb6b0"
       }
-    },
-    "updates": {
-      "url": "https://u.expo.dev/2ea819bf-9709-44cc-a3a4-4e6b572c8283",
-      "runtimeVersion": "1.0.2"
     },
     "runtimeVersion": {
       "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/910be265-b2dd-441f-aeff-0997f0ceb6b0"
     }
   }
 }

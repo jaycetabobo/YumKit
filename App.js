@@ -1,27 +1,46 @@
-import * as React from "react";
-import { useEffect } from "react";
-import { useFonts } from "expo-font";
-import ProfileRoutes from "./routes/profileRoutes";
-import { NavigationContainer } from "@react-navigation/native";
-import { Provider } from "react-redux";
-import store from "./store";
-import AuthRoutes from "./routes/AuthRoutes";
-import { useSelector } from "react-redux";
-import * as Updates from 'expo-updates';
 
+import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from "@react-navigation/stack";
+import Landingpage from './Screen/landingpage';
+import { NavigationContainer } from "@react-navigation/native";
+import Homelist from './Screen/homelist';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import DishSelection from './Screen/dishselection';
+import SpecificRecipe from './Screen/specificrecipe';
+import { useEffect } from "react";
+import { Provider } from 'react-redux';
+import store from './store'
+import * as Updates from 'expo-updates';
+import { MenuProvider } from 'react-native-popup-menu';
+
+const Stack = createStackNavigator();
 const RootNavigation = () => {
-  const Tokens = useSelector((state) => state.auth.logInToken);
   return (
     <NavigationContainer>
-      {Tokens === null ? <AuthRoutes /> : <ProfileRoutes />}
+      <Stack.Navigator initialRouteName='landingpage'>
+        <Stack.Screen
+          name="landingpage"
+          component={Landingpage}
+          options={{ title: " ", headerShown: false }} />
+        <Stack.Screen
+          name="homelist"
+          component={Homelist}
+          options={{ title: " ", headerShown: false }} />
+        <Stack.Screen
+          name="dishselection"
+          component={DishSelection}
+          options={{ title: " ", headerShown: false }} />
+        <Stack.Screen
+          name="specificrecipe"
+          component={SpecificRecipe}
+          options={{ title: " ", headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-  
-
 export default function App() {
-   async function onFetchUpdateAsync() {
+  async function onFetchUpdateAsync() {
     try {
       const update = await Updates.checkForUpdateAsync();
 
@@ -34,34 +53,27 @@ export default function App() {
       alert(`Error fetching latest Expo update: ${error}`);
     }
   };
-  
+
   useEffect(() => {
     onFetchUpdateAsync();
   }, []);
 
-//  const reactToUpdates = async ()=>{
-//   Updates.addListener((event) => {
-//     if (event.type === Updates.UpdateEventType.UPDATE_AVAILABLE) {
-//       alert("An update is available.Restart your app to see it.");
-//     }
-//   });
-// };
-  const [loaded] = useFonts({
-    anton: require("./assets/fonts/Anton-Regular.ttf"),
-    boorsok: require("./assets/fonts/boorsok.ttf"),
-    glacialindi: require("./assets/fonts/GlacialIndifference-Regular.otf"),
-    glacialindibold: require("./assets/fonts/GlacialIndifference-Bold.otf"),
-    angelina: require("./assets/fonts/angelina.regular.ttf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-  
-  
   return (
     <Provider store={store}>
-      <RootNavigation />
+      <SafeAreaProvider>
+        <MenuProvider>
+          <RootNavigation />
+        </MenuProvider>
+      </SafeAreaProvider>
     </Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
